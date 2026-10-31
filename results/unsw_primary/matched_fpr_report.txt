@@ -1,0 +1,91 @@
+
+==== known (HARD / known); mean (sd) over seeds of the mean over attack types
+-- all types: recall_B / fpr_B = threshold B (deployable rule); recall_at1 / recall_at01 = recall at EXACTLY 1% / 0.1% test false alarms (ROC-interpolated, tie-fair); pr_auc = average precision
+                   recall_B          fpr_B     recall_at1    recall_at01         pr_auc
+model                                                                                  
+V3-MAX        0.163 (0.019)  0.010 (0.000)  0.163 (0.019)  0.013 (0.009)  0.276 (0.035)
+V3-MAX-RBF    0.161 (0.021)  0.010 (0.000)  0.161 (0.020)  0.018 (0.008)  0.271 (0.038)
+TREE          0.027 (0.050)  0.007 (0.003)  0.028 (0.053)  0.010 (0.011)  0.160 (0.069)
+V3-SUP        0.023 (0.051)  0.010 (0.000)  0.024 (0.054)  0.008 (0.012)  0.138 (0.069)
+V3-SUP-DENSE  0.023 (0.051)  0.010 (0.000)  0.024 (0.054)  0.008 (0.011)  0.166 (0.065)
+V3-SUP-NOA    0.016 (0.033)  0.010 (0.000)  0.017 (0.035)  0.005 (0.005)  0.134 (0.055)
+-- non-tiny types: recall_B / fpr_B = threshold B (deployable rule); recall_at1 / recall_at01 = recall at EXACTLY 1% / 0.1% test false alarms (ROC-interpolated, tie-fair); pr_auc = average precision
+                   recall_B          fpr_B     recall_at1    recall_at01         pr_auc
+model                                                                                  
+V3-MAX        0.163 (0.019)  0.010 (0.000)  0.163 (0.019)  0.013 (0.009)  0.276 (0.035)
+V3-MAX-RBF    0.161 (0.021)  0.010 (0.000)  0.161 (0.020)  0.018 (0.008)  0.271 (0.038)
+TREE          0.027 (0.050)  0.007 (0.003)  0.028 (0.053)  0.010 (0.011)  0.160 (0.069)
+V3-SUP        0.023 (0.051)  0.010 (0.000)  0.024 (0.054)  0.008 (0.012)  0.138 (0.069)
+V3-SUP-DENSE  0.023 (0.051)  0.010 (0.000)  0.024 (0.054)  0.008 (0.011)  0.166 (0.065)
+V3-SUP-NOA    0.016 (0.033)  0.010 (0.000)  0.017 (0.035)  0.005 (0.005)  0.134 (0.055)
+-- paired tests (one-sided Wilcoxon over seed x type; per seed = mean over types)
+  V3-SUP       vs TREE         [recall_B   ] mean diff -0.004  p = 0.9664 not supported   | per seed: wins 5/10, p = 0.8389
+  V3-SUP       vs TREE         [recall_at1 ] mean diff -0.004  p = 0.9645 not supported   | per seed: wins 4/10, p = 0.8623
+  V3-SUP       vs TREE         [recall_at01] mean diff -0.002  p = 0.9999 not supported   | per seed: wins 2/10, p = 0.9971
+  V3-SUP       vs TREE         [pr_auc     ] mean diff -0.021  p = 1.0000 not supported   | per seed: wins 1/10, p = 0.9980
+  V3-SUP       vs V3-SUP-DENSE [recall_B   ] mean diff +0.000  p = 0.0733 not supported   | per seed: wins 4/10, p = 0.4609
+  V3-SUP       vs V3-SUP-DENSE [recall_at1 ] mean diff +0.000  p = 0.2338 not supported   | per seed: wins 4/10, p = 0.5771
+  V3-SUP       vs V3-SUP-DENSE [recall_at01] mean diff -0.000  p = 0.6143 not supported   | per seed: wins 4/10, p = 0.6523
+  V3-SUP       vs V3-SUP-DENSE [pr_auc     ] mean diff -0.028  p = 1.0000 not supported   | per seed: wins 1/10, p = 0.9990
+  V3-MAX       vs V3-SUP       [recall_B   ] mean diff +0.140  p = 0.0000 SUPPORTED   | per seed: wins 10/10, p = 0.0010
+  V3-MAX       vs V3-SUP       [recall_at1 ] mean diff +0.139  p = 0.0000 SUPPORTED   | per seed: wins 10/10, p = 0.0010
+  V3-MAX       vs V3-SUP       [recall_at01] mean diff +0.006  p = 0.0712 not supported   | per seed: wins 9/10, p = 0.0068
+  V3-MAX       vs V3-SUP       [pr_auc     ] mean diff +0.138  p = 0.0000 SUPPORTED   | per seed: wins 10/10, p = 0.0010
+  V3-MAX       vs V3-MAX-RBF   [recall_B   ] mean diff +0.002  p = 0.5012 not supported   | per seed: wins 2/10, p = 0.8125
+  V3-MAX       vs V3-MAX-RBF   [recall_at1 ] mean diff +0.002  p = 0.4523 not supported   | per seed: wins 3/10, p = 0.7842
+  V3-MAX       vs V3-MAX-RBF   [recall_at01] mean diff -0.004  p = 1.0000 not supported   | per seed: wins 1/10, p = 0.9980
+  V3-MAX       vs V3-MAX-RBF   [pr_auc     ] mean diff +0.005  p = 0.0002 SUPPORTED   | per seed: wins 8/10, p = 0.0098
+-- per type, recall at exactly 1% test false alarms:
+model            TREE  V3-MAX  V3-MAX-RBF  V3-SUP  V3-SUP-DENSE  V3-SUP-NOA
+type                                                                       
+Analysis        0.000   0.001       0.001   0.001         0.000       0.000
+Backdoor        0.026   0.038       0.037   0.027         0.025       0.013
+DoS             0.041   0.090       0.092   0.034         0.035       0.027
+Exploits        0.038   0.041       0.041   0.032         0.033       0.025
+Fuzzers         0.025   0.102       0.101   0.021         0.021       0.020
+Generic         0.028   0.210       0.216   0.014         0.016       0.012
+Reconnaissance  0.041   0.698       0.675   0.044         0.041       0.037
+Shellcode       0.030   0.224       0.225   0.025         0.025       0.010
+Worms           0.021   0.065       0.063   0.020         0.019       0.008
+
+==== loo (HARDEST or MEDIUM / loo); mean (sd) over seeds of the mean over attack types
+-- all types: recall_B / fpr_B = threshold B (deployable rule); recall_at1 / recall_at01 = recall at EXACTLY 1% / 0.1% test false alarms (ROC-interpolated, tie-fair); pr_auc = average precision
+                   recall_B          fpr_B     recall_at1    recall_at01         pr_auc
+model                                                                                  
+V3-MAX        0.388 (0.006)  0.010 (0.000)  0.388 (0.006)  0.005 (0.004)  0.497 (0.011)
+V3-MAX-RBF    0.377 (0.036)  0.010 (0.000)  0.378 (0.034)  0.007 (0.003)  0.484 (0.014)
+TREE          0.021 (0.017)  0.008 (0.001)  0.022 (0.018)  0.006 (0.005)  0.226 (0.061)
+V3-SUP-NOA    0.018 (0.019)  0.010 (0.000)  0.018 (0.019)  0.005 (0.006)  0.184 (0.069)
+V3-SUP-DENSE  0.018 (0.016)  0.010 (0.000)  0.018 (0.016)  0.005 (0.004)  0.215 (0.034)
+V3-SUP        0.018 (0.015)  0.010 (0.000)  0.018 (0.015)  0.005 (0.004)  0.189 (0.048)
+-- non-tiny types: recall_B / fpr_B = threshold B (deployable rule); recall_at1 / recall_at01 = recall at EXACTLY 1% / 0.1% test false alarms (ROC-interpolated, tie-fair); pr_auc = average precision
+                   recall_B          fpr_B     recall_at1    recall_at01         pr_auc
+model                                                                                  
+V3-MAX        0.388 (0.006)  0.010 (0.000)  0.388 (0.006)  0.005 (0.004)  0.497 (0.011)
+V3-MAX-RBF    0.377 (0.036)  0.010 (0.000)  0.378 (0.034)  0.007 (0.003)  0.484 (0.014)
+TREE          0.021 (0.017)  0.008 (0.001)  0.022 (0.018)  0.006 (0.005)  0.226 (0.061)
+V3-SUP-NOA    0.018 (0.019)  0.010 (0.000)  0.018 (0.019)  0.005 (0.006)  0.184 (0.069)
+V3-SUP-DENSE  0.018 (0.016)  0.010 (0.000)  0.018 (0.016)  0.005 (0.004)  0.215 (0.034)
+V3-SUP        0.018 (0.015)  0.010 (0.000)  0.018 (0.015)  0.005 (0.004)  0.189 (0.048)
+-- paired tests (one-sided Wilcoxon over seed x type; per seed = mean over types)
+  V3-SUP       vs TREE         [recall_B   ] mean diff -0.004  p = 0.6232 not supported   | per seed: wins 4/10, p = 0.6875
+  V3-SUP       vs TREE         [recall_at1 ] mean diff -0.004  p = 0.6526 not supported   | per seed: wins 4/10, p = 0.6875
+  V3-SUP       vs TREE         [recall_at01] mean diff -0.001  p = 0.9451 not supported   | per seed: wins 2/10, p = 0.9512
+  V3-SUP       vs TREE         [pr_auc     ] mean diff -0.038  p = 0.8529 not supported   | per seed: wins 2/10, p = 0.9814
+  V3-SUP       vs V3-SUP-DENSE [recall_B   ] mean diff -0.000  p = 0.3606 not supported   | per seed: wins 4/10, p = 0.4219
+  V3-SUP       vs V3-SUP-DENSE [recall_at1 ] mean diff +0.000  p = 0.3606 not supported   | per seed: wins 4/10, p = 0.4219
+  V3-SUP       vs V3-SUP-DENSE [recall_at01] mean diff -0.000  p = 0.8129 not supported   | per seed: wins 3/10, p = 0.8203
+  V3-SUP       vs V3-SUP-DENSE [pr_auc     ] mean diff -0.026  p = 0.8773 not supported   | per seed: wins 3/10, p = 0.9473
+  V3-MAX       vs V3-SUP       [recall_B   ] mean diff +0.370  p = 0.0000 SUPPORTED   | per seed: wins 10/10, p = 0.0010
+  V3-MAX       vs V3-SUP       [recall_at1 ] mean diff +0.370  p = 0.0000 SUPPORTED   | per seed: wins 10/10, p = 0.0010
+  V3-MAX       vs V3-SUP       [recall_at01] mean diff +0.000  p = 0.0883 not supported   | per seed: wins 6/10, p = 0.2383
+  V3-MAX       vs V3-SUP       [pr_auc     ] mean diff +0.309  p = 0.0000 SUPPORTED   | per seed: wins 10/10, p = 0.0010
+  V3-MAX       vs V3-MAX-RBF   [recall_B   ] mean diff +0.011  p = 0.1952 not supported   | per seed: wins 6/10, p = 0.3848
+  V3-MAX       vs V3-MAX-RBF   [recall_at1 ] mean diff +0.010  p = 0.3108 not supported   | per seed: wins 5/10, p = 0.5000
+  V3-MAX       vs V3-MAX-RBF   [recall_at01] mean diff -0.002  p = 1.0000 not supported   | per seed: wins 0/10, p = 1.0000
+  V3-MAX       vs V3-MAX-RBF   [pr_auc     ] mean diff +0.013  p = 0.0000 SUPPORTED   | per seed: wins 10/10, p = 0.0010
+-- per type, recall at exactly 1% test false alarms:
+model            TREE  V3-MAX  V3-MAX-RBF  V3-SUP  V3-SUP-DENSE  V3-SUP-NOA
+type                                                                       
+DoS             0.035   0.084       0.086   0.033         0.035       0.035
+Reconnaissance  0.009   0.692       0.670   0.002         0.001       0.001

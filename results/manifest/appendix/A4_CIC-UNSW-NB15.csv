@@ -1,0 +1,12 @@
+type,raw_dataset,cleaned_sample,counterpart_2017_(L4),tiny
+Benign,3450658,190901,benign,
+Exploits,30951,19924,none (L3 only),
+Fuzzers,29613,17713,none (L3 only),
+Reconnaissance,16735,11993,PortScan,
+Generic,4632,4401,none (L3 only),
+DoS,4467,4323,DoS Hulk + DoS GoldenEye + DoS slowloris + DoS Slowhttptest + DDoS,
+Shellcode,2102,1700,none (L3 only),
+Backdoor,452,452,none (L3 only),
+Analysis,385,385,none (L3 only),
+Worms,246,236,none (L3 only),
+TOTAL,3540241,252028,,

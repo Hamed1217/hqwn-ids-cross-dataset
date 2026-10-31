@@ -1,0 +1,386 @@
+Seed-level inference (unit = seed; one-sided Wilcoxon on the seed-level mean differences).
+p_cell = the pre-specified seed x type test, now DESCRIPTIVE. '<>' marks pairs where the two forms disagree at 0.05. NI = non-inferiority with margin 0.02: test of (A - B + margin) > 0; 'point' = pre-specified point rule (mean diff >= -margin).
+
+== easy | all types | recall1
+     V3-SUP       vs TREE          diff -0.018  seeds 2/10  p_seed 0.9902      p_cell 0.9976  CI [-0.057, -0.001] stable
+
+== easy | all types | pauc1
+     V3-SUP       vs TREE          diff -0.002  seeds 4/10  p_seed 0.8623      p_cell 0.1818  CI [-0.009, +0.004] not stable
+
+== easy | non-tiny types | recall1
+     V3-SUP       vs TREE          diff -0.002  seeds 3/10  p_seed 0.9473      p_cell 0.9717
+
+== easy | non-tiny types | pauc1
+     V3-SUP       vs TREE          diff -0.001  seeds 5/10  p_seed 0.6523      p_cell 0.2169
+
+== easy_controls_3seeds | all types | recall1
+     V3-SUP       vs TREE          diff -0.003  seeds 1/3  p_seed 0.7500      p_cell 0.5606
+     V3-MAX       vs V3-SUP        diff -0.013  seeds 0/3  p_seed 1.0000      p_cell 0.9988
+     V3-MAX       vs TREE          diff -0.015  seeds 0/3  p_seed 1.0000      p_cell 0.9866
+     V3-MAX       vs V3-MAX-RBF    diff +0.000  seeds 2/3  p_seed   n/a       p_cell   n/a 
+     V3-SUP       vs V3-SUP-DENSE  diff +0.006  seeds 3/3  p_seed 0.1250      p_cell 0.0625
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.006  seeds 3/3  p_seed 0.1250      p_cell 0.0000  <>  point met
+  NI V3-SUP-TT    vs V3-SUP        diff +0.002  seeds 3/3  p_seed 0.1250      p_cell 0.0000  <>  point met
+
+== easy_controls_3seeds | all types | pauc1
+     V3-SUP       vs TREE          diff +0.002  seeds 2/3  p_seed 0.3750      p_cell 0.0029  <>
+     V3-MAX       vs V3-SUP        diff -0.015  seeds 0/3  p_seed 1.0000      p_cell 1.0000
+     V3-MAX       vs TREE          diff -0.013  seeds 0/3  p_seed 1.0000      p_cell 1.0000
+     V3-MAX       vs V3-MAX-RBF    diff -0.001  seeds 1/3  p_seed 0.8750      p_cell 0.4679
+     V3-SUP       vs V3-SUP-DENSE  diff +0.004  seeds 3/3  p_seed 0.1250      p_cell 0.0001  <>
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.004  seeds 3/3  p_seed 0.1250      p_cell 0.0000  <>  point met
+  NI V3-SUP-TT    vs V3-SUP        diff -0.002  seeds 3/3  p_seed 0.1250      p_cell 0.0000  <>  point met
+
+== easy_controls_3seeds | non-tiny types | recall1
+     V3-SUP       vs TREE          diff -0.001  seeds 1/3  p_seed 0.7500      p_cell 0.5616
+     V3-MAX       vs V3-SUP        diff -0.007  seeds 0/3  p_seed 1.0000      p_cell 0.9996
+     V3-MAX       vs TREE          diff -0.008  seeds 0/3  p_seed 1.0000      p_cell 0.9987
+     V3-MAX       vs V3-MAX-RBF    diff +0.000  seeds 2/3  p_seed   n/a       p_cell   n/a 
+     V3-SUP       vs V3-SUP-DENSE  diff +0.001  seeds 2/3  p_seed 0.2500      p_cell 0.1911
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.001  seeds 3/3  p_seed 0.1250      p_cell 0.0000  <>  point met
+  NI V3-SUP-TT    vs V3-SUP        diff -0.000  seeds 3/3  p_seed 0.1250      p_cell 0.0000  <>  point met
+
+== easy_controls_3seeds | non-tiny types | pauc1
+     V3-SUP       vs TREE          diff +0.001  seeds 2/3  p_seed 0.2500      p_cell 0.0099  <>
+     V3-MAX       vs V3-SUP        diff -0.006  seeds 0/3  p_seed 1.0000      p_cell 1.0000
+     V3-MAX       vs TREE          diff -0.006  seeds 0/3  p_seed 1.0000      p_cell 1.0000
+     V3-MAX       vs V3-MAX-RBF    diff +0.000  seeds 2/3  p_seed 0.2500      p_cell 0.1980
+     V3-SUP       vs V3-SUP-DENSE  diff +0.001  seeds 3/3  p_seed 0.1250      p_cell 0.0001  <>
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.001  seeds 3/3  p_seed 0.1250      p_cell 0.0000  <>  point met
+  NI V3-SUP-TT    vs V3-SUP        diff -0.001  seeds 3/3  p_seed 0.1250      p_cell 0.0000  <>  point met
+
+== medium | all types | recall1
+     V3-SUP       vs TREE          diff -0.000  seeds 7/10  p_seed 0.2783      p_cell 0.6405  CI [-0.036, +0.032] not stable
+     V3-MAX       vs V3-SUP        diff +0.040  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.9679  <>  CI [-0.039, +0.166] not stable
+     V3-MAX       vs TREE          diff +0.040  seeds 9/10  p_seed 0.0029 SIG  p_cell 0.9197  <>  CI [-0.066, +0.184] not stable
+     V3-MAX       vs V3-MAX-RBF    diff +0.004  seeds 7/10  p_seed 0.0967      p_cell 0.2115  CI [-0.003, +0.019] not stable
+     V3-SUP       vs V3-SUP-DENSE  diff +0.009  seeds 8/10  p_seed 0.1611      p_cell 0.0201  <>  CI [-0.025, +0.040] not stable
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.009  seeds 8/10  p_seed 0.0049 SIG  p_cell 0.0000  point met  CI [-0.025, +0.040] not stable
+
+== medium | all types | pauc1
+     V3-SUP       vs TREE          diff +0.002  seeds 7/10  p_seed 0.1611      p_cell 0.1183  CI [-0.007, +0.011] not stable
+     V3-MAX       vs V3-SUP        diff +0.005  seeds 7/10  p_seed 0.0420 SIG  p_cell 0.9999  <>  CI [-0.026, +0.053] not stable
+     V3-MAX       vs TREE          diff +0.007  seeds 6/10  p_seed 0.1162      p_cell 0.9961  CI [-0.028, +0.060] not stable
+     V3-MAX       vs V3-MAX-RBF    diff +0.001  seeds 5/10  p_seed 0.3125      p_cell 0.2514  CI [-0.004, +0.007] not stable
+     V3-SUP       vs V3-SUP-DENSE  diff +0.006  seeds 7/10  p_seed 0.0801      p_cell 0.0015  <>  CI [-0.005, +0.017] not stable
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.006  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met  CI [-0.005, +0.017] not stable
+
+== medium | non-tiny types | recall1
+     V3-SUP       vs TREE          diff -0.000  seeds 7/10  p_seed 0.2783      p_cell 0.6405
+     V3-MAX       vs V3-SUP        diff +0.040  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.9679  <>
+     V3-MAX       vs TREE          diff +0.040  seeds 9/10  p_seed 0.0029 SIG  p_cell 0.9197  <>
+     V3-MAX       vs V3-MAX-RBF    diff +0.004  seeds 7/10  p_seed 0.0967      p_cell 0.2115
+     V3-SUP       vs V3-SUP-DENSE  diff +0.009  seeds 8/10  p_seed 0.1611      p_cell 0.0201  <>
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.009  seeds 8/10  p_seed 0.0049 SIG  p_cell 0.0000  point met
+
+== medium | non-tiny types | pauc1
+     V3-SUP       vs TREE          diff +0.002  seeds 7/10  p_seed 0.1611      p_cell 0.1183
+     V3-MAX       vs V3-SUP        diff +0.005  seeds 7/10  p_seed 0.0420 SIG  p_cell 0.9999  <>
+     V3-MAX       vs TREE          diff +0.007  seeds 6/10  p_seed 0.1162      p_cell 0.9961
+     V3-MAX       vs V3-MAX-RBF    diff +0.001  seeds 5/10  p_seed 0.3125      p_cell 0.2514
+     V3-SUP       vs V3-SUP-DENSE  diff +0.006  seeds 7/10  p_seed 0.0801      p_cell 0.0015  <>
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.006  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+
+== hard | all types | recall1
+     V3-SUP       vs TREE          diff +0.027  seeds 7/10  p_seed 0.0801      p_cell 0.0019  <>  CI [-0.028, +0.089] not stable
+     V3-MAX       vs V3-SUP        diff -0.029  seeds 2/10  p_seed 0.9932      p_cell 0.9961  CI [-0.075, +0.019] not stable
+     V3-MAX       vs TREE          diff -0.001  seeds 5/10  p_seed 0.5391      p_cell 0.0756  CI [-0.070, +0.058] not stable
+     V3-MAX       vs V3-MAX-RBF    diff -0.004  seeds 5/10  p_seed 0.8125      p_cell 0.4058  CI [-0.019, +0.003] not stable
+     V3-SUP       vs V3-SUP-DENSE  diff +0.098  seeds 8/10  p_seed 0.0068 SIG  p_cell 0.0000  CI [+0.025, +0.194] stable
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.098  seeds 8/10  p_seed 0.0049 SIG  p_cell 0.0000  point met  CI [+0.025, +0.194] stable
+
+== hard | all types | pauc1
+     V3-SUP       vs TREE          diff +0.008  seeds 8/10  p_seed 0.1162      p_cell 0.0331  <>  CI [-0.009, +0.027] not stable
+     V3-MAX       vs V3-SUP        diff -0.018  seeds 1/10  p_seed 0.9990      p_cell 1.0000  CI [-0.033, -0.006] stable
+     V3-MAX       vs TREE          diff -0.011  seeds 2/10  p_seed 0.9473      p_cell 0.9988  CI [-0.029, +0.004] not stable
+     V3-MAX       vs V3-MAX-RBF    diff -0.003  seeds 1/10  p_seed 0.9902      p_cell 0.8451  CI [-0.008, +0.000] not stable
+     V3-SUP       vs V3-SUP-DENSE  diff +0.036  seeds 9/10  p_seed 0.0049 SIG  p_cell 0.0000  CI [+0.010, +0.073] stable
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.036  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met  CI [+0.010, +0.073] stable
+
+== hard | non-tiny types | recall1
+     V3-SUP       vs TREE          diff +0.022  seeds 7/10  p_seed 0.0967      p_cell 0.0140  <>
+     V3-MAX       vs V3-SUP        diff -0.029  seeds 3/10  p_seed 0.9756      p_cell 0.9860
+     V3-MAX       vs TREE          diff -0.007  seeds 5/10  p_seed 0.5391      p_cell 0.1388
+     V3-MAX       vs V3-MAX-RBF    diff +0.000  seeds 6/10  p_seed 0.3848      p_cell 0.1756
+     V3-SUP       vs V3-SUP-DENSE  diff +0.073  seeds 8/10  p_seed 0.0098 SIG  p_cell 0.0000
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.073  seeds 8/10  p_seed 0.0049 SIG  p_cell 0.0000  point met
+
+== hard | non-tiny types | pauc1
+     V3-SUP       vs TREE          diff +0.005  seeds 8/10  p_seed 0.1611      p_cell 0.2729
+     V3-MAX       vs V3-SUP        diff -0.015  seeds 1/10  p_seed 0.9990      p_cell 1.0000
+     V3-MAX       vs TREE          diff -0.010  seeds 2/10  p_seed 0.9346      p_cell 0.9925
+     V3-MAX       vs V3-MAX-RBF    diff -0.002  seeds 1/10  p_seed 0.9980      p_cell 0.9492
+     V3-SUP       vs V3-SUP-DENSE  diff +0.022  seeds 8/10  p_seed 0.0098 SIG  p_cell 0.0000
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.022  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+
+== hardest | all types | recall1
+     V3-SUP       vs TREE          diff -0.001  seeds 6/10  p_seed 0.5391      p_cell 0.6994  CI [-0.039, +0.042] not stable
+     V3-MAX       vs V3-SUP        diff -0.001  seeds 5/10  p_seed 0.6523      p_cell 0.8993  CI [-0.033, +0.039] not stable
+     V3-MAX       vs TREE          diff -0.002  seeds 6/10  p_seed 0.5391      p_cell 0.5677  CI [-0.051, +0.051] not stable
+     V3-MAX       vs V3-MAX-RBF    diff -0.007  seeds 2/10  p_seed 0.9678      p_cell 0.7898  CI [-0.028, +0.002] not stable
+     V3-SUP       vs V3-SUP-DENSE  diff +0.019  seeds 9/10  p_seed 0.0244 SIG  p_cell 0.0179  CI [-0.012, +0.062] not stable
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.019  seeds 9/10  p_seed 0.0049 SIG  p_cell 0.0000  point met  CI [-0.012, +0.062] not stable
+
+== hardest | all types | pauc1
+     V3-SUP       vs TREE          diff +0.002  seeds 6/10  p_seed 0.2783      p_cell 0.6384  CI [-0.015, +0.021] not stable
+     V3-MAX       vs V3-SUP        diff -0.012  seeds 0/10  p_seed 1.0000      p_cell 1.0000  CI [-0.026, +0.001] not stable
+     V3-MAX       vs TREE          diff -0.010  seeds 4/10  p_seed 0.9346      p_cell 0.9930  CI [-0.033, +0.007] not stable
+     V3-MAX       vs V3-MAX-RBF    diff -0.004  seeds 1/10  p_seed 0.9980      p_cell 0.9985  CI [-0.011, +0.000] not stable
+     V3-SUP       vs V3-SUP-DENSE  diff +0.008  seeds 8/10  p_seed 0.0322 SIG  p_cell 0.0036  CI [-0.003, +0.028] not stable
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.008  seeds 9/10  p_seed 0.0020 SIG  p_cell 0.0000  point met  CI [-0.003, +0.028] not stable
+
+== hardest | non-tiny types | recall1
+     V3-SUP       vs TREE          diff -0.006  seeds 4/10  p_seed 0.7842      p_cell 0.6770
+     V3-MAX       vs V3-SUP        diff +0.002  seeds 6/10  p_seed 0.4609      p_cell 0.6857
+     V3-MAX       vs TREE          diff -0.005  seeds 5/10  p_seed 0.6875      p_cell 0.3498
+     V3-MAX       vs V3-MAX-RBF    diff -0.001  seeds 5/10  p_seed 0.5000      p_cell 0.4461
+     V3-SUP       vs V3-SUP-DENSE  diff +0.014  seeds 9/10  p_seed 0.0186 SIG  p_cell 0.0194
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.014  seeds 9/10  p_seed 0.0020 SIG  p_cell 0.0000  point met
+
+== hardest | non-tiny types | pauc1
+     V3-SUP       vs TREE          diff -0.002  seeds 4/10  p_seed 0.5771      p_cell 0.9435
+     V3-MAX       vs V3-SUP        diff -0.005  seeds 1/10  p_seed 0.9990      p_cell 0.9981
+     V3-MAX       vs TREE          diff -0.007  seeds 2/10  p_seed 0.9932      p_cell 0.8832
+     V3-MAX       vs V3-MAX-RBF    diff -0.002  seeds 0/10  p_seed 1.0000      p_cell 0.9999
+     V3-SUP       vs V3-SUP-DENSE  diff +0.004  seeds 8/10  p_seed 0.0186 SIG  p_cell 0.0532  <>
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.004  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+
+== hard_ablation | all types | recall1
+     V3-SUP       vs TREE          diff +0.027  seeds 7/10  p_seed 0.0801      p_cell 0.0019  <>
+     V3-SUP       vs V3-SUP-NOA    diff +0.010  seeds 7/10  p_seed 0.3477      p_cell 0.3009
+     V3-SUP       vs V3-SUP-NOALIGN diff +0.021  seeds 7/10  p_seed 0.1162      p_cell 0.0012  <>
+     V3-SUP       vs V3-SUP-SHUF   diff +0.024  seeds 9/10  p_seed 0.0049 SIG  p_cell 0.0004
+     V3-SUP       vs V3-SUP-NOW    diff +0.032  seeds 7/10  p_seed 0.0420 SIG  p_cell 0.0597  <>
+     V3-SUP-TT    vs V3-SUP-LR     diff -0.008  seeds 7/10  p_seed 0.2783      p_cell 0.0666
+  NI V3-SUP-NOA   vs V3-SUP        diff -0.010  seeds 4/10  p_seed 0.4609      p_cell 0.0000  <>  point met
+  NI V3-SUP-TT    vs V3-SUP        diff -0.020  seeds 5/10  p_seed 0.5391      p_cell 0.0002  <>  point met
+
+== hard_ablation | non-tiny types | recall1
+     V3-SUP       vs TREE          diff +0.022  seeds 7/10  p_seed 0.0967      p_cell 0.0140  <>
+     V3-SUP       vs V3-SUP-NOA    diff +0.001  seeds 7/10  p_seed 0.4229      p_cell 0.3857
+     V3-SUP       vs V3-SUP-NOALIGN diff +0.028  seeds 8/10  p_seed 0.0801      p_cell 0.0005  <>
+     V3-SUP       vs V3-SUP-SHUF   diff +0.026  seeds 9/10  p_seed 0.0068 SIG  p_cell 0.0003
+     V3-SUP       vs V3-SUP-NOW    diff +0.028  seeds 7/10  p_seed 0.0527      p_cell 0.1098
+     V3-SUP-TT    vs V3-SUP-LR     diff -0.002  seeds 7/10  p_seed 0.2783      p_cell 0.0418  <>
+  NI V3-SUP-NOA   vs V3-SUP        diff -0.001  seeds 4/10  p_seed 0.3848      p_cell 0.0000  <>  point met
+  NI V3-SUP-TT    vs V3-SUP        diff -0.008  seeds 4/10  p_seed 0.5391      p_cell 0.0000  <>  point met
+
+== unsw_known | all types | recall1
+     V3-SUP       vs TREE          diff -0.004  seeds 5/10  p_seed 0.8389      p_cell 0.9660  CI [-0.011, +0.001] not stable
+     V3-MAX       vs V3-SUP        diff +0.140  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  CI [+0.038, +0.287] stable
+     V3-MAX       vs TREE          diff +0.137  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  CI [+0.036, +0.282] stable
+     V3-MAX       vs V3-MAX-RBF    diff +0.002  seeds 2/10  p_seed 0.8125      p_cell 0.4552  CI [-0.002, +0.015] not stable
+     V3-SUP       vs V3-SUP-DENSE  diff +0.000  seeds 4/10  p_seed 0.4609      p_cell 0.0748  CI [-0.002, +0.002] not stable
+     V3-SUP       vs V3-SUP-NOA    diff +0.007  seeds 7/10  p_seed 0.0527      p_cell 0.0000  <>  CI [-0.000, +0.021] not stable
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.000  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met  CI [-0.002, +0.002] not stable
+  NI V3-SUP-NOA   vs V3-SUP        diff -0.007  seeds 9/10  p_seed 0.0420 SIG  p_cell 0.0000  point met
+
+== unsw_known | all types | pauc1
+     V3-SUP       vs TREE          diff -0.001  seeds 3/10  p_seed 0.9346      p_cell 0.9947  CI [-0.004, +0.000] not stable
+     V3-MAX       vs V3-SUP        diff +0.039  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  CI [+0.011, +0.076] stable
+     V3-MAX       vs TREE          diff +0.038  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  CI [+0.010, +0.075] stable
+     V3-MAX       vs V3-MAX-RBF    diff +0.001  seeds 6/10  p_seed 0.1377      p_cell 0.9988  CI [-0.006, +0.012] not stable
+     V3-SUP       vs V3-SUP-DENSE  diff -0.000  seeds 4/10  p_seed 0.4609      p_cell 0.2606  CI [-0.001, +0.001] not stable
+     V3-SUP       vs V3-SUP-NOA    diff +0.001  seeds 7/10  p_seed 0.0654      p_cell 0.0018  <>  CI [-0.000, +0.005] not stable
+  NI V3-SUP       vs V3-SUP-DENSE  diff -0.000  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met  CI [-0.001, +0.001] not stable
+  NI V3-SUP-NOA   vs V3-SUP        diff -0.001  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+
+== unsw_known | non-tiny types | recall1
+     V3-SUP       vs TREE          diff -0.004  seeds 5/10  p_seed 0.8389      p_cell 0.9660
+     V3-MAX       vs V3-SUP        diff +0.140  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs TREE          diff +0.137  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs V3-MAX-RBF    diff +0.002  seeds 2/10  p_seed 0.8125      p_cell 0.4552
+     V3-SUP       vs V3-SUP-DENSE  diff +0.000  seeds 4/10  p_seed 0.4609      p_cell 0.0748
+     V3-SUP       vs V3-SUP-NOA    diff +0.007  seeds 7/10  p_seed 0.0527      p_cell 0.0000  <>
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.000  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+  NI V3-SUP-NOA   vs V3-SUP        diff -0.007  seeds 9/10  p_seed 0.0420 SIG  p_cell 0.0000  point met
+
+== unsw_known | non-tiny types | pauc1
+     V3-SUP       vs TREE          diff -0.001  seeds 3/10  p_seed 0.9346      p_cell 0.9947
+     V3-MAX       vs V3-SUP        diff +0.039  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs TREE          diff +0.038  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs V3-MAX-RBF    diff +0.001  seeds 6/10  p_seed 0.1377      p_cell 0.9988
+     V3-SUP       vs V3-SUP-DENSE  diff -0.000  seeds 4/10  p_seed 0.4609      p_cell 0.2606
+     V3-SUP       vs V3-SUP-NOA    diff +0.001  seeds 7/10  p_seed 0.0654      p_cell 0.0018  <>
+  NI V3-SUP       vs V3-SUP-DENSE  diff -0.000  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+  NI V3-SUP-NOA   vs V3-SUP        diff -0.001  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+
+== unsw_loo | all types | recall1
+     V3-SUP       vs TREE          diff -0.004  seeds 4/10  p_seed 0.6875      p_cell 0.6232  CI [-0.014, +0.002] not stable
+     V3-MAX       vs V3-SUP        diff +0.370  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  CI [+0.043, +0.691] stable
+     V3-MAX       vs TREE          diff +0.366  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  CI [+0.038, +0.691] stable
+     V3-MAX       vs V3-MAX-RBF    diff +0.011  seeds 6/10  p_seed 0.3848      p_cell 0.1952  CI [-0.003, +0.044] not stable
+     V3-SUP       vs V3-SUP-DENSE  diff -0.000  seeds 4/10  p_seed 0.4219      p_cell 0.3606  CI [-0.003, +0.002] not stable
+     V3-SUP       vs V3-SUP-NOA    diff -0.001  seeds 4/10  p_seed 0.6328      p_cell 0.4070  CI [-0.007, +0.003] not stable
+  NI V3-SUP       vs V3-SUP-DENSE  diff -0.000  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met  CI [-0.003, +0.002] not stable
+  NI V3-SUP-NOA   vs V3-SUP        diff +0.001  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+
+== unsw_loo | all types | pauc1
+     V3-SUP       vs TREE          diff -0.001  seeds 5/10  p_seed 0.7539      p_cell 0.7522  CI [-0.004, +0.000] not stable
+     V3-MAX       vs V3-SUP        diff +0.097  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  CI [+0.009, +0.189] stable
+     V3-MAX       vs TREE          diff +0.096  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  CI [+0.007, +0.187] stable
+     V3-MAX       vs V3-MAX-RBF    diff +0.017  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0319  CI [-0.003, +0.044] not stable
+     V3-SUP       vs V3-SUP-DENSE  diff -0.000  seeds 4/10  p_seed 0.7217      p_cell 0.5870  CI [-0.001, +0.000] not stable
+     V3-SUP       vs V3-SUP-NOA    diff -0.000  seeds 4/10  p_seed 0.7148      p_cell 0.6584  CI [-0.002, +0.001] not stable
+  NI V3-SUP       vs V3-SUP-DENSE  diff -0.000  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met  CI [-0.001, +0.000] not stable
+  NI V3-SUP-NOA   vs V3-SUP        diff +0.000  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+
+== unsw_loo | non-tiny types | recall1
+     V3-SUP       vs TREE          diff -0.004  seeds 4/10  p_seed 0.6875      p_cell 0.6232
+     V3-MAX       vs V3-SUP        diff +0.370  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs TREE          diff +0.366  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs V3-MAX-RBF    diff +0.011  seeds 6/10  p_seed 0.3848      p_cell 0.1952
+     V3-SUP       vs V3-SUP-DENSE  diff -0.000  seeds 4/10  p_seed 0.4219      p_cell 0.3606
+     V3-SUP       vs V3-SUP-NOA    diff -0.001  seeds 4/10  p_seed 0.6328      p_cell 0.4070
+  NI V3-SUP       vs V3-SUP-DENSE  diff -0.000  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+  NI V3-SUP-NOA   vs V3-SUP        diff +0.001  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+
+== unsw_loo | non-tiny types | pauc1
+     V3-SUP       vs TREE          diff -0.001  seeds 5/10  p_seed 0.7539      p_cell 0.7522
+     V3-MAX       vs V3-SUP        diff +0.097  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs TREE          diff +0.096  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs V3-MAX-RBF    diff +0.017  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0319
+     V3-SUP       vs V3-SUP-DENSE  diff -0.000  seeds 4/10  p_seed 0.7217      p_cell 0.5870
+     V3-SUP       vs V3-SUP-NOA    diff -0.000  seeds 4/10  p_seed 0.7148      p_cell 0.6584
+  NI V3-SUP       vs V3-SUP-DENSE  diff -0.000  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+  NI V3-SUP-NOA   vs V3-SUP        diff +0.000  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+
+== unsw_known_matched | all types | recall_at1
+     V3-SUP       vs TREE          diff -0.004  seeds 4/10  p_seed 0.8623      p_cell 0.9641
+     V3-MAX       vs V3-SUP        diff +0.139  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs TREE          diff +0.136  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs V3-MAX-RBF    diff +0.002  seeds 3/10  p_seed 0.7842      p_cell 0.4534
+     V3-SUP       vs V3-SUP-DENSE  diff +0.000  seeds 4/10  p_seed 0.5771      p_cell 0.2367
+     V3-SUP       vs V3-SUP-NOA    diff +0.007  seeds 7/10  p_seed 0.0654      p_cell 0.0000  <>
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.000  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+  NI V3-SUP-NOA   vs V3-SUP        diff -0.007  seeds 9/10  p_seed 0.0420 SIG  p_cell 0.0000  point met
+
+== unsw_known_matched | all types | pr_auc
+     V3-SUP       vs TREE          diff -0.021  seeds 1/10  p_seed 0.9980      p_cell 1.0000
+     V3-MAX       vs V3-SUP        diff +0.138  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs TREE          diff +0.117  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs V3-MAX-RBF    diff +0.005  seeds 8/10  p_seed 0.0098 SIG  p_cell 0.0002
+     V3-SUP       vs V3-SUP-DENSE  diff -0.028  seeds 1/10  p_seed 0.9990      p_cell 1.0000
+     V3-SUP       vs V3-SUP-NOA    diff +0.005  seeds 6/10  p_seed 0.3477      p_cell 0.0266  <>
+  NI V3-SUP       vs V3-SUP-DENSE  diff -0.028  seeds 3/10  p_seed 0.9346      p_cell 0.4671  point not met
+  NI V3-SUP-NOA   vs V3-SUP        diff -0.005  seeds 8/10  p_seed 0.0244 SIG  p_cell 0.0000  point met
+
+== unsw_known_matched | non-tiny types | recall_at1
+     V3-SUP       vs TREE          diff -0.004  seeds 4/10  p_seed 0.8623      p_cell 0.9641
+     V3-MAX       vs V3-SUP        diff +0.139  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs TREE          diff +0.136  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs V3-MAX-RBF    diff +0.002  seeds 3/10  p_seed 0.7842      p_cell 0.4534
+     V3-SUP       vs V3-SUP-DENSE  diff +0.000  seeds 4/10  p_seed 0.5771      p_cell 0.2367
+     V3-SUP       vs V3-SUP-NOA    diff +0.007  seeds 7/10  p_seed 0.0654      p_cell 0.0000  <>
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.000  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+  NI V3-SUP-NOA   vs V3-SUP        diff -0.007  seeds 9/10  p_seed 0.0420 SIG  p_cell 0.0000  point met
+
+== unsw_known_matched | non-tiny types | pr_auc
+     V3-SUP       vs TREE          diff -0.021  seeds 1/10  p_seed 0.9980      p_cell 1.0000
+     V3-MAX       vs V3-SUP        diff +0.138  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs TREE          diff +0.117  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs V3-MAX-RBF    diff +0.005  seeds 8/10  p_seed 0.0098 SIG  p_cell 0.0002
+     V3-SUP       vs V3-SUP-DENSE  diff -0.028  seeds 1/10  p_seed 0.9990      p_cell 1.0000
+     V3-SUP       vs V3-SUP-NOA    diff +0.005  seeds 6/10  p_seed 0.3477      p_cell 0.0266  <>
+  NI V3-SUP       vs V3-SUP-DENSE  diff -0.028  seeds 3/10  p_seed 0.9346      p_cell 0.4671  point not met
+  NI V3-SUP-NOA   vs V3-SUP        diff -0.005  seeds 8/10  p_seed 0.0244 SIG  p_cell 0.0000  point met
+
+== unsw_loo_matched | all types | recall_at1
+     V3-SUP       vs TREE          diff -0.004  seeds 4/10  p_seed 0.6875      p_cell 0.6380
+     V3-MAX       vs V3-SUP        diff +0.370  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs TREE          diff +0.366  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs V3-MAX-RBF    diff +0.010  seeds 5/10  p_seed 0.5000      p_cell 0.3108
+     V3-SUP       vs V3-SUP-DENSE  diff +0.000  seeds 4/10  p_seed 0.4219      p_cell 0.3606
+     V3-SUP       vs V3-SUP-NOA    diff -0.000  seeds 4/10  p_seed 0.6328      p_cell 0.4070
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.000  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+  NI V3-SUP-NOA   vs V3-SUP        diff +0.000  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+
+== unsw_loo_matched | all types | pr_auc
+     V3-SUP       vs TREE          diff -0.038  seeds 2/10  p_seed 0.9814      p_cell 0.8529
+     V3-MAX       vs V3-SUP        diff +0.309  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs TREE          diff +0.271  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs V3-MAX-RBF    diff +0.013  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-SUP       vs V3-SUP-DENSE  diff -0.026  seeds 3/10  p_seed 0.9473      p_cell 0.8773
+     V3-SUP       vs V3-SUP-NOA    diff +0.005  seeds 5/10  p_seed 0.5000      p_cell 0.3921
+  NI V3-SUP       vs V3-SUP-DENSE  diff -0.026  seeds 3/10  p_seed 0.7539      p_cell 0.4782  point not met
+  NI V3-SUP-NOA   vs V3-SUP        diff -0.005  seeds 5/10  p_seed 0.2783      p_cell 0.2375  point met
+
+== unsw_loo_matched | non-tiny types | recall_at1
+     V3-SUP       vs TREE          diff -0.004  seeds 4/10  p_seed 0.6875      p_cell 0.6380
+     V3-MAX       vs V3-SUP        diff +0.370  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs TREE          diff +0.366  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs V3-MAX-RBF    diff +0.010  seeds 5/10  p_seed 0.5000      p_cell 0.3108
+     V3-SUP       vs V3-SUP-DENSE  diff +0.000  seeds 4/10  p_seed 0.4219      p_cell 0.3606
+     V3-SUP       vs V3-SUP-NOA    diff -0.000  seeds 4/10  p_seed 0.6328      p_cell 0.4070
+  NI V3-SUP       vs V3-SUP-DENSE  diff +0.000  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+  NI V3-SUP-NOA   vs V3-SUP        diff +0.000  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000  point met
+
+== unsw_loo_matched | non-tiny types | pr_auc
+     V3-SUP       vs TREE          diff -0.038  seeds 2/10  p_seed 0.9814      p_cell 0.8529
+     V3-MAX       vs V3-SUP        diff +0.309  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs TREE          diff +0.271  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-MAX       vs V3-MAX-RBF    diff +0.013  seeds 10/10  p_seed 0.0010 SIG  p_cell 0.0000
+     V3-SUP       vs V3-SUP-DENSE  diff -0.026  seeds 3/10  p_seed 0.9473      p_cell 0.8773
+     V3-SUP       vs V3-SUP-NOA    diff +0.005  seeds 5/10  p_seed 0.5000      p_cell 0.3921
+  NI V3-SUP       vs V3-SUP-DENSE  diff -0.026  seeds 3/10  p_seed 0.7539      p_cell 0.4782  point not met
+  NI V3-SUP-NOA   vs V3-SUP        diff -0.005  seeds 5/10  p_seed 0.2783      p_cell 0.2375  point met
+
+== decisions that CHANGE when the seed is the unit (44 rows; all metrics in seed_tests.csv)
+  easy_controls_3seeds | all types | recall1 | V3-SUP vs V3-SUP-DENSE: cell SIG -> seed n.s. (p_seed 0.1250, p_cell 0.0000)
+  easy_controls_3seeds | all types | recall1 | V3-SUP-TT vs V3-SUP: cell SIG -> seed n.s. (p_seed 0.1250, p_cell 0.0000)
+  easy_controls_3seeds | all types | pauc1 | V3-SUP vs TREE: cell SIG -> seed n.s. (p_seed 0.3750, p_cell 0.0029)
+  easy_controls_3seeds | all types | pauc1 | V3-SUP vs V3-SUP-DENSE: cell SIG -> seed n.s. (p_seed 0.1250, p_cell 0.0001)
+  easy_controls_3seeds | all types | pauc1 | V3-SUP vs V3-SUP-DENSE: cell SIG -> seed n.s. (p_seed 0.1250, p_cell 0.0000)
+  easy_controls_3seeds | all types | pauc1 | V3-SUP-TT vs V3-SUP: cell SIG -> seed n.s. (p_seed 0.1250, p_cell 0.0000)
+  easy_controls_3seeds | non-tiny types | recall1 | V3-SUP vs V3-SUP-DENSE: cell SIG -> seed n.s. (p_seed 0.1250, p_cell 0.0000)
+  easy_controls_3seeds | non-tiny types | recall1 | V3-SUP-TT vs V3-SUP: cell SIG -> seed n.s. (p_seed 0.1250, p_cell 0.0000)
+  easy_controls_3seeds | non-tiny types | pauc1 | V3-SUP vs TREE: cell SIG -> seed n.s. (p_seed 0.2500, p_cell 0.0099)
+  easy_controls_3seeds | non-tiny types | pauc1 | V3-SUP vs V3-SUP-DENSE: cell SIG -> seed n.s. (p_seed 0.1250, p_cell 0.0001)
+  easy_controls_3seeds | non-tiny types | pauc1 | V3-SUP vs V3-SUP-DENSE: cell SIG -> seed n.s. (p_seed 0.1250, p_cell 0.0000)
+  easy_controls_3seeds | non-tiny types | pauc1 | V3-SUP-TT vs V3-SUP: cell SIG -> seed n.s. (p_seed 0.1250, p_cell 0.0000)
+  medium | all types | recall1 | V3-MAX vs V3-SUP: cell n.s. -> seed SIG (p_seed 0.0010, p_cell 0.9679)
+  medium | all types | recall1 | V3-MAX vs TREE: cell n.s. -> seed SIG (p_seed 0.0029, p_cell 0.9197)
+  medium | all types | recall1 | V3-SUP vs V3-SUP-DENSE: cell SIG -> seed n.s. (p_seed 0.1611, p_cell 0.0201)
+  medium | all types | pauc1 | V3-MAX vs V3-SUP: cell n.s. -> seed SIG (p_seed 0.0420, p_cell 0.9999)
+  medium | all types | pauc1 | V3-SUP vs V3-SUP-DENSE: cell SIG -> seed n.s. (p_seed 0.0801, p_cell 0.0015)
+  medium | non-tiny types | recall1 | V3-MAX vs V3-SUP: cell n.s. -> seed SIG (p_seed 0.0010, p_cell 0.9679)
+  medium | non-tiny types | recall1 | V3-MAX vs TREE: cell n.s. -> seed SIG (p_seed 0.0029, p_cell 0.9197)
+  medium | non-tiny types | recall1 | V3-SUP vs V3-SUP-DENSE: cell SIG -> seed n.s. (p_seed 0.1611, p_cell 0.0201)
+  medium | non-tiny types | pauc1 | V3-MAX vs V3-SUP: cell n.s. -> seed SIG (p_seed 0.0420, p_cell 0.9999)
+  medium | non-tiny types | pauc1 | V3-SUP vs V3-SUP-DENSE: cell SIG -> seed n.s. (p_seed 0.0801, p_cell 0.0015)
+  hard | all types | recall1 | V3-SUP vs TREE: cell SIG -> seed n.s. (p_seed 0.0801, p_cell 0.0019)
+  hard | all types | pauc1 | V3-SUP vs TREE: cell SIG -> seed n.s. (p_seed 0.1162, p_cell 0.0331)
+  hard | non-tiny types | recall1 | V3-SUP vs TREE: cell SIG -> seed n.s. (p_seed 0.0967, p_cell 0.0140)
+  hardest | non-tiny types | pauc1 | V3-SUP vs V3-SUP-DENSE: cell n.s. -> seed SIG (p_seed 0.0186, p_cell 0.0532)
+  hard_ablation | all types | recall1 | V3-SUP vs TREE: cell SIG -> seed n.s. (p_seed 0.0801, p_cell 0.0019)
+  hard_ablation | all types | recall1 | V3-SUP vs V3-SUP-NOALIGN: cell SIG -> seed n.s. (p_seed 0.1162, p_cell 0.0012)
+  hard_ablation | all types | recall1 | V3-SUP vs V3-SUP-NOW: cell n.s. -> seed SIG (p_seed 0.0420, p_cell 0.0597)
+  hard_ablation | all types | recall1 | V3-SUP-NOA vs V3-SUP: cell SIG -> seed n.s. (p_seed 0.4609, p_cell 0.0000)
+  hard_ablation | all types | recall1 | V3-SUP-TT vs V3-SUP: cell SIG -> seed n.s. (p_seed 0.5391, p_cell 0.0002)
+  hard_ablation | non-tiny types | recall1 | V3-SUP vs TREE: cell SIG -> seed n.s. (p_seed 0.0967, p_cell 0.0140)
+  hard_ablation | non-tiny types | recall1 | V3-SUP vs V3-SUP-NOALIGN: cell SIG -> seed n.s. (p_seed 0.0801, p_cell 0.0005)
+  hard_ablation | non-tiny types | recall1 | V3-SUP-TT vs V3-SUP-LR: cell SIG -> seed n.s. (p_seed 0.2783, p_cell 0.0418)
+  hard_ablation | non-tiny types | recall1 | V3-SUP-NOA vs V3-SUP: cell SIG -> seed n.s. (p_seed 0.3848, p_cell 0.0000)
+  hard_ablation | non-tiny types | recall1 | V3-SUP-TT vs V3-SUP: cell SIG -> seed n.s. (p_seed 0.5391, p_cell 0.0000)
+  unsw_known | all types | recall1 | V3-SUP vs V3-SUP-NOA: cell SIG -> seed n.s. (p_seed 0.0527, p_cell 0.0000)
+  unsw_known | all types | pauc1 | V3-SUP vs V3-SUP-NOA: cell SIG -> seed n.s. (p_seed 0.0654, p_cell 0.0018)
+  unsw_known | non-tiny types | recall1 | V3-SUP vs V3-SUP-NOA: cell SIG -> seed n.s. (p_seed 0.0527, p_cell 0.0000)
+  unsw_known | non-tiny types | pauc1 | V3-SUP vs V3-SUP-NOA: cell SIG -> seed n.s. (p_seed 0.0654, p_cell 0.0018)
+  unsw_known_matched | all types | recall_at1 | V3-SUP vs V3-SUP-NOA: cell SIG -> seed n.s. (p_seed 0.0654, p_cell 0.0000)
+  unsw_known_matched | all types | pr_auc | V3-SUP vs V3-SUP-NOA: cell SIG -> seed n.s. (p_seed 0.3477, p_cell 0.0266)
+  unsw_known_matched | non-tiny types | recall_at1 | V3-SUP vs V3-SUP-NOA: cell SIG -> seed n.s. (p_seed 0.0654, p_cell 0.0000)
+  unsw_known_matched | non-tiny types | pr_auc | V3-SUP vs V3-SUP-NOA: cell SIG -> seed n.s. (p_seed 0.3477, p_cell 0.0266)
+
+== confirmatory family (CIC-UNSW-NB15, recall at threshold B, all 9 types), Holm over the 8 tests
+  U1                V3-SUP      vs TREE          diff -0.004  seeds 5/10  p_seed 0.8389  Holm 1.0000  -> seed not met, Holm not met; pre-specified not met
+  U2                V3-SUP      vs V3-SUP-DENSE  diff +0.000  seeds 10/10  p_seed 0.0010  Holm 0.0078  -> seed met, Holm met; pre-specified met
+  U3 known          V3-MAX      vs V3-SUP        diff +0.140  seeds 10/10  p_seed 0.0010  Holm 0.0078  -> seed met, Holm met; pre-specified met
+  U3 loo            V3-MAX      vs V3-SUP        diff +0.370  seeds 10/10  p_seed 0.0010  Holm 0.0078  -> seed met, Holm met; pre-specified met
+  U3 quantum known  V3-MAX      vs V3-MAX-RBF    diff +0.002  seeds 2/10  p_seed 0.8125  Holm 1.0000  -> seed not met, Holm not met; pre-specified not met
+  U3 quantum loo    V3-MAX      vs V3-MAX-RBF    diff +0.011  seeds 6/10  p_seed 0.3848  Holm 1.0000  -> seed not met, Holm not met; pre-specified not met
+  U4                V3-SUP-NOA  vs V3-SUP        diff -0.007  seeds 9/10  p_seed 0.0420  Holm 0.2100  -> seed met, Holm not met; pre-specified met
+  U5                V3-SUP      vs TREE          diff -0.004  seeds 4/10  p_seed 0.6875  Holm 1.0000  -> seed not met, Holm not met; pre-specified not met
+
+== HistGradientBoosting tree of branch T / TREE ('known' task)
+ seed  n_train  attack_share  trees_built early_stopping  max_leaf_nodes  fit_seconds  nodes_total  leaves_total  max_depth  expected_comparisons_per_flow  pickled_bytes
+    0   100000         0.154          118           auto              31        2.559         7198          3658         22                        600.375         481098

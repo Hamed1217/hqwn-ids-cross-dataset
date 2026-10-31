@@ -1,0 +1,84 @@
+== context audit: unsw  (252,028 flows, 61,127 attack, 190,901 benign; time known for 100.0%; sessions [0, 1])
+   minutes with at least one sampled flow: 1,460; with at least one sampled attack flow: 819 (56.1%)
+   share of benign flows whose window contains a sampled attack flow (LOWER bound: attacks are sampled)
+                   n  network | 16 min  network | same minute  service | 16 min  service | same minute
+part                                                                                                  
+fit            31816            0.5814                 0.5577            0.2189                 0.1581
+ref            31817            0.5770                 0.5531            0.2219                 0.1594
+cal            63633            0.5838                 0.5613            0.2232                 0.1599
+test           63635            0.5805                 0.5572            0.2200                 0.1569
+reference_all  63633            0.5792                 0.5554            0.2204                 0.1588
+   calibration benign by session (network level, 16 min):
+          size   mean
+session              
+0        33741  0.215
+1        29892  1.000
+
+== threshold-only sensitivity: threshold B from calibration flows WITHOUT sampled attack flows in their 16-minute window (network level); novelty channel and alignment unchanged
+  rebuilt thirds vs saved index: calibration IDENTICAL, test IDENTICAL
+  clean calibration flows 26,487 of 63,633; clean test benign 26,693 of 63,635
+  check: recall at B rebuilt from the scores vs v3_results.csv recall1 -> max |diff| 1.75e-03 over 660 rows
+
+  -- nominal FPR 1.0%: mean over seeds of the macro recall (all types); test FPR on clean / attack-window test benign
+                       recall_B  recall_Bclean  fpr_test_B  fpr_cleantest_B  fpr_cleantest_Bclean  fpr_attackwindow_test_B
+scenario model                                                                                                            
+known    TREE            0.0268         0.0298      0.0074           0.0074                0.0074                   0.0074
+         V3-MAX          0.1633         0.1734      0.0099           0.0074                0.0102                   0.0118
+         V3-MAX-RBF      0.1610         0.1753      0.0100           0.0076                0.0102                   0.0118
+         V3-SUP          0.0231         0.0259      0.0097           0.0112                0.0102                   0.0086
+         V3-SUP-DENSE    0.0229         0.0258      0.0099           0.0102                0.0102                   0.0097
+         V3-SUP-NOA      0.0164         0.0181      0.0098           0.0101                0.0098                   0.0096
+loo      TREE            0.0214         0.0226      0.0080           0.0080                0.0081                   0.0081
+         V3-MAX          0.3877         0.3999      0.0099           0.0071                0.0100                   0.0119
+         V3-MAX-RBF      0.3772         0.3983      0.0100           0.0073                0.0099                   0.0119
+         V3-SUP          0.0177         0.0178      0.0098           0.0107                0.0098                   0.0092
+         V3-SUP-DENSE    0.0177         0.0186      0.0099           0.0102                0.0097                   0.0097
+         V3-SUP-NOA      0.0182         0.0188      0.0098           0.0102                0.0097                   0.0095
+     known V3-MAX     vs V3-SUP     [recall_B     ] diff +0.140  seeds 10/10  p_seed 0.0010
+     known V3-MAX     vs V3-SUP     [recall_Bclean] diff +0.147  seeds 10/10  p_seed 0.0010
+     known V3-MAX     vs TREE       [recall_B     ] diff +0.137  seeds 10/10  p_seed 0.0010
+     known V3-MAX     vs TREE       [recall_Bclean] diff +0.144  seeds 10/10  p_seed 0.0010
+     known V3-SUP     vs TREE       [recall_B     ] diff -0.004  seeds 5/10  p_seed 0.8389
+     known V3-SUP     vs TREE       [recall_Bclean] diff -0.004  seeds 5/10  p_seed 0.8389
+     known V3-MAX     vs V3-MAX-RBF [recall_B     ] diff +0.002  seeds 2/10  p_seed 0.8125
+     known V3-MAX     vs V3-MAX-RBF [recall_Bclean] diff -0.002  seeds 1/10  p_seed 0.9971
+     loo   V3-MAX     vs V3-SUP     [recall_B     ] diff +0.370  seeds 10/10  p_seed 0.0010
+     loo   V3-MAX     vs V3-SUP     [recall_Bclean] diff +0.382  seeds 10/10  p_seed 0.0010
+     loo   V3-MAX     vs TREE       [recall_B     ] diff +0.366  seeds 10/10  p_seed 0.0010
+     loo   V3-MAX     vs TREE       [recall_Bclean] diff +0.377  seeds 10/10  p_seed 0.0010
+     loo   V3-SUP     vs TREE       [recall_B     ] diff -0.004  seeds 4/10  p_seed 0.6875
+     loo   V3-SUP     vs TREE       [recall_Bclean] diff -0.005  seeds 4/10  p_seed 0.8389
+     loo   V3-MAX     vs V3-MAX-RBF [recall_B     ] diff +0.011  seeds 6/10  p_seed 0.3848
+     loo   V3-MAX     vs V3-MAX-RBF [recall_Bclean] diff +0.002  seeds 8/10  p_seed 0.0186
+
+  -- nominal FPR 0.1%: mean over seeds of the macro recall (all types); test FPR on clean / attack-window test benign
+                       recall_B  recall_Bclean  fpr_test_B  fpr_cleantest_B  fpr_cleantest_Bclean  fpr_attackwindow_test_B
+scenario model                                                                                                            
+known    TREE            0.0098         0.0126      0.0009           0.0007                0.0009                   0.0011
+         V3-MAX          0.0139         0.0245      0.0010           0.0006                0.0009                   0.0013
+         V3-MAX-RBF      0.0183         0.0311      0.0010           0.0005                0.0010                   0.0014
+         V3-SUP          0.0077         0.0091      0.0011           0.0012                0.0010                   0.0009
+         V3-SUP-DENSE    0.0081         0.0099      0.0011           0.0010                0.0010                   0.0011
+         V3-SUP-NOA      0.0058         0.0072      0.0011           0.0009                0.0009                   0.0012
+loo      TREE            0.0057         0.0059      0.0009           0.0008                0.0009                   0.0009
+         V3-MAX          0.0051         0.0077      0.0010           0.0006                0.0009                   0.0013
+         V3-MAX-RBF      0.0069         0.0090      0.0011           0.0005                0.0009                   0.0014
+         V3-SUP          0.0046         0.0045      0.0010           0.0011                0.0009                   0.0010
+         V3-SUP-DENSE    0.0051         0.0050      0.0010           0.0010                0.0009                   0.0011
+         V3-SUP-NOA      0.0050         0.0049      0.0011           0.0011                0.0011                   0.0011
+     known V3-MAX     vs V3-SUP     [recall_B     ] diff +0.006  seeds 9/10  p_seed 0.0029
+     known V3-MAX     vs V3-SUP     [recall_Bclean] diff +0.015  seeds 10/10  p_seed 0.0010
+     known V3-MAX     vs TREE       [recall_B     ] diff +0.004  seeds 8/10  p_seed 0.0244
+     known V3-MAX     vs TREE       [recall_Bclean] diff +0.012  seeds 8/10  p_seed 0.0098
+     known V3-SUP     vs TREE       [recall_B     ] diff -0.002  seeds 1/10  p_seed 0.9990
+     known V3-SUP     vs TREE       [recall_Bclean] diff -0.004  seeds 1/10  p_seed 0.9980
+     known V3-MAX     vs V3-MAX-RBF [recall_B     ] diff -0.004  seeds 1/10  p_seed 0.9980
+     known V3-MAX     vs V3-MAX-RBF [recall_Bclean] diff -0.007  seeds 2/10  p_seed 0.9814
+     loo   V3-MAX     vs V3-SUP     [recall_B     ] diff +0.000  seeds 7/10  p_seed 0.1328
+     loo   V3-MAX     vs V3-SUP     [recall_Bclean] diff +0.003  seeds 9/10  p_seed 0.0020
+     loo   V3-MAX     vs TREE       [recall_B     ] diff -0.001  seeds 6/10  p_seed 0.5000
+     loo   V3-MAX     vs TREE       [recall_Bclean] diff +0.002  seeds 7/10  p_seed 0.1377
+     loo   V3-SUP     vs TREE       [recall_B     ] diff -0.001  seeds 2/10  p_seed 0.9512
+     loo   V3-SUP     vs TREE       [recall_Bclean] diff -0.001  seeds 1/10  p_seed 0.9844
+     loo   V3-MAX     vs V3-MAX-RBF [recall_B     ] diff -0.002  seeds 1/10  p_seed 0.9990
+     loo   V3-MAX     vs V3-MAX-RBF [recall_Bclean] diff -0.001  seeds 4/10  p_seed 0.8389

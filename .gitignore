@@ -1,0 +1,29 @@
+# data and large derived files
+data/
+*.csv.gz
+*.zip
+*.npz
+*.npy
+*.joblib
+*.pickle
+*.pkl
+*.pt
+*.pth
+# python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+venv/
+.venv/
+env/
+# OS / editors
+.DS_Store
+__MACOSX/
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+# personal
+*.docx
+secrets*
+.env

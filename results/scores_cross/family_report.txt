@@ -1,0 +1,87 @@
+ATTACK-FAMILY STAGE | detector V3-SUP @ threshold B | target ids2018 | 10 seeds
+
+== known: mean (sd) over seeds (loo: mean over held-out families first)
+                              mean    std
+cls_acc_known                0.171  0.047
+cls_macro_f1_known           0.154  0.041
+cls_macro_f1_with_unknown    0.154  0.041
+cls_unknown_recall             NaN    NaN
+cls_false_unknown            0.487  0.142
+auroc_new_vs_known             NaN    NaN
+detected_share               0.297  0.133
+e2e_acc_known                0.386  0.146
+e2e_macro_f1_known           0.260  0.073
+e2e_unknown_recall             NaN    NaN
+false_alarms_called_unknown  0.469  0.295
+per-family recall (classification-only; 'unknown' = families the classifier never saw):
+recall_cls[Bot]             0.009
+recall_cls[BruteForce]      0.210
+recall_cls[DDoS]            0.000
+recall_cls[DoS]             0.379
+recall_cls[Infiltration]    0.040
+recall_cls[Web]             0.218
+recall_cls[unknown]           NaN
+
+== loo: mean (sd) over seeds (loo: mean over held-out families first)
+                              mean    std
+cls_acc_known                0.113  0.033
+cls_macro_f1_known           0.159  0.045
+cls_macro_f1_with_unknown    0.337  0.042
+cls_unknown_recall           0.803  0.097
+cls_false_unknown            0.442  0.067
+auroc_new_vs_known             NaN    NaN
+detected_share               0.273  0.043
+e2e_acc_known                0.097  0.051
+e2e_macro_f1_known           0.130  0.059
+e2e_unknown_recall           0.712  0.176
+false_alarms_called_unknown  0.639  0.073
+per-family recall (classification-only; 'unknown' = families the classifier never saw):
+recall_cls[Bot]               NaN
+recall_cls[BruteForce]      0.000
+recall_cls[DDoS]              NaN
+recall_cls[DoS]             0.179
+recall_cls[Infiltration]      NaN
+recall_cls[Web]             0.100
+recall_cls[unknown]         0.803
+
+confusion counts summed over seeds (cls, known):
+predicted       Bot  BruteForce  DDoS     DoS  Infiltration   Scan   Web  unknown
+true                                                                             
+Bot             955          32     0   35177           540  10540    67    59459
+BruteForce    16228       21512     0   21263          9483   3236    21    30507
+DDoS           9648       11229     0   71426         12129  44799  1624   209605
+DoS            4213        7852    33  171361         13682  45913  3600   205936
+Infiltration  38129        5953   259   21337          5798   7610  3512    63992
+Web             392          98    60    2236           290    304  1863     3297
+figure saved: D:/revised model/scores_cross\family_confusion_cls_known.png / .pdf
+
+confusion counts summed over seeds (e2e, known):
+predicted              Bot  BruteForce  DDoS     DoS  Infiltration   Scan   Web  unknown
+true                                                                                    
+Bot                     20          14     0    1064             5     45     1      655
+BruteForce            3361       14692     0    1858           133   2649     6    14481
+DDoS                     0        6000     0    5240          4835  16006     0    48444
+DoS                   1803        6349     2  106035          3083  11332  1921    94887
+Infiltration           145         111     9     374            62    227     5     2077
+Web                     18          66    58     263             2     35  1313      124
+benign (false alarm)   978          38     5    1284           403   1925    58     4026
+figure saved: D:/revised model/scores_cross\family_confusion_e2e_known.png / .pdf
+
+confusion counts summed over seeds (cls, loo):
+predicted     Bot  BruteForce  DDoS     DoS  Infiltration   Scan   Web  unknown
+true                                                                           
+BruteForce  32638          17     0   20268         25719   4127    26    19455
+DoS           507       20243    23  109856          9754  92998  7627   211582
+Web           283         673     1    2429           303    202   988     3661
+unknown     13762          93    20   81115           315    842   149   355814
+figure saved: D:/revised model/scores_cross\family_confusion_cls_loo.png / .pdf
+
+confusion counts summed over seeds (e2e, loo):
+predicted              Bot  BruteForce  DDoS    DoS  Infiltration   Scan   Web  unknown
+true                                                                                   
+BruteForce             193          17     0      6            50    142    21      343
+DoS                     24         244    23  53920          2902   6928  1139    86339
+Web                      2          27     0     39             1     40     6      143
+benign (false alarm)  2259         360   213  10802         10354  11827  1822    66010
+unknown                 22           0     6  20664             0     65     0    13236
+figure saved: D:/revised model/scores_cross\family_confusion_e2e_loo.png / .pdf

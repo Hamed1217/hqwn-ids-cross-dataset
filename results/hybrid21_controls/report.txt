@@ -1,0 +1,106 @@
+
+==== SUMMARY: mean recall @ 1% FPR (threshold B) over 2018 attack types, mean (sd) over seeds
+                    mean     sd
+scenario model                 
+known    H21-FLOW  0.330  0.071
+         H21-GRU   0.372  0.067
+         H21-SHUF  0.244  0.044
+         TREE      0.343  0.072
+loo      H21-FLOW  0.244  0.086
+         H21-GRU   0.238  0.083
+         H21-SHUF  0.250  0.098
+         TREE      0.264  0.075
+
+==== PRE-REGISTERED (loo): FULL must reach >= 0.399 (tree baseline 0.299 + 0.10) and beat FULL-SHUF and SEQ-GRU
+
+-- [known] recall @ 1% FPR, threshold B
+model                               2017 counterpart  H21-FLOW  H21-GRU  H21-SHUF   TREE
+type18                                                                                  
+Bot                                              Bot     0.002    0.004     0.001  0.002
+Brute Force -Web            Web Attack - Brute Force     0.257    0.205     0.245  0.252
+Brute Force -XSS                    Web Attack - XSS     0.307    0.163     0.144  0.322
+DDOS attack-HOIC                  none (new in 2018)     0.000    0.028     0.000  0.000
+DDOS attack-LOIC-UDP              none (new in 2018)     0.000    0.264     0.000  0.000
+DDoS attacks-LOIC-HTTP                          DDoS     0.276    0.268     0.191  0.276
+DoS attacks-GoldenEye                  DoS GoldenEye     0.438    0.406     0.332  0.527
+DoS attacks-Hulk                            DoS Hulk     0.196    0.716     0.075  0.266
+DoS attacks-SlowHTTPTest            DoS Slowhttptest     0.880    0.898     0.593  0.880
+DoS attacks-Slowloris                  DoS slowloris     0.984    0.981     0.975  0.987
+FTP-BruteForce                           FTP-Patator     0.860    0.882     0.677  0.860
+Infilteration                           Infiltration     0.014    0.007     0.008  0.017
+SQL Injection             Web Attack - Sql Injection     0.065    0.048     0.048  0.078
+SSH-Bruteforce                           SSH-Patator     0.335    0.333     0.121  0.336
+
+-- [known] AUC vs 2018 benign
+model                               2017 counterpart  H21-FLOW  H21-GRU  H21-SHUF   TREE
+type18                                                                                  
+Bot                                              Bot     0.796    0.809     0.752  0.899
+Brute Force -Web            Web Attack - Brute Force     0.776    0.811     0.698  0.858
+Brute Force -XSS                    Web Attack - XSS     0.808    0.849     0.755  0.884
+DDOS attack-HOIC                  none (new in 2018)     0.567    0.844     0.720  0.481
+DDOS attack-LOIC-UDP              none (new in 2018)     0.750    0.954     0.430  0.353
+DDoS attacks-LOIC-HTTP                          DDoS     0.888    0.900     0.915  0.931
+DoS attacks-GoldenEye                  DoS GoldenEye     0.932    0.931     0.933  0.960
+DoS attacks-Hulk                            DoS Hulk     0.918    0.987     0.934  0.952
+DoS attacks-SlowHTTPTest            DoS Slowhttptest     0.997    0.998     0.992  0.997
+DoS attacks-Slowloris                  DoS slowloris     0.999    0.998     0.998  0.999
+FTP-BruteForce                           FTP-Patator     0.996    0.997     0.993  0.996
+Infilteration                           Infiltration     0.460    0.467     0.482  0.495
+SQL Injection             Web Attack - Sql Injection     0.753    0.719     0.676  0.851
+SSH-Bruteforce                           SSH-Patator     0.952    0.915     0.940  0.962
+
+-- [known] real false-alarm rate on the separate 2018 benign TEST third: threshold B (nominal 1%) and threshold A (2017 benign, nominal 1%)
+          fprB_1  fprA_1
+model                   
+H21-FLOW   0.010   0.058
+H21-GRU    0.010   0.055
+H21-SHUF   0.010   0.060
+TREE       0.023   0.047
+
+-- [known] attack types with NO 2017 counterpart (genuinely new in 2018), mean recall@1%FPR (B)
+           mean    std
+model                 
+H21-FLOW  0.000  0.000
+H21-GRU   0.146  0.241
+H21-SHUF  0.000  0.000
+TREE      0.000  0.000
+
+-- [loo] recall @ 1% FPR, threshold B
+model                               2017 counterpart  H21-FLOW  H21-GRU  H21-SHUF   TREE
+type18                                                                                  
+Bot                                              Bot     0.001    0.003     0.001  0.001
+Brute Force -Web            Web Attack - Brute Force     0.019    0.016     0.026  0.020
+Brute Force -XSS                    Web Attack - XSS     0.145    0.160     0.209  0.295
+DDoS attacks-LOIC-HTTP                          DDoS     0.127    0.082     0.124  0.127
+DoS attacks-GoldenEye                  DoS GoldenEye     0.278    0.283     0.320  0.279
+DoS attacks-Hulk                            DoS Hulk     0.000    0.000     0.000  0.000
+DoS attacks-SlowHTTPTest            DoS Slowhttptest     0.731    0.750     0.667  0.731
+DoS attacks-Slowloris                  DoS slowloris     0.894    0.887     0.902  0.987
+FTP-BruteForce                           FTP-Patator     0.667    0.634     0.677  0.667
+Infilteration                           Infiltration     0.017    0.017     0.017  0.017
+SQL Injection             Web Attack - Sql Injection     0.039    0.017     0.052  0.039
+SSH-Bruteforce                           SSH-Patator     0.004    0.004     0.003  0.004
+
+-- [loo] AUC vs 2018 benign
+model                               2017 counterpart  H21-FLOW  H21-GRU  H21-SHUF   TREE
+type18                                                                                  
+Bot                                              Bot     0.584    0.771     0.581  0.852
+Brute Force -Web            Web Attack - Brute Force     0.639    0.708     0.630  0.817
+Brute Force -XSS                    Web Attack - XSS     0.855    0.779     0.646  0.851
+DDoS attacks-LOIC-HTTP                          DDoS     0.798    0.889     0.733  0.740
+DoS attacks-GoldenEye                  DoS GoldenEye     0.805    0.861     0.781  0.868
+DoS attacks-Hulk                            DoS Hulk     0.724    0.889     0.858  0.720
+DoS attacks-SlowHTTPTest            DoS Slowhttptest     0.996    0.996     0.995  0.996
+DoS attacks-Slowloris                  DoS slowloris     0.994    0.995     0.994  0.998
+FTP-BruteForce                           FTP-Patator     0.995    0.992     0.995  0.995
+Infilteration                           Infiltration     0.469    0.471     0.488  0.487
+SQL Injection             Web Attack - Sql Injection     0.755    0.723     0.657  0.821
+SSH-Bruteforce                           SSH-Patator     0.682    0.618     0.766  0.719
+
+-- [loo] real false-alarm rate on the separate 2018 benign TEST third: threshold B (nominal 1%) and threshold A (2017 benign, nominal 1%)
+          fprB_1  fprA_1
+model                   
+H21-FLOW   0.010   0.046
+H21-GRU    0.010   0.054
+H21-SHUF   0.010   0.042
+TREE       0.012   0.040

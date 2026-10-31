@@ -1,0 +1,59 @@
+
+==== [known] mean recall@1%FPR (threshold B) over target types, all types; mean (sd) over seeds
+                 mean    std
+model                       
+V3-SUP          0.421  0.027
+V3-SUP-SHUF     0.397  0.017
+V3-SUP-NOA      0.387  0.037
+V3-SUP-NOW      0.383  0.016
+V3-SUP-NOALIGN  0.366  0.036
+TREE            0.342  0.074
+V3-SUP-DENSE    0.254  0.058
+real false-alarm rate on the test benign third (nominal 1%): TREE 0.0053, V3-SUP 0.0099, V3-SUP-DENSE 0.0099, V3-SUP-NOA 0.0098, V3-SUP-NOALIGN 0.0097, V3-SUP-NOW 0.0095, V3-SUP-SHUF 0.0096
+
+==== [known] mean recall@1%FPR (threshold B) over target types, non-tiny types; mean (sd) over seeds
+                 mean    std
+model                       
+V3-SUP          0.330  0.040
+V3-SUP-SHUF     0.301  0.024
+V3-SUP-NOW      0.298  0.033
+V3-SUP-NOA      0.290  0.051
+V3-SUP-NOALIGN  0.264  0.048
+TREE            0.254  0.051
+V3-SUP-DENSE    0.177  0.031
+
+-- [known] per type, recall@1%FPR
+model                      TREE  V3-SUP  V3-SUP-DENSE  V3-SUP-NOA  V3-SUP-NOALIGN  V3-SUP-NOW  V3-SUP-SHUF
+type                                                                                                      
+Bot                       0.002   0.048         0.000       0.128           0.119       0.109        0.004
+Brute Force -Web          0.240   0.241         0.214       0.240           0.244       0.239        0.245
+Brute Force -XSS          0.322   0.430         0.160       0.407           0.314       0.341        0.448
+DDOS attack-HOIC          0.000   0.000         0.000       0.051           0.000       0.008        0.000
+DDOS attack-LOIC-UDP      0.000   0.000         0.000       0.000           0.000       0.000        0.000
+DDoS attacks-LOIC-HTTP    0.276   0.541         0.171       0.450           0.378       0.426        0.386
+DoS attacks-GoldenEye     0.527   0.688         0.413       0.579           0.595       0.641        0.594
+DoS attacks-Hulk          0.266   0.511         0.082       0.105           0.074       0.046        0.520
+DoS attacks-SlowHTTPTest  0.880   0.981         0.741       0.981           0.972       0.861        0.981
+DoS attacks-Slowloris     0.987   0.985         0.980       0.987           0.982       0.990        0.987
+FTP-BruteForce            0.860   0.957         0.699       0.957           0.989       0.925        0.968
+Infilteration             0.014   0.020         0.007       0.016           0.013       0.017        0.014
+SQL Injection             0.078   0.056         0.048       0.082           0.078       0.095        0.078
+SSH-Bruteforce            0.336   0.443         0.043       0.430           0.365       0.669        0.336
+
+-- [known] PRE-REGISTERED paired tests (one-sided Wilcoxon over seed x type)
+  V3-SUP     vs TREE       mean diff +0.080  p = 0.0023  SUPPORTED
+  V3-SUP     vs V3-SUP-NOALIGN mean diff +0.055  p = 0.0128  SUPPORTED
+  V3-SUP     vs V3-SUP-NOW mean diff +0.038  p = 0.3268  not supported
+  V3-SUP     vs V3-SUP-NOA mean diff +0.035  p = 0.0608  not supported
+  V3-SUP     vs V3-SUP-SHUF mean diff +0.024  p = 0.1244  not supported
+  V3-SUP     vs V3-SUP-DENSE mean diff +0.167  p = 0.0000  SUPPORTED
+
+==== energy estimate per flow (45 nm: 4.6 pJ/MAC, 0.9 pJ/add; temporal path P in detail)
+         model  other_mac   P_mac      P_ac  P_rate  P_energy_nJ  total_energy_nJ
+        V3-SUP       8864  9344.0 14553.891   0.111       56.081           96.855
+V3-SUP-NOALIGN       8864  9344.0 16083.145   0.129       57.457           98.232
+  V3-SUP-DENSE       8864 91264.0  3072.000     NaN      422.579          463.354
+    V3-SUP-NOW       8864  3584.0 18963.656   0.113       33.554           74.328
+    V3-SUP-NOA       8864  9344.0   512.000   0.162       43.443           84.218
+   V3-SUP-SHUF       8864  9344.0 16251.699   0.199       57.609           98.383
+neuromorphic claim V3-SUP: temporal-path energy spiking/dense = 0.133, whole model 0.209 (pre-registered <= 0.5, with recall drop <= 0.02 -> see the paired test vs V3-SUP-DENSE)

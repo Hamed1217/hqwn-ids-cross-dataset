@@ -1,0 +1,11 @@
+rank,DoS Hulk,BENIGN,other,dst_ports,status,Total_Fwd_Packets,Total_Backward_Packets,Total_Length_of_Fwd_Packets,Total_Length_of_Bwd_Packets,Flow_Duration
+1,9329,0,0,1,duplicate/kept,2.0,0.0,0.0,0.0,3.0
+2,6814,0,0,1,duplicate/kept,2.0,0.0,0.0,0.0,3.0
+3,6613,0,0,1,duplicate/kept,2.0,0.0,0.0,0.0,4.0
+4,5846,0,0,1,duplicate/kept,2.0,0.0,0.0,0.0,1.0
+5,4314,0,0,1,duplicate/kept,2.0,0.0,0.0,0.0,4.0
+6,3360,2,0,1,conflict,2.0,0.0,0.0,0.0,1.0
+7,2547,0,0,1,duplicate/kept,2.0,0.0,0.0,0.0,2.0
+8,1485,0,0,1,duplicate/kept,2.0,0.0,0.0,0.0,2.0
+9,1317,0,0,1,duplicate/kept,2.0,0.0,0.0,0.0,5.0
+10,753,0,0,1,duplicate/kept,2.0,0.0,0.0,0.0,5.0

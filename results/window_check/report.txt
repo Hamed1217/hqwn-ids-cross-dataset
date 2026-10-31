@@ -1,0 +1,125 @@
+window check | bin_s=60 | files=3
+
+====================================================================================================
+FILE Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv
+rows 225745 | timestamp range 2017-07-07 15:30:00 .. 2017-07-07 17:02:00 | rows with non-zero seconds: 0.0% | distinct timestamps: 93
+labels: {'DDoS': 128027, 'BENIGN': 97718}
+
+  FAMILY DDoS: 128027 attack flows, 97718 benign flows in this file
+    window features, single-feature AUC (|AUC-0.5| ranking):
+      f_grp_day          AUC=1.000  (higher=attack)
+      f_pairport_flows   AUC=1.000  (higher=attack)
+      f_pair_flows       AUC=0.997  (higher=attack)
+      f_src_flows        AUC=0.997  (higher=attack)
+      f_dst_flows        AUC=0.996  (higher=attack)
+    best single-flow features (Destination_Port excluded):
+      Bwd_Packet_Length_Min          AUC=0.203  (lower=attack)
+      Fwd_IAT_Std                    AUC=0.759  (higher=attack)
+      Bwd_Packet_Length_Std          AUC=0.757  (higher=attack)
+    window sizes (attack flows; benign median for reference):
+                        att_median  att_p10  att_share_ge5  att_share_ge20  benign_median
+      feature                                                                            
+      f_src_flows           6435.0   6053.0          1.000             1.0          432.0
+      f_dst_flows           6448.0   6063.0          1.000             1.0          304.0
+      f_pair_flows          6435.0   6053.0          1.000             1.0          160.0
+      f_pairport_flows      6435.0   6053.0          1.000             1.0            2.0
+      f_src_dports             1.0      1.0          0.000             0.0            5.0
+      f_dst_srcs               4.0      3.0          0.201             0.0            1.0
+  --- DDoS: 15000 flows sampled, 2 clusters; benign-to-benign nearest-neighbour distance: median 0.23, p90 1.00
+         share     n  near_benign_median  near_benign_p90  nn_dist_median
+cluster                                                                  
+0        0.364  5458               0.001            0.112           9.719
+1        0.636  9542               0.000            0.000           5.723
+  medians of raw flow features:
+                               cluster0      cluster1         benign
+Flow_Duration                6027300.50  1.036492e+06  182706.500000
+Total_Fwd_Packets                  5.00  3.000000e+00       2.000000
+Total_Backward_Packets             0.00  5.000000e+00       2.000000
+Total_Length_of_Fwd_Packets       30.00  2.600000e+01      70.000000
+Total_Length_of_Bwd_Packets        0.00  1.160700e+04      62.000000
+Flow_Bytes/s                       4.47  1.122070e+04    2015.119995
+Flow_Packets/s                     0.74  7.880000e+00      25.809999
+Fwd_Packet_Length_Mean             6.00  8.670000e+00      38.000000
+Init_Win_bytes_forward           256.00  8.192000e+03     229.000000
+Init_Win_bytes_backward           -1.00  2.290000e+02       0.000000
+  overall share of DDoS flows as close to benign as benign is to benign (<= median): 0.000; (<= p90): 0.041
+[elapsed 12s]
+
+====================================================================================================
+FILE Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv
+rows 286467 | timestamp range 2017-07-07 13:00:00 .. 2017-07-07 15:29:00 | rows with non-zero seconds: 0.0% | distinct timestamps: 150
+labels: {'PortScan': 158930, 'BENIGN': 127537}
+
+  FAMILY PortScan: 158930 attack flows, 127537 benign flows in this file
+    window features, single-feature AUC (|AUC-0.5| ranking):
+      f_pair_dports      AUC=1.000  (higher=attack)
+      f_src_dports       AUC=0.999  (higher=attack)
+      f_pair_flows       AUC=0.999  (higher=attack)
+      f_dst_flows        AUC=0.998  (higher=attack)
+      f_src_flows        AUC=0.998  (higher=attack)
+    best single-flow features (Destination_Port excluded):
+      Bwd_Packets/s                  AUC=0.944  (higher=attack)
+      Total_Length_of_Fwd_Packets    AUC=0.068  (lower=attack)
+      Subflow_Fwd_Bytes              AUC=0.068  (lower=attack)
+    window sizes (attack flows; benign median for reference):
+                        att_median  att_p10  att_share_ge5  att_share_ge20  benign_median
+      feature                                                                            
+      f_src_flows          43603.0   5002.0          1.000           1.000          205.0
+      f_dst_flows          43619.0   5006.0          1.000           1.000           73.0
+      f_pair_flows         43603.0   5002.0          1.000           1.000           17.0
+      f_pairport_flows        43.0      5.0          0.905           0.773           13.0
+      f_src_dports           996.0    996.0          1.000           0.998            4.0
+      f_dst_srcs               5.0      4.0          0.885           0.000            3.0
+  --- PortScan: 15000 flows sampled, 2 clusters; benign-to-benign nearest-neighbour distance: median 0.29, p90 1.17
+         share     n  near_benign_median  near_benign_p90  nn_dist_median
+cluster                                                                  
+0        0.496  7442                 0.0            0.000          12.062
+1        0.504  7558                 0.0            0.001           3.480
+  medians of raw flow features:
+                                  cluster0       cluster1        benign
+Flow_Duration                    47.000000      47.000000  30960.000000
+Total_Fwd_Packets                 1.000000       1.000000      2.000000
+Total_Backward_Packets            1.000000       1.000000      2.000000
+Total_Length_of_Fwd_Packets       2.000000       0.000000     68.000000
+Total_Length_of_Bwd_Packets       6.000000       6.000000    142.000000
+Flow_Bytes/s                 166666.671875  127659.578125   5707.009766
+Flow_Packets/s                41666.671875   42553.191406    111.139999
+Fwd_Packet_Length_Mean            2.000000       0.000000     37.000000
+Init_Win_bytes_forward         1024.000000   29200.000000     58.000000
+Init_Win_bytes_backward           0.000000       0.000000     -1.000000
+  overall share of PortScan flows as close to benign as benign is to benign (<= median): 0.000; (<= p90): 0.001
+[elapsed 26s]
+
+====================================================================================================
+FILE Friday-WorkingHours-Morning.pcap_ISCX.csv
+rows 191033 | timestamp range 2017-07-07 08:59:00 .. 2017-07-07 12:59:00 | rows with non-zero seconds: 0.0% | distinct timestamps: 241
+labels: {'BENIGN': 189067, 'Bot': 1966}
+
+  FAMILY Bot: 1966 attack flows, 189067 benign flows in this file
+    window features, single-feature AUC (|AUC-0.5| ranking):
+      f_src_flows        AUC=0.221  (lower=attack)
+      f_pairport_flows   AUC=0.241  (lower=attack)
+      f_pair_flows       AUC=0.292  (lower=attack)
+      f_dst_flows        AUC=0.295  (lower=attack)
+      f_src_dips         AUC=0.330  (lower=attack)
+    best single-flow features (Destination_Port excluded):
+      Average_Packet_Size            AUC=0.223  (lower=attack)
+      Packet_Length_Mean             AUC=0.226  (lower=attack)
+      Init_Win_bytes_backward        AUC=0.767  (higher=attack)
+    window sizes (attack flows; benign median for reference):
+                        att_median  att_p10  att_share_ge5  att_share_ge20  benign_median
+      feature                                                                            
+      f_src_flows             18.0      3.0          0.868           0.465          214.0
+      f_dst_flows              9.5      5.0          0.922           0.358           83.0
+      f_pair_flows             6.0      1.0          0.601           0.000           18.0
+      f_pairport_flows         1.0      1.0          0.318           0.000           15.0
+      f_src_dports             5.0      2.0          0.531           0.209            4.0
+      f_dst_srcs               5.0      1.0          0.608           0.050            4.0
+[elapsed 36s]
+
+====================================================================================================
+SUMMARY (direction-free AUC = max(AUC, 1-AUC); window = single best window feature, flow = single best flow feature)
+                                                file   family  n_attack  n_benign best_window_feature  best_window_auc     best_flow_feature  best_flow_auc
+    Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv     DDoS    128027     97718           f_grp_day            1.000 Bwd_Packet_Length_Min          0.797
+Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv PortScan    158930    127537       f_pair_dports            1.000         Bwd_Packets/s          0.944
+           Friday-WorkingHours-Morning.pcap_ISCX.csv      Bot      1966    189067         f_src_flows            0.779   Average_Packet_Size          0.777

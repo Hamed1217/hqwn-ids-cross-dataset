@@ -1,0 +1,119 @@
+flows 2830743  benign 2273097  attack 557646
+
+== A. per attack label: top sources / destinations
+Bot                          n=   1966 | src 205.174.165.73 36%, 192.168.10.15 19%, 192.168.10.8 14% | dst 205.174.165.73 64%, 192.168.10.15 11%, 192.168.10.9 7% | port 8080.0 64% | top dst receives 1000 benign flows
+DDoS                         n= 128027 | src 172.16.0.1 100%, 192.168.10.50 0% | dst 192.168.10.50 100%, 172.16.0.1 0% | port 80.0 100% | top dst receives 28332 benign flows
+DoS GoldenEye                n=  10293 | src 172.16.0.1 100% | dst 192.168.10.50 100% | port 80.0 100% | top dst receives 28332 benign flows
+DoS Hulk                     n= 231073 | src 172.16.0.1 100% | dst 192.168.10.50 100% | port 80.0 100% | top dst receives 28332 benign flows
+DoS Slowhttptest             n=   5499 | src 172.16.0.1 100% | dst 192.168.10.50 100% | port 80.0 100% | top dst receives 28332 benign flows
+DoS slowloris                n=   5796 | src 172.16.0.1 100% | dst 192.168.10.50 100% | port 80.0 100% | top dst receives 28332 benign flows
+FTP-Patator                  n=   7938 | src 172.16.0.1 100% | dst 192.168.10.50 100% | port 21.0 100% | top dst receives 28332 benign flows
+Heartbleed                   n=     11 | src 172.16.0.1 100% | dst 192.168.10.51 100% | port 444.0 100% | top dst receives 25599 benign flows
+Infiltration                 n=     36 | src 192.168.10.8 100% | dst 205.174.165.73 100% | port 444.0 100% | top dst receives 1000 benign flows
+PortScan                     n= 158930 | src 172.16.0.1 100% | dst 192.168.10.50 100% | port 80.0 0% | top dst receives 28332 benign flows
+SSH-Patator                  n=   5897 | src 172.16.0.1 100% | dst 192.168.10.50 100% | port 22.0 100% | top dst receives 28332 benign flows
+Web Attack - Brute Force     n=   1507 | src 172.16.0.1 100% | dst 192.168.10.50 100% | port 80.0 100% | top dst receives 28332 benign flows
+Web Attack - Sql Injection   n=     21 | src 172.16.0.1 100% | dst 192.168.10.50 100% | port 80.0 100% | top dst receives 28332 benign flows
+Web Attack - XSS             n=    652 | src 172.16.0.1 100% | dst 192.168.10.50 100% | port 80.0 100% | top dst receives 28332 benign flows
+
+== B. attacker hosts (source share >= 1% in some attack label): flows sent, per day
+172.16.0.1: benign sent 3606, attack sent 555641, benign received 48295
+     Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv        benign      157  attack   128024
+     Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv    benign        2  attack   158930
+     Friday-WorkingHours-Morning.pcap_ISCX.csv               benign       10  attack        0
+     Monday-WorkingHours.pcap_ISCX.csv                       benign        1  attack        0
+     Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv benign     1058  attack        0
+     Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv  benign       31  attack     2180
+     Tuesday-WorkingHours.pcap_ISCX.csv                      benign      196  attack    13835
+     Wednesday-workingHours.pcap_ISCX.csv                    benign     2151  attack   252672
+192.168.10.14: benign sent 140783, attack sent 209, benign received 38898
+     Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv        benign     3947  attack        0
+     Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv    benign    13219  attack        0
+     Friday-WorkingHours-Morning.pcap_ISCX.csv               benign    10109  attack      209
+     Monday-WorkingHours.pcap_ISCX.csv                       benign    31396  attack        0
+     Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv benign    15348  attack        0
+     Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv  benign    11459  attack        0
+     Tuesday-WorkingHours.pcap_ISCX.csv                      benign    29197  attack        0
+     Wednesday-workingHours.pcap_ISCX.csv                    benign    26108  attack        0
+192.168.10.15: benign sent 145665, attack sent 371, benign received 39848
+     Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv        benign     9278  attack        0
+     Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv    benign    11329  attack        0
+     Friday-WorkingHours-Morning.pcap_ISCX.csv               benign    12748  attack      371
+     Monday-WorkingHours.pcap_ISCX.csv                       benign    21960  attack        0
+     Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv benign    14321  attack        0
+     Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv  benign    19559  attack        0
+     Tuesday-WorkingHours.pcap_ISCX.csv                      benign    31452  attack        0
+     Wednesday-workingHours.pcap_ISCX.csv                    benign    25018  attack        0
+192.168.10.5: benign sent 169930, attack sent 180, benign received 56317
+     Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv        benign     5884  attack        0
+     Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv    benign     7155  attack        0
+     Friday-WorkingHours-Morning.pcap_ISCX.csv               benign    19060  attack      180
+     Monday-WorkingHours.pcap_ISCX.csv                       benign    48656  attack        0
+     Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv benign    14730  attack        0
+     Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv  benign    11802  attack        0
+     Tuesday-WorkingHours.pcap_ISCX.csv                      benign    34300  attack        0
+     Wednesday-workingHours.pcap_ISCX.csv                    benign    28343  attack        0
+192.168.10.8: benign sent 214973, attack sent 307, benign received 32720
+     Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv        benign     2128  attack        0
+     Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv    benign    12384  attack        0
+     Friday-WorkingHours-Morning.pcap_ISCX.csv               benign    10169  attack      271
+     Monday-WorkingHours.pcap_ISCX.csv                       benign    27455  attack        0
+     Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv benign    83289  attack       36
+     Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv  benign     9570  attack        0
+     Tuesday-WorkingHours.pcap_ISCX.csv                      benign    26567  attack        0
+     Wednesday-workingHours.pcap_ISCX.csv                    benign    43411  attack        0
+192.168.10.9: benign sent 152310, attack sent 226, benign received 39184
+     Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv        benign     5107  attack        0
+     Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv    benign     6905  attack        0
+     Friday-WorkingHours-Morning.pcap_ISCX.csv               benign    17469  attack      226
+     Monday-WorkingHours.pcap_ISCX.csv                       benign    34341  attack        0
+     Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv benign    14332  attack        0
+     Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv  benign    11256  attack        0
+     Tuesday-WorkingHours.pcap_ISCX.csv                      benign    33457  attack        0
+     Wednesday-workingHours.pcap_ISCX.csv                    benign    29443  attack        0
+205.174.165.73: benign sent 7, attack sent 705, benign received 1000
+     Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv    benign        7  attack        0
+     Friday-WorkingHours-Morning.pcap_ISCX.csv               benign        0  attack      705
+
+== C. share of each attack label sent by a source with NO benign flow that day ('pure attacker host')
+Bot                          35.9%
+DDoS                         0.0%
+DoS GoldenEye                0.0%
+DoS Hulk                     0.0%
+DoS Slowhttptest             0.0%
+DoS slowloris                0.0%
+FTP-Patator                  0.0%
+Heartbleed                   0.0%
+Infiltration                 0.0%
+PortScan                     0.0%
+SSH-Patator                  0.0%
+Web Attack - Brute Force     0.0%
+Web Attack - Sql Injection   0.0%
+Web Attack - XSS             0.0%
+
+== D. trivial identity rule: alarm if Source_IP is an attacker host (from A)
+false-alarm rate on ALL benign flows: 36.3941%
+Bot                          recall 0.998
+DDoS                         recall 1.000
+DoS GoldenEye                recall 1.000
+DoS Hulk                     recall 1.000
+DoS Slowhttptest             recall 1.000
+DoS slowloris                recall 1.000
+FTP-Patator                  recall 1.000
+Heartbleed                   recall 1.000
+Infiltration                 recall 1.000
+PortScan                     recall 1.000
+SSH-Patator                  recall 1.000
+Web Attack - Brute Force     recall 1.000
+Web Attack - Sql Injection   recall 1.000
+Web Attack - XSS             recall 1.000
+   (the same rule with Source OR Destination in the host set:)
+false-alarm rate: 46.0840%; mean recall over labels 1.000
+
+== E. benign flows in the same (day, minute) as an attack flow AND sharing its source or destination host
+118205 benign flows (5.200% of benign) share minute + host with an attack flow
+   of which sent BY an attacker host: 57632  (likely unlabelled attack traffic / label noise)
+
+Reading guide: if D gives recall ~1 at FPR ~0 for most labels, family-LOO on CIC-IDS2017 cannot tell
+behaviour from attacker identity. Then trust only (i) destination-side window features (--sets flow+dst),
+(ii) a host-disjoint split, or (iii) a cross-dataset test (train 2017 -> test CSE-CIC-IDS2018).

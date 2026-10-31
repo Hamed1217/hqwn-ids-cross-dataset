@@ -1,0 +1,54 @@
+
+==== [loo] mean recall@1%FPR (threshold B) over target types, all types; mean (sd) over seeds
+               mean    std
+model                     
+V3-MAX        0.565  0.027
+V3-MAX-RBF    0.561  0.024
+TREE          0.524  0.026
+V3-SUP        0.524  0.027
+V3-SUP-DENSE  0.516  0.029
+real false-alarm rate on the test benign third (nominal 1%): TREE 0.0099, V3-MAX 0.0107, V3-MAX-RBF 0.0106, V3-SUP 0.0094, V3-SUP-DENSE 0.0099
+partial AUC up to 1% FPR (standardised, 0.5 = chance), mean (sd) over seeds:
+               mean    std
+model                     
+V3-MAX        0.740  0.016
+V3-MAX-RBF    0.739  0.018
+V3-SUP        0.735  0.012
+TREE          0.733  0.009
+V3-SUP-DENSE  0.730  0.010
+
+==== [loo] mean recall@1%FPR (threshold B) over target types, non-tiny types; mean (sd) over seeds
+               mean    std
+model                     
+V3-MAX        0.565  0.027
+V3-MAX-RBF    0.561  0.024
+TREE          0.524  0.026
+V3-SUP        0.524  0.027
+V3-SUP-DENSE  0.516  0.029
+
+-- [loo] per type, recall@1%FPR
+model                      TREE  V3-MAX  V3-MAX-RBF  V3-SUP  V3-SUP-DENSE
+type                                                                     
+Bot                       0.000   0.000       0.000   0.001         0.000
+DDoS                      0.625   0.771       0.731   0.700         0.623
+DoS GoldenEye             0.855   0.760       0.761   0.835         0.827
+DoS Hulk                  0.928   0.911       0.912   0.924         0.900
+DoS Slowhttptest          0.361   0.972       0.972   0.416         0.360
+DoS slowloris             0.998   0.966       0.966   0.994         0.989
+FTP-Patator               0.291   0.127       0.128   0.211         0.279
+PortScan                  0.255   0.250       0.247   0.250         0.252
+SSH-Patator               0.020   0.013       0.013   0.018         0.020
+Web Attack - Brute Force  0.911   0.877       0.877   0.893         0.906
+
+-- [loo] PRE-REGISTERED paired tests (one-sided Wilcoxon over seed x type)
+  V3-MAX     vs TREE       mean diff +0.040  p = 0.9197  not supported   | per-seed: wins 9/10, p = 0.0029
+  V3-SUP     vs TREE       mean diff -0.000  p = 0.6416  not supported   | per-seed: wins 7/10, p = 0.2783
+  V3-SUP     vs V3-SUP-DENSE mean diff +0.009  p = 0.0205  SUPPORTED   | per-seed: wins 8/10, p = 0.1611
+  V3-MAX     vs V3-SUP     mean diff +0.040  p = 0.9679  not supported   | per-seed: wins 10/10, p = 0.0010
+  V3-MAX     vs V3-MAX-RBF mean diff +0.004  p = 0.2137  not supported   | per-seed: wins 7/10, p = 0.0967
+
+==== energy estimate per flow (45 nm: 4.6 pJ/MAC, 0.9 pJ/add; temporal path P in detail)
+       model  params  D_params  P_params  other_mac   P_mac      P_ac  P_rate  P_energy_nJ  total_energy_nJ
+      V3-SUP   16416      6752      7100       8864  9344.0 17718.984   0.151       58.929           99.704
+V3-SUP-DENSE   16416      6752      7100       8864 91264.0  3072.000     NaN      422.579          463.354
+neuromorphic claim V3-SUP: temporal-path energy spiking/dense = 0.139, whole model 0.215 (pre-registered <= 0.5, with recall drop <= 0.02 -> see the paired test vs V3-SUP-DENSE)

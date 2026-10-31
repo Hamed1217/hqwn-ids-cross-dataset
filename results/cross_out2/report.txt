@@ -1,0 +1,327 @@
+
+2017 features without a 2018 column (filled 0): none
+
+==== SUMMARY: mean recall @ 1% FPR (threshold B) over 2018 attack types, mean (sd) over seeds
+                                  mean     sd
+scenario norm   model                        
+known    benign HistGB           0.092  0.006
+                IF-local2018     0.036  0.000
+                IsolationForest  0.036  0.000
+                XGBoost          0.049  0.039
+         s17    HistGB           0.304  0.080
+                IF-local2018     0.036  0.000
+                IsolationForest  0.036  0.000
+                XGBoost          0.188  0.094
+loo      benign HistGB           0.042  0.017
+                IF-local2018     0.042  0.001
+                IsolationForest  0.042    NaN
+                XGBoost          0.069  0.050
+         s17    HistGB           0.260  0.041
+                IF-local2018     0.042  0.000
+                IsolationForest  0.044    NaN
+                XGBoost          0.219  0.046
+(loo excludes HOIC and LOIC-UDP; IF-local2018 = IsolationForest fit on 2018 benign only, threshold A not defined)
+
+######## normalisation: s17
+
+==== scenario: known  (all 2017 attacks in training)
+
+-- AUC vs 2018 benign
+model                               2017 counterpart  HistGB  IF-local2018  IsolationForest  XGBoost
+type18                                                                                              
+Bot                                              Bot   0.953         0.796            0.779    0.961
+Brute Force -Web            Web Attack - Brute Force   0.864         0.625            0.701    0.865
+Brute Force -XSS                    Web Attack - XSS   0.881         0.647            0.672    0.818
+DDOS attack-HOIC                  none (new in 2018)   0.618         0.562            0.614    0.604
+DDOS attack-LOIC-UDP              none (new in 2018)   0.541         0.972            0.944    0.757
+DDoS attacks-LOIC-HTTP                          DDoS   0.965         0.739            0.847    0.954
+DoS attacks-GoldenEye                  DoS GoldenEye   0.969         0.625            0.674    0.962
+DoS attacks-Hulk                            DoS Hulk   0.958         0.518            0.542    0.970
+DoS attacks-SlowHTTPTest            DoS Slowhttptest   0.998         0.938            0.724    0.990
+DoS attacks-Slowloris                  DoS slowloris   0.998         0.942            0.950    0.998
+FTP-BruteForce                           FTP-Patator   0.998         0.938            0.730    0.989
+Infilteration                           Infiltration   0.465         0.558            0.474    0.461
+SQL Injection             Web Attack - Sql Injection   0.870         0.555            0.573    0.854
+SSH-Bruteforce                           SSH-Patator   0.937         0.712            0.601    0.841
+
+-- recall @ 1% FPR, threshold from 2017 benign (A)
+model                               2017 counterpart  HistGB  IsolationForest  XGBoost
+type18                                                                                
+Bot                                              Bot   0.663            0.002    0.874
+Brute Force -Web            Web Attack - Brute Force   0.270            0.230    0.481
+Brute Force -XSS                    Web Attack - XSS   0.455            0.018    0.515
+DDOS attack-HOIC                  none (new in 2018)   0.001            0.000    0.020
+DDOS attack-LOIC-UDP              none (new in 2018)   0.000            0.000    0.000
+DDoS attacks-LOIC-HTTP                          DDoS   0.874            0.000    0.629
+DoS attacks-GoldenEye                  DoS GoldenEye   0.781            0.002    0.727
+DoS attacks-Hulk                            DoS Hulk   0.705            0.000    0.880
+DoS attacks-SlowHTTPTest            DoS Slowhttptest   1.000            0.000    1.000
+DoS attacks-Slowloris                  DoS slowloris   0.986            0.224    0.984
+FTP-BruteForce                           FTP-Patator   1.000            0.000    1.000
+Infilteration                           Infiltration   0.061            0.034    0.055
+SQL Injection             Web Attack - Sql Injection   0.216            0.000    0.268
+SSH-Bruteforce                           SSH-Patator   0.491            0.000    0.006
+
+-- ACTUAL 2018 false-alarm rate at threshold A (nominal 1%)
+model   HistGB  IF-local2018  IsolationForest  XGBoost
+fprA_1   0.049           NaN            0.012    0.052
+
+-- recall @ 1% FPR, threshold from 2018 benign calibration (B)
+model                               2017 counterpart  HistGB  IF-local2018  IsolationForest  XGBoost
+type18                                                                                              
+Bot                                              Bot   0.044         0.001            0.002    0.007
+Brute Force -Web            Web Attack - Brute Force   0.221         0.230            0.230    0.081
+Brute Force -XSS                    Web Attack - XSS   0.314         0.018            0.018    0.295
+DDOS attack-HOIC                  none (new in 2018)   0.000         0.000            0.000    0.000
+DDOS attack-LOIC-UDP              none (new in 2018)   0.000         0.000            0.000    0.000
+DDoS attacks-LOIC-HTTP                          DDoS   0.181         0.000            0.000    0.120
+DoS attacks-GoldenEye                  DoS GoldenEye   0.445         0.000            0.002    0.241
+DoS attacks-Hulk                            DoS Hulk   0.082         0.000            0.000    0.008
+DoS attacks-SlowHTTPTest            DoS Slowhttptest   0.940         0.000            0.000    0.436
+DoS attacks-Slowloris                  DoS slowloris   0.983         0.224            0.224    0.971
+FTP-BruteForce                           FTP-Patator   0.925         0.000            0.000    0.419
+Infilteration                           Infiltration   0.018         0.030            0.033    0.010
+SQL Injection             Web Attack - Sql Injection   0.091         0.000            0.000    0.039
+SSH-Bruteforce                           SSH-Patator   0.005         0.000            0.000    0.001
+
+-- recall @ 0.1% FPR, threshold B
+model                               2017 counterpart  HistGB  IF-local2018  IsolationForest  XGBoost
+type18                                                                                              
+Bot                                              Bot   0.001         0.000            0.000    0.000
+Brute Force -Web            Web Attack - Brute Force   0.149         0.077            0.077    0.000
+Brute Force -XSS                    Web Attack - XSS   0.291         0.006            0.006    0.141
+DDOS attack-HOIC                  none (new in 2018)   0.000         0.000            0.000    0.000
+DDOS attack-LOIC-UDP              none (new in 2018)   0.000         0.000            0.000    0.000
+DDoS attacks-LOIC-HTTP                          DDoS   0.004         0.000            0.000    0.000
+DoS attacks-GoldenEye                  DoS GoldenEye   0.255         0.000            0.000    0.181
+DoS attacks-Hulk                            DoS Hulk   0.000         0.000            0.000    0.000
+DoS attacks-SlowHTTPTest            DoS Slowhttptest   0.538         0.000            0.000    0.009
+DoS attacks-Slowloris                  DoS slowloris   0.978         0.003            0.000    0.951
+FTP-BruteForce                           FTP-Patator   0.452         0.000            0.000    0.000
+Infilteration                           Infiltration   0.001         0.010            0.011    0.001
+SQL Injection             Web Attack - Sql Injection   0.039         0.000            0.000    0.013
+SSH-Bruteforce                           SSH-Patator   0.002         0.000            0.000    0.000
+
+######## normalisation: benign
+
+==== scenario: known  (all 2017 attacks in training)
+
+-- AUC vs 2018 benign
+model                               2017 counterpart  HistGB  IF-local2018  IsolationForest  XGBoost
+type18                                                                                              
+Bot                                              Bot   0.796         0.696            0.603    0.586
+Brute Force -Web            Web Attack - Brute Force   0.739         0.694            0.687    0.770
+Brute Force -XSS                    Web Attack - XSS   0.825         0.664            0.653    0.750
+DDOS attack-HOIC                  none (new in 2018)   0.408         0.581            0.526    0.410
+DDOS attack-LOIC-UDP              none (new in 2018)   0.465         0.970            0.933    0.734
+DDoS attacks-LOIC-HTTP                          DDoS   0.897         0.738            0.828    0.890
+DoS attacks-GoldenEye                  DoS GoldenEye   0.636         0.705            0.690    0.741
+DoS attacks-Hulk                            DoS Hulk   0.718         0.548            0.495    0.585
+DoS attacks-SlowHTTPTest            DoS Slowhttptest   0.945         0.913            0.831    0.980
+DoS attacks-Slowloris                  DoS slowloris   0.956         0.960            0.953    0.977
+FTP-BruteForce                           FTP-Patator   0.943         0.915            0.840    0.980
+Infilteration                           Infiltration   0.481         0.541            0.491    0.478
+SQL Injection             Web Attack - Sql Injection   0.780         0.653            0.606    0.741
+SSH-Bruteforce                           SSH-Patator   0.461         0.773            0.739    0.637
+
+-- recall @ 1% FPR, threshold from 2017 benign (A)
+model                               2017 counterpart  HistGB  IsolationForest  XGBoost
+type18                                                                                
+Bot                                              Bot   0.013            0.002    0.003
+Brute Force -Web            Web Attack - Brute Force   0.257            0.230    0.510
+Brute Force -XSS                    Web Attack - XSS   0.323            0.018    0.486
+DDOS attack-HOIC                  none (new in 2018)   0.000            0.000    0.000
+DDOS attack-LOIC-UDP              none (new in 2018)   0.000            0.000    0.000
+DDoS attacks-LOIC-HTTP                          DDoS   0.295            0.000    0.385
+DoS attacks-GoldenEye                  DoS GoldenEye   0.238            0.008    0.184
+DoS attacks-Hulk                            DoS Hulk   0.000            0.000    0.000
+DoS attacks-SlowHTTPTest            DoS Slowhttptest   0.658            0.000    1.000
+DoS attacks-Slowloris                  DoS slowloris   0.750            0.224    0.967
+FTP-BruteForce                           FTP-Patator   0.613            0.000    1.000
+Infilteration                           Infiltration   0.049            0.031    0.039
+SQL Injection             Web Attack - Sql Injection   0.273            0.000    0.177
+SSH-Bruteforce                           SSH-Patator   0.000            0.000    0.000
+
+-- ACTUAL 2018 false-alarm rate at threshold A (nominal 1%)
+model   HistGB  IF-local2018  IsolationForest  XGBoost
+fprA_1   0.054           NaN            0.011    0.048
+
+-- recall @ 1% FPR, threshold from 2018 benign calibration (B)
+model                               2017 counterpart  HistGB  IF-local2018  IsolationForest  XGBoost
+type18                                                                                              
+Bot                                              Bot   0.001         0.002            0.002    0.000
+Brute Force -Web            Web Attack - Brute Force   0.137         0.230            0.230    0.007
+Brute Force -XSS                    Web Attack - XSS   0.169         0.018            0.018    0.153
+DDOS attack-HOIC                  none (new in 2018)   0.000         0.000            0.000    0.000
+DDOS attack-LOIC-UDP              none (new in 2018)   0.000         0.000            0.000    0.000
+DDoS attacks-LOIC-HTTP                          DDoS   0.140         0.000            0.000    0.011
+DoS attacks-GoldenEye                  DoS GoldenEye   0.130         0.000            0.002    0.041
+DoS attacks-Hulk                            DoS Hulk   0.000         0.000            0.000    0.000
+DoS attacks-SlowHTTPTest            DoS Slowhttptest   0.000         0.000            0.000    0.000
+DoS attacks-Slowloris                  DoS slowloris   0.603         0.226            0.224    0.465
+FTP-BruteForce                           FTP-Patator   0.000         0.000            0.000    0.000
+Infilteration                           Infiltration   0.011         0.029            0.030    0.003
+SQL Injection             Web Attack - Sql Injection   0.104         0.000            0.000    0.000
+SSH-Bruteforce                           SSH-Patator   0.000         0.000            0.000    0.000
+
+-- recall @ 0.1% FPR, threshold B
+model                               2017 counterpart  HistGB  IF-local2018  IsolationForest  XGBoost
+type18                                                                                              
+Bot                                              Bot   0.000         0.000            0.000    0.000
+Brute Force -Web            Web Attack - Brute Force   0.074         0.153            0.077    0.000
+Brute Force -XSS                    Web Attack - XSS   0.000         0.012            0.006    0.082
+DDOS attack-HOIC                  none (new in 2018)   0.000         0.000            0.000    0.000
+DDOS attack-LOIC-UDP              none (new in 2018)   0.000         0.000            0.000    0.000
+DDoS attacks-LOIC-HTTP                          DDoS   0.130         0.000            0.000    0.003
+DoS attacks-GoldenEye                  DoS GoldenEye   0.071         0.000            0.000    0.017
+DoS attacks-Hulk                            DoS Hulk   0.000         0.000            0.000    0.000
+DoS attacks-SlowHTTPTest            DoS Slowhttptest   0.000         0.000            0.000    0.000
+DoS attacks-Slowloris                  DoS slowloris   0.237         0.000            0.000    0.039
+FTP-BruteForce                           FTP-Patator   0.000         0.000            0.000    0.000
+Infilteration                           Infiltration   0.001         0.005            0.012    0.001
+SQL Injection             Web Attack - Sql Injection   0.026         0.000            0.000    0.000
+SSH-Bruteforce                           SSH-Patator   0.000         0.000            0.000    0.000
+
+######## normalisation: s17
+
+==== scenario: loo  (the 2017 counterpart family removed from training)
+
+-- AUC vs 2018 benign
+model                               2017 counterpart  HistGB  IF-local2018  IsolationForest  XGBoost
+type18                                                                                              
+Bot                                              Bot   0.855         0.796            0.658    0.748
+Brute Force -Web            Web Attack - Brute Force   0.757         0.625            0.705    0.804
+Brute Force -XSS                    Web Attack - XSS   0.870         0.647            0.707    0.765
+DDoS attacks-LOIC-HTTP                          DDoS   0.918         0.739            0.863    0.823
+DoS attacks-GoldenEye                  DoS GoldenEye   0.940         0.625            0.658    0.848
+DoS attacks-Hulk                            DoS Hulk   0.864         0.518            0.525    0.645
+DoS attacks-SlowHTTPTest            DoS Slowhttptest   0.999         0.938            0.773    0.998
+DoS attacks-Slowloris                  DoS slowloris   0.993         0.942            0.949    0.988
+FTP-BruteForce                           FTP-Patator   0.998         0.938            0.749    0.993
+Infilteration                           Infiltration   0.464         0.558            0.476    0.450
+SQL Injection             Web Attack - Sql Injection   0.841         0.555            0.562    0.797
+SSH-Bruteforce                           SSH-Patator   0.846         0.712            0.598    0.765
+
+-- recall @ 1% FPR, threshold from 2017 benign (A)
+model                               2017 counterpart  HistGB  IsolationForest  XGBoost
+type18                                                                                
+Bot                                              Bot   0.018            0.002    0.009
+Brute Force -Web            Web Attack - Brute Force   0.082            0.230    0.259
+Brute Force -XSS                    Web Attack - XSS   0.156            0.018    0.457
+DDoS attacks-LOIC-HTTP                          DDoS   0.370            0.000    0.396
+DoS attacks-GoldenEye                  DoS GoldenEye   0.373            0.021    0.241
+DoS attacks-Hulk                            DoS Hulk   0.080            0.000    0.004
+DoS attacks-SlowHTTPTest            DoS Slowhttptest   1.000            0.000    1.000
+DoS attacks-Slowloris                  DoS slowloris   0.987            0.225    0.960
+FTP-BruteForce                           FTP-Patator   1.000            0.000    1.000
+Infilteration                           Infiltration   0.047            0.042    0.051
+SQL Injection             Web Attack - Sql Injection   0.139            0.000    0.165
+SSH-Bruteforce                           SSH-Patator   0.006            0.000    0.006
+
+-- ACTUAL 2018 false-alarm rate at threshold A (nominal 1%)
+model   HistGB  IF-local2018  IsolationForest  XGBoost
+fprA_1   0.049           NaN            0.015     0.04
+
+-- recall @ 1% FPR, threshold from 2018 benign calibration (B)
+model                               2017 counterpart  HistGB  IF-local2018  IsolationForest  XGBoost
+type18                                                                                              
+Bot                                              Bot   0.002         0.001            0.002    0.002
+Brute Force -Web            Web Attack - Brute Force   0.009         0.230            0.230    0.165
+Brute Force -XSS                    Web Attack - XSS   0.003         0.018            0.018    0.141
+DDoS attacks-LOIC-HTTP                          DDoS   0.015         0.000            0.000    0.247
+DoS attacks-GoldenEye                  DoS GoldenEye   0.278         0.000            0.020    0.167
+DoS attacks-Hulk                            DoS Hulk   0.011         0.000            0.000    0.000
+DoS attacks-SlowHTTPTest            DoS Slowhttptest   1.000         0.000            0.000    0.932
+DoS attacks-Slowloris                  DoS slowloris   0.690         0.224            0.224    0.475
+FTP-BruteForce                           FTP-Patator   0.989         0.000            0.000    0.462
+Infilteration                           Infiltration   0.017         0.030            0.034    0.010
+SQL Injection             Web Attack - Sql Injection   0.104         0.000            0.000    0.022
+SSH-Bruteforce                           SSH-Patator   0.006         0.000            0.000    0.002
+
+-- recall @ 0.1% FPR, threshold B
+model                               2017 counterpart  HistGB  IF-local2018  IsolationForest  XGBoost
+type18                                                                                              
+Bot                                              Bot   0.001         0.000            0.000    0.000
+Brute Force -Web            Web Attack - Brute Force   0.001         0.077            0.230    0.041
+Brute Force -XSS                    Web Attack - XSS   0.000         0.006            0.018    0.000
+DDoS attacks-LOIC-HTTP                          DDoS   0.003         0.000            0.000    0.000
+DoS attacks-GoldenEye                  DoS GoldenEye   0.054         0.000            0.000    0.047
+DoS attacks-Hulk                            DoS Hulk   0.000         0.000            0.000    0.000
+DoS attacks-SlowHTTPTest            DoS Slowhttptest   0.812         0.000            0.000    0.573
+DoS attacks-Slowloris                  DoS slowloris   0.576         0.003            0.000    0.427
+FTP-BruteForce                           FTP-Patator   0.527         0.000            0.000    0.140
+Infilteration                           Infiltration   0.001         0.010            0.000    0.002
+SQL Injection             Web Attack - Sql Injection   0.039         0.000            0.000    0.004
+SSH-Bruteforce                           SSH-Patator   0.002         0.000            0.000    0.000
+
+######## normalisation: benign
+
+==== scenario: loo  (the 2017 counterpart family removed from training)
+
+-- AUC vs 2018 benign
+model                               2017 counterpart  HistGB  IF-local2018  IsolationForest  XGBoost
+type18                                                                                              
+Bot                                              Bot   0.786         0.696            0.538    0.420
+Brute Force -Web            Web Attack - Brute Force   0.750         0.694            0.724    0.769
+Brute Force -XSS                    Web Attack - XSS   0.766         0.664            0.682    0.702
+DDoS attacks-LOIC-HTTP                          DDoS   0.871         0.738            0.847    0.759
+DoS attacks-GoldenEye                  DoS GoldenEye   0.612         0.705            0.730    0.746
+DoS attacks-Hulk                            DoS Hulk   0.477         0.548            0.481    0.289
+DoS attacks-SlowHTTPTest            DoS Slowhttptest   0.969         0.913            0.840    0.991
+DoS attacks-Slowloris                  DoS slowloris   0.922         0.960            0.939    0.951
+FTP-BruteForce                           FTP-Patator   0.944         0.915            0.803    0.980
+Infilteration                           Infiltration   0.484         0.541            0.489    0.481
+SQL Injection             Web Attack - Sql Injection   0.774         0.653            0.598    0.696
+SSH-Bruteforce                           SSH-Patator   0.303         0.773            0.756    0.416
+
+-- recall @ 1% FPR, threshold from 2017 benign (A)
+model                               2017 counterpart  HistGB  IsolationForest  XGBoost
+type18                                                                                
+Bot                                              Bot   0.003            0.002    0.001
+Brute Force -Web            Web Attack - Brute Force   0.169            0.230    0.481
+Brute Force -XSS                    Web Attack - XSS   0.004            0.018    0.344
+DDoS attacks-LOIC-HTTP                          DDoS   0.160            0.000    0.063
+DoS attacks-GoldenEye                  DoS GoldenEye   0.237            0.011    0.066
+DoS attacks-Hulk                            DoS Hulk   0.000            0.000    0.000
+DoS attacks-SlowHTTPTest            DoS Slowhttptest   1.000            0.000    1.000
+DoS attacks-Slowloris                  DoS slowloris   0.307            0.228    0.867
+FTP-BruteForce                           FTP-Patator   0.667            0.000    1.000
+Infilteration                           Infiltration   0.044            0.040    0.040
+SQL Injection             Web Attack - Sql Injection   0.190            0.000    0.087
+SSH-Bruteforce                           SSH-Patator   0.000            0.000    0.000
+
+-- ACTUAL 2018 false-alarm rate at threshold A (nominal 1%)
+model   HistGB  IF-local2018  IsolationForest  XGBoost
+fprA_1   0.053           NaN            0.015    0.046
+
+-- recall @ 1% FPR, threshold from 2018 benign calibration (B)
+model                               2017 counterpart  HistGB  IF-local2018  IsolationForest  XGBoost
+type18                                                                                              
+Bot                                              Bot   0.000         0.002            0.002    0.000
+Brute Force -Web            Web Attack - Brute Force   0.086         0.230            0.230    0.005
+Brute Force -XSS                    Web Attack - XSS   0.001         0.018            0.018    0.000
+DDoS attacks-LOIC-HTTP                          DDoS   0.013         0.000            0.000    0.011
+DoS attacks-GoldenEye                  DoS GoldenEye   0.176         0.000            0.000    0.064
+DoS attacks-Hulk                            DoS Hulk   0.000         0.000            0.000    0.000
+DoS attacks-SlowHTTPTest            DoS Slowhttptest   0.017         0.000            0.000    0.658
+DoS attacks-Slowloris                  DoS slowloris   0.155         0.226            0.227    0.005
+FTP-BruteForce                           FTP-Patator   0.000         0.000            0.000    0.065
+Infilteration                           Infiltration   0.007         0.029            0.031    0.006
+SQL Injection             Web Attack - Sql Injection   0.048         0.000            0.000    0.017
+SSH-Bruteforce                           SSH-Patator   0.000         0.000            0.000    0.000
+
+-- recall @ 0.1% FPR, threshold B
+model                               2017 counterpart  HistGB  IF-local2018  IsolationForest  XGBoost
+type18                                                                                              
+Bot                                              Bot   0.000         0.000            0.000    0.000
+Brute Force -Web            Web Attack - Brute Force   0.002         0.153            0.230    0.001
+Brute Force -XSS                    Web Attack - XSS   0.000         0.012            0.018    0.000
+DDoS attacks-LOIC-HTTP                          DDoS   0.013         0.000            0.000    0.002
+DoS attacks-GoldenEye                  DoS GoldenEye   0.045         0.000            0.000    0.001
+DoS attacks-Hulk                            DoS Hulk   0.000         0.000            0.000    0.000
+DoS attacks-SlowHTTPTest            DoS Slowhttptest   0.000         0.000            0.000    0.188
+DoS attacks-Slowloris                  DoS slowloris   0.151         0.000            0.000    0.005
+FTP-BruteForce                           FTP-Patator   0.000         0.000            0.000    0.000
+Infilteration                           Infiltration   0.001         0.005            0.001    0.002
+SQL Injection             Web Attack - Sql Injection   0.026         0.000            0.000    0.000
+SSH-Bruteforce                           SSH-Patator   0.000         0.000            0.000    0.000

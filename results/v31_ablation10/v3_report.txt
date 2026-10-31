@@ -1,0 +1,64 @@
+
+==== [known] mean recall@1%FPR (threshold B) over target types, all types; mean (sd) over seeds
+                 mean    std
+model                       
+V3-SUP          0.340  0.123
+V3-SUP-NOA      0.330  0.129
+V3-SUP-LR       0.328  0.106
+V3-SUP-TT       0.320  0.126
+V3-SUP-NOALIGN  0.319  0.122
+V3-SUP-SHUF     0.316  0.119
+TREE            0.312  0.135
+V3-SUP-NOW      0.307  0.108
+real false-alarm rate on the test benign third (nominal 1%): TREE 0.0052, V3-SUP 0.01, V3-SUP-LR 0.0101, V3-SUP-NOA 0.0099, V3-SUP-NOALIGN 0.0099, V3-SUP-NOW 0.0098, V3-SUP-SHUF 0.01, V3-SUP-TT 0.0101
+
+==== [known] mean recall@1%FPR (threshold B) over target types, non-tiny types; mean (sd) over seeds
+                 mean    std
+model                       
+V3-SUP          0.251  0.102
+V3-SUP-NOA      0.250  0.102
+V3-SUP-LR       0.246  0.086
+V3-SUP-TT       0.243  0.109
+TREE            0.230  0.119
+V3-SUP-SHUF     0.225  0.098
+V3-SUP-NOW      0.223  0.086
+V3-SUP-NOALIGN  0.223  0.114
+
+-- [known] per type, recall@1%FPR
+model                      TREE  V3-SUP  V3-SUP-LR  V3-SUP-NOA  V3-SUP-NOALIGN  V3-SUP-NOW  V3-SUP-SHUF  V3-SUP-TT
+type                                                                                                              
+Bot                       0.052   0.017      0.003       0.047           0.076       0.041        0.002      0.041
+Brute Force -Web          0.191   0.203      0.204       0.220           0.181       0.182        0.200      0.208
+Brute Force -XSS          0.243   0.324      0.282       0.333           0.239       0.247        0.302      0.322
+DDOS attack-HOIC          0.000   0.017      0.000       0.015           0.004       0.003        0.000      0.000
+DDOS attack-LOIC-UDP      0.000   0.000      0.000       0.000           0.000       0.000        0.000      0.000
+DDoS attacks-LOIC-HTTP    0.229   0.393      0.335       0.395           0.292       0.249        0.282      0.285
+DoS attacks-GoldenEye     0.412   0.515      0.471       0.433           0.452       0.437        0.428      0.439
+DoS attacks-Hulk          0.208   0.194      0.232       0.174           0.110       0.062        0.232      0.352
+DoS attacks-SlowHTTPTest  0.814   0.889      0.811       0.808           0.886       0.781        0.856      0.769
+DoS attacks-Slowloris     0.982   0.934      0.980       0.918           0.981       0.983        0.937      0.924
+FTP-BruteForce            0.803   0.852      0.832       0.813           0.897       0.842        0.861      0.790
+Infilteration             0.018   0.021      0.018       0.020           0.016       0.019        0.016      0.021
+SQL Injection             0.060   0.038      0.040       0.053           0.045       0.062        0.044      0.060
+SSH-Bruteforce            0.362   0.362      0.383       0.394           0.279       0.397        0.262      0.270
+
+-- [known] tensor-train non-inferiority: V3-SUP-TT - V3-SUP = -0.020 (pre-registered: >= -0.02) -> MET
+
+-- [known] PRE-REGISTERED paired tests (one-sided Wilcoxon over seed x type)
+  V3-SUP     vs TREE       mean diff +0.027  p = 0.0019  SUPPORTED
+  V3-SUP     vs V3-SUP-NOALIGN mean diff +0.021  p = 0.0012  SUPPORTED
+  V3-SUP     vs V3-SUP-NOW mean diff +0.032  p = 0.0597  not supported
+  V3-SUP     vs V3-SUP-NOA mean diff +0.010  p = 0.3039  not supported
+  V3-SUP     vs V3-SUP-SHUF mean diff +0.024  p = 0.0004  SUPPORTED
+  V3-SUP-TT  vs V3-SUP-LR  mean diff -0.008  p = 0.0657  not supported
+  V3-SUP-TT  vs TREE       mean diff +0.008  p = 0.0118  SUPPORTED
+
+==== energy estimate per flow (45 nm: 4.6 pJ/MAC, 0.9 pJ/add; temporal path P in detail)
+         model  params  D_params  P_params  other_mac  P_mac      P_ac  P_rate  P_energy_nJ  total_energy_nJ
+        V3-SUP   16416      6752      7100       8864 9344.0 14553.891   0.111       56.081           96.855
+V3-SUP-NOALIGN   16416      6752      7100       8864 9344.0 16083.145   0.129       57.457           98.232
+    V3-SUP-NOW   16106      6752      6790       8864 3584.0 18963.656   0.113       33.554           74.328
+    V3-SUP-NOA   11968      6752      2652       8864 9344.0   512.000   0.162       43.443           84.218
+   V3-SUP-SHUF   16416      6752      7100       8864 9344.0 16251.699   0.199       57.609           98.383
+     V3-SUP-TT    8000      1088      4348      13840 9344.0 18683.266   0.150       59.797          123.461
+     V3-SUP-LR    7919      1071      4284       3183 9344.0 11243.008   0.288       53.101           67.743

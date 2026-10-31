@@ -1,0 +1,75 @@
+
+==== [known] mean recall@1%FPR (threshold B) over target types, all types; mean (sd) over seeds
+         mean    std
+model               
+V3-MAX  0.151  0.009
+TREE    0.012  0.009
+V3-SUP  0.009  0.011
+real false-alarm rate on the test benign third (nominal 1%): TREE 0.0077, V3-MAX 0.0104, V3-SUP 0.0101
+partial AUC up to 1% FPR (standardised, 0.5 = chance), mean (sd) over seeds:
+         mean    std
+model               
+V3-MAX  0.531  0.002
+TREE    0.502  0.002
+V3-SUP  0.501  0.003
+
+==== [known] mean recall@1%FPR (threshold B) over target types, non-tiny types; mean (sd) over seeds
+         mean    std
+model               
+V3-MAX  0.151  0.009
+TREE    0.012  0.009
+V3-SUP  0.009  0.011
+
+-- [known] per type, recall@1%FPR
+model            TREE  V3-MAX  V3-SUP
+type                                 
+Analysis        0.000   0.000   0.000
+Backdoor        0.000   0.023   0.002
+DoS             0.030   0.082   0.021
+Exploits        0.024   0.029   0.015
+Fuzzers         0.012   0.099   0.009
+Generic         0.028   0.209   0.005
+Reconnaissance  0.000   0.639   0.021
+Shellcode       0.010   0.214   0.001
+Worms           0.004   0.064   0.009
+
+-- [known] PRE-REGISTERED paired tests (one-sided Wilcoxon over seed x type)
+  V3-MAX     vs TREE       mean diff +0.139  p = 0.0000  SUPPORTED   | per-seed: wins 5/5, p = 0.0312
+  V3-SUP     vs TREE       mean diff -0.003  p = 0.9394  not supported   | per-seed: wins 2/5, p = 0.7812
+  V3-MAX     vs V3-SUP     mean diff +0.142  p = 0.0000  SUPPORTED   | per-seed: wins 5/5, p = 0.0312
+
+==== [loo] mean recall@1%FPR (threshold B) over target types, all types; mean (sd) over seeds
+         mean    std
+model               
+V3-MAX  0.366  0.054
+TREE    0.030  0.026
+V3-SUP  0.022  0.026
+real false-alarm rate on the test benign third (nominal 1%): TREE 0.0092, V3-MAX 0.011, V3-SUP 0.0108
+partial AUC up to 1% FPR (standardised, 0.5 = chance), mean (sd) over seeds:
+         mean    std
+model               
+V3-MAX  0.529  0.010
+TREE    0.505  0.005
+V3-SUP  0.504  0.005
+
+==== [loo] mean recall@1%FPR (threshold B) over target types, non-tiny types; mean (sd) over seeds
+         mean    std
+model               
+V3-MAX  0.366  0.054
+TREE    0.030  0.026
+V3-SUP  0.022  0.026
+
+-- [loo] per type, recall@1%FPR
+model            TREE  V3-MAX  V3-SUP
+type                                 
+DoS             0.047   0.094   0.043
+Reconnaissance  0.014   0.637   0.002
+
+-- [loo] PRE-REGISTERED paired tests (one-sided Wilcoxon over seed x type)
+  V3-MAX     vs TREE       mean diff +0.335  p = 0.0010  SUPPORTED   | per-seed: wins 5/5, p = 0.0312
+  V3-SUP     vs TREE       mean diff -0.008  p = 0.7812  not supported   | per-seed: wins 1/5, p = 0.8750
+  V3-MAX     vs V3-SUP     mean diff +0.343  p = 0.0010  SUPPORTED   | per-seed: wins 5/5, p = 0.0312
+
+==== energy estimate per flow (45 nm: 4.6 pJ/MAC, 0.9 pJ/add; temporal path P in detail)
+ model  params  D_params  P_params  other_mac  P_mac      P_ac  P_rate  P_energy_nJ  total_energy_nJ
+V3-SUP   16416      6752      7100       8864 9344.0 14441.098   0.144       55.979           96.754

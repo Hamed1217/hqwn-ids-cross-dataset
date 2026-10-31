@@ -1,0 +1,23 @@
+file,label,size,min,max
+Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv,BENIGN,95064,2017-07-07 15:30:00,2017-07-07 17:02:00
+Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv,DDoS,128011,2017-07-07 15:56:00,2017-07-07 16:16:00
+Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv,BENIGN,121554,2017-07-07 13:00:00,2017-07-07 15:29:00
+Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv,PortScan,90130,2017-07-07 13:05:00,2017-07-07 15:23:00
+Friday-WorkingHours-Morning.pcap_ISCX.csv,BENIGN,178139,2017-07-07 08:59:00,2017-07-07 12:59:00
+Friday-WorkingHours-Morning.pcap_ISCX.csv,Bot,1948,2017-07-07 09:34:00,2017-07-07 12:59:00
+Monday-WorkingHours.pcap_ISCX.csv,BENIGN,502605,2017-07-03 08:55:58,2017-07-03 17:01:34
+Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv,BENIGN,245218,2017-07-06 13:00:00,2017-07-06 17:04:00
+Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv,Infiltration,36,2017-07-06 14:19:00,2017-07-06 15:45:00
+Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv,BENIGN,154434,2017-07-06 08:59:00,2017-07-06 12:59:00
+Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv,Web Attack - Brute Force,1470,2017-07-06 09:15:00,2017-07-06 10:00:00
+Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv,Web Attack - Sql Injection,21,2017-07-06 10:40:00,2017-07-06 10:42:00
+Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv,Web Attack - XSS,652,2017-07-06 10:15:00,2017-07-06 10:35:00
+Tuesday-WorkingHours.pcap_ISCX.csv,BENIGN,400808,2017-07-04 08:53:00,2017-07-04 17:00:00
+Tuesday-WorkingHours.pcap_ISCX.csv,FTP-Patator,5931,2017-07-04 09:17:00,2017-07-04 10:30:00
+Tuesday-WorkingHours.pcap_ISCX.csv,SSH-Patator,3219,2017-07-04 14:09:00,2017-07-04 15:11:00
+Wednesday-workingHours.pcap_ISCX.csv,BENIGN,396702,2017-07-05 08:42:00,2017-07-05 17:10:00
+Wednesday-workingHours.pcap_ISCX.csv,DoS GoldenEye,10286,2017-07-05 11:10:00,2017-07-05 11:19:00
+Wednesday-workingHours.pcap_ISCX.csv,DoS Hulk,172718,2017-07-05 10:43:00,2017-07-05 11:07:00
+Wednesday-workingHours.pcap_ISCX.csv,DoS Slowhttptest,5228,2017-07-05 10:15:00,2017-07-05 10:37:00
+Wednesday-workingHours.pcap_ISCX.csv,DoS slowloris,5384,2017-07-05 09:01:00,2017-07-05 14:25:00
+Wednesday-workingHours.pcap_ISCX.csv,Heartbleed,11,2017-07-05 15:12:00,2017-07-05 15:32:00

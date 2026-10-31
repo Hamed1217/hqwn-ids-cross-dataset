@@ -1,0 +1,2 @@
+cpu,threads,torch,table_build_s_per_1M_flows,seq_ms_per_flow_batched,seq_ms_single_med,seq_ms_single_p95,tree_flows_per_s,tree_lat_med_ms
+"AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",6,2.14.1+cpu,0.293557700002566,0.002063818364206327,1.079649999155663,1.236270010122098,269911.6987993891,2.7861999988090247

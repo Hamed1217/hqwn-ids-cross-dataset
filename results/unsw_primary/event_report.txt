@@ -1,0 +1,216 @@
+EVENT-LEVEL metrics (episodes split at gaps > 5 min; minute alarm = >= k alarming flows).
+CAVEAT: sampled caches -> event recall and false-alarm minutes are lower bounds of the full-traffic values;
+model comparisons at the same setting are fair.
+
+==== known | threshold B at 1.0% flow false alarms | minute rule k = 1
+mean over attack types, mean (sd) over seeds; ttd = time to detect (s); fa = false-alarm minutes
+                flow_recall episode_recall  minute_recall share_detected_60s         median_ttd_s       flow_fpr fa_minute_rate fa_minutes_per_hour
+model                                                                                                                                              
+V3-MAX-RBF    0.161 (0.021)  0.673 (0.030)  0.416 (0.039)      0.427 (0.033)     114.931 (19.157)  0.010 (0.000)  0.281 (0.021)      16.602 (1.220)
+V3-MAX        0.163 (0.019)  0.672 (0.031)  0.413 (0.041)      0.441 (0.030)     115.933 (21.004)  0.010 (0.000)  0.277 (0.019)      16.387 (1.151)
+TREE          0.027 (0.050)  0.384 (0.151)  0.130 (0.130)      0.086 (0.173)   1097.553 (966.666)  0.007 (0.003)  0.262 (0.084)      15.492 (4.967)
+V3-SUP        0.023 (0.051)  0.348 (0.176)  0.104 (0.138)      0.082 (0.172)  1699.575 (2935.889)  0.010 (0.000)  0.287 (0.050)      16.942 (2.942)
+V3-SUP-DENSE  0.023 (0.051)  0.347 (0.151)  0.108 (0.135)      0.069 (0.174)  1290.173 (1377.525)  0.010 (0.000)  0.332 (0.015)      19.648 (0.903)
+V3-SUP-NOA    0.016 (0.033)  0.296 (0.177)  0.088 (0.107)      0.039 (0.073)  1701.310 (2328.551)  0.010 (0.000)  0.297 (0.021)      17.529 (1.224)
+-- per type (mean over seeds): episode recall / minute recall / median time to detect (s)
+               n_episodes                                                  episode_recall                                                  minute_recall                                                  median_ttd_s                                                     
+model                TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA           TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA          TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA         TREE  V3-MAX V3-MAX-RBF    V3-SUP V3-SUP-DENSE V3-SUP-NOA
+type                                                                                                                                                                                                                                                                       
+Analysis             15.0   15.0       15.0   15.0         15.0       15.0          0.007  0.013      0.013  0.013        0.007      0.000         0.001  0.003      0.003  0.003        0.001      0.000        3.000  190.00     190.00   190.000         3.00        NaN
+Backdoor             50.0   50.0       50.0   50.0         50.0       50.0          0.072  0.162      0.164  0.080        0.066      0.050         0.032  0.044      0.046  0.033        0.030      0.018      320.750  176.75     177.05   281.250       443.25    175.000
+DoS                   4.0    4.0        4.0    4.0          4.0        4.0          0.775  1.000      1.000  0.725        0.775      0.625         0.166  0.332      0.338  0.136        0.138      0.111      908.550  168.00     161.95  2297.550       951.15   3668.833
+Exploits              4.0    4.0        4.0    4.0          4.0        4.0          0.775  0.775      0.775  0.700        0.750      0.650         0.493  0.565      0.573  0.391        0.419      0.357      161.800   69.00      69.00   413.900       160.10    637.111
+Fuzzers               7.0    7.0        7.0    7.0          7.0        7.0          0.614  0.857      0.857  0.543        0.586      0.543         0.159  0.541      0.549  0.127        0.136      0.128     1109.950   10.80       8.10   525.167       545.00    656.500
+Generic               4.0    4.0        4.0    4.0          4.0        4.0          0.775  1.000      1.000  0.675        0.650      0.550         0.115  0.621      0.629  0.059        0.065      0.051     1599.200   19.00      19.00  1530.444      3399.60   1179.786
+Reconnaissance        5.0    5.0        5.0    5.0          5.0        5.0          0.120  1.000      1.000  0.180        0.080      0.120         0.100  0.998      0.997  0.107        0.099      0.093     3384.750   12.60      12.60  1173.750         0.00     97.333
+Shellcode             4.0    4.0        4.0    4.0          4.0        4.0          0.250  1.000      1.000  0.150        0.150      0.100         0.068  0.508      0.509  0.053        0.053      0.025     1087.667   39.00      39.00  1455.500      1477.50    340.000
+Worms                57.0   57.0       57.0   57.0         57.0       57.0          0.070  0.244      0.244  0.065        0.061      0.023         0.032  0.101      0.102  0.030        0.029      0.011      244.500  415.25     415.60    65.500        43.00    149.000
+  V3-MAX vs V3-SUP [episode_recall] mean diff +0.324, wins 9/10 seeds, p = 0.0020
+  V3-MAX vs V3-SUP [minute_recall] mean diff +0.308, wins 10/10 seeds, p = 0.0010
+  V3-MAX vs TREE [episode_recall] mean diff +0.288, wins 9/10 seeds, p = 0.0020
+  V3-MAX vs TREE [minute_recall] mean diff +0.283, wins 10/10 seeds, p = 0.0010
+  V3-MAX vs V3-MAX-RBF [episode_recall] mean diff -0.000, wins 1/10 seeds, p = 0.6250
+  V3-MAX vs V3-MAX-RBF [minute_recall] mean diff -0.004, wins 1/10 seeds, p = 0.9980
+
+==== known | threshold B at 1.0% flow false alarms | minute rule k = 3
+mean over attack types, mean (sd) over seeds; ttd = time to detect (s); fa = false-alarm minutes
+                flow_recall episode_recall  minute_recall share_detected_60s         median_ttd_s       flow_fpr fa_minute_rate fa_minutes_per_hour
+model                                                                                                                                              
+V3-MAX        0.163 (0.019)  0.457 (0.038)  0.170 (0.023)      0.153 (0.015)   1530.642 (668.250)  0.010 (0.000)  0.037 (0.008)       2.159 (0.466)
+V3-MAX-RBF    0.161 (0.021)  0.457 (0.038)  0.169 (0.023)      0.151 (0.017)   1365.708 (512.427)  0.010 (0.000)  0.037 (0.009)       2.188 (0.512)
+TREE          0.027 (0.050)  0.197 (0.108)  0.030 (0.069)      0.031 (0.079)  3242.944 (3185.822)  0.007 (0.003)  0.009 (0.007)       0.555 (0.438)
+V3-SUP        0.023 (0.051)  0.177 (0.126)  0.028 (0.070)      0.028 (0.079)  2685.083 (2857.767)  0.010 (0.000)  0.027 (0.013)       1.616 (0.763)
+V3-SUP-DENSE  0.023 (0.051)  0.172 (0.112)  0.027 (0.070)      0.025 (0.079)  2257.467 (1282.349)  0.010 (0.000)  0.017 (0.007)       1.001 (0.400)
+V3-SUP-NOA    0.016 (0.033)  0.164 (0.104)  0.021 (0.052)      0.011 (0.036)   1992.792 (887.193)  0.010 (0.000)  0.027 (0.008)       1.580 (0.495)
+-- per type (mean over seeds): episode recall / minute recall / median time to detect (s)
+               n_episodes                                                  episode_recall                                                  minute_recall                                                  median_ttd_s                                                      
+model                TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA           TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA          TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA         TREE   V3-MAX V3-MAX-RBF    V3-SUP V3-SUP-DENSE V3-SUP-NOA
+type                                                                                                                                                                                                                                                                        
+Analysis             15.0   15.0       15.0   15.0         15.0       15.0          0.000  0.000      0.000  0.000        0.000      0.000         0.000  0.000      0.000  0.000        0.000      0.000          NaN      NaN        NaN       NaN          NaN        NaN
+Backdoor             50.0   50.0       50.0   50.0         50.0       50.0          0.008  0.000      0.000  0.008        0.008      0.000         0.001  0.000      0.000  0.001        0.001      0.000       16.000      NaN        NaN    16.000       16.000        NaN
+DoS                   4.0    4.0        4.0    4.0          4.0        4.0          0.350  0.750      0.750  0.325        0.350      0.300         0.009  0.037      0.036  0.008        0.008      0.006     4844.333  2924.40    2428.30  3636.000     4844.333   5312.083
+Exploits              4.0    4.0        4.0    4.0          4.0        4.0          0.650  0.650      0.650  0.550        0.575      0.525         0.100  0.109      0.106  0.090        0.087      0.056     2025.389  2010.05    1516.05  3187.875     1160.188   1051.857
+Fuzzers               7.0    7.0        7.0    7.0          7.0        7.0          0.457  0.586      0.586  0.429        0.414      0.457         0.068  0.247      0.243  0.055        0.054      0.053      691.500   374.95     374.95   958.278     1567.500   1027.250
+Generic               4.0    4.0        4.0    4.0          4.0        4.0          0.175  0.775      0.775  0.075        0.075      0.075         0.003  0.137      0.144  0.001        0.001      0.001     4853.000   588.10     588.10  3772.250     6258.000   6258.000
+Reconnaissance        5.0    5.0        5.0    5.0          5.0        5.0          0.080  0.800      0.800  0.160        0.080      0.120         0.091  0.978      0.969  0.096        0.091      0.075       22.500    29.25      29.75   528.833       22.500    295.167
+Shellcode             4.0    4.0        4.0    4.0          4.0        4.0          0.050  0.550      0.550  0.050        0.050      0.000         0.001  0.021      0.021  0.001        0.001      0.000     2431.000  3257.10    3257.10  2431.000     2431.000        NaN
+Worms                57.0   57.0       57.0   57.0         57.0       57.0          0.000  0.000      0.000  0.000        0.000      0.000         0.000  0.000      0.000  0.000        0.000      0.000          NaN      NaN        NaN       NaN          NaN        NaN
+  V3-MAX vs V3-SUP [episode_recall] mean diff +0.279, wins 10/10 seeds, p = 0.0010
+  V3-MAX vs V3-SUP [minute_recall] mean diff +0.142, wins 10/10 seeds, p = 0.0010
+  V3-MAX vs TREE [episode_recall] mean diff +0.260, wins 10/10 seeds, p = 0.0010
+  V3-MAX vs TREE [minute_recall] mean diff +0.140, wins 10/10 seeds, p = 0.0010
+  V3-MAX vs V3-MAX-RBF [episode_recall] mean diff +0.000, wins 0/10 seeds, p = nan
+  V3-MAX vs V3-MAX-RBF [minute_recall] mean diff +0.001, wins 6/10 seeds, p = 0.1875
+
+==== known | threshold B at 0.1% flow false alarms | minute rule k = 1
+mean over attack types, mean (sd) over seeds; ttd = time to detect (s); fa = false-alarm minutes
+                flow_recall episode_recall  minute_recall share_detected_60s         median_ttd_s       flow_fpr fa_minute_rate fa_minutes_per_hour
+model                                                                                                                                              
+V3-MAX-RBF    0.018 (0.010)  0.466 (0.070)  0.113 (0.058)      0.048 (0.030)   1241.510 (651.334)  0.001 (0.000)  0.038 (0.006)       2.273 (0.339)
+V3-MAX        0.014 (0.009)  0.352 (0.115)  0.093 (0.058)      0.034 (0.030)  1204.832 (1050.954)  0.001 (0.000)  0.036 (0.007)       2.143 (0.399)
+TREE          0.010 (0.011)  0.331 (0.118)  0.079 (0.064)      0.023 (0.042)  1136.103 (1123.581)  0.001 (0.000)  0.037 (0.008)       2.192 (0.494)
+V3-SUP-DENSE  0.008 (0.011)  0.311 (0.133)  0.065 (0.065)      0.018 (0.042)  1835.088 (2227.090)  0.001 (0.000)  0.043 (0.007)       2.516 (0.411)
+V3-SUP        0.008 (0.012)  0.273 (0.181)  0.061 (0.069)      0.021 (0.042)  2615.270 (3549.594)  0.001 (0.000)  0.039 (0.008)       2.297 (0.483)
+V3-SUP-NOA    0.006 (0.006)  0.271 (0.163)  0.053 (0.045)      0.017 (0.030)  1529.315 (2084.631)  0.001 (0.000)  0.040 (0.008)       2.362 (0.447)
+-- per type (mean over seeds): episode recall / minute recall / median time to detect (s)
+               n_episodes                                                  episode_recall                                                  minute_recall                                                  median_ttd_s                                                       
+model                TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA           TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA          TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA         TREE    V3-MAX V3-MAX-RBF    V3-SUP V3-SUP-DENSE V3-SUP-NOA
+type                                                                                                                                                                                                                                                                         
+Analysis             15.0   15.0       15.0   15.0         15.0       15.0          0.007  0.000      0.000  0.007        0.007      0.000         0.001  0.000      0.000  0.001        0.001      0.000         3.00       NaN        NaN     3.000        3.000        NaN
+Backdoor             50.0   50.0       50.0   50.0         50.0       50.0          0.044  0.038      0.038  0.044        0.042      0.028         0.010  0.007      0.007  0.010        0.010      0.005       459.50   502.000    502.000   340.000      417.000    501.500
+DoS                   4.0    4.0        4.0    4.0          4.0        4.0          0.750  0.650      0.775  0.575        0.700      0.575         0.111  0.079      0.093  0.085        0.091      0.079      1055.85  1046.550   1122.600   843.625     1249.250   2860.812
+Exploits              4.0    4.0        4.0    4.0          4.0        4.0          0.725  0.650      0.650  0.550        0.675      0.600         0.375  0.255      0.265  0.287        0.300      0.263       190.75  2328.550    927.750   663.250      782.800    615.500
+Fuzzers               7.0    7.0        7.0    7.0          7.0        7.0          0.571  0.714      0.714  0.514        0.571      0.529         0.098  0.244      0.296  0.076        0.091      0.081      1659.60   461.300    408.700   771.056      677.500    696.000
+Generic               4.0    4.0        4.0    4.0          4.0        4.0          0.700  0.775      0.775  0.525        0.625      0.550         0.044  0.208      0.260  0.021        0.027      0.017      1641.90   769.450    480.500  7580.438     4925.944   1291.357
+Reconnaissance        5.0    5.0        5.0    5.0          5.0        5.0          0.080  0.240      0.760  0.140        0.080      0.080         0.050  0.039      0.063  0.052        0.050      0.030       147.00  1347.667   1415.250   674.000      147.000    270.500
+Shellcode             4.0    4.0        4.0    4.0          4.0        4.0          0.100  0.100      0.475  0.100        0.100      0.075         0.017  0.009      0.029  0.017        0.017      0.003       318.50   356.500   3942.312   318.500      318.500   2571.000
+Worms                57.0   57.0       57.0   57.0         57.0       57.0          0.002  0.002      0.009  0.004        0.002      0.000         0.001  0.001      0.004  0.001        0.001      0.000        46.00    46.000     15.333    46.000       46.000        NaN
+  V3-MAX vs V3-SUP [episode_recall] mean diff +0.079, wins 8/10 seeds, p = 0.0137
+  V3-MAX vs V3-SUP [minute_recall] mean diff +0.032, wins 9/10 seeds, p = 0.0020
+  V3-MAX vs TREE [episode_recall] mean diff +0.021, wins 7/10 seeds, p = 0.1328
+  V3-MAX vs TREE [minute_recall] mean diff +0.015, wins 8/10 seeds, p = 0.0527
+  V3-MAX vs V3-MAX-RBF [episode_recall] mean diff -0.114, wins 0/10 seeds, p = 1.0000
+  V3-MAX vs V3-MAX-RBF [minute_recall] mean diff -0.020, wins 1/10 seeds, p = 0.9980
+
+==== known | threshold B at 0.1% flow false alarms | minute rule k = 3
+mean over attack types, mean (sd) over seeds; ttd = time to detect (s); fa = false-alarm minutes
+                flow_recall episode_recall  minute_recall share_detected_60s         median_ttd_s       flow_fpr fa_minute_rate fa_minutes_per_hour
+model                                                                                                                                              
+V3-MAX-RBF    0.018 (0.010)  0.171 (0.097)  0.014 (0.011)      0.019 (0.015)  3041.182 (1469.914)  0.001 (0.000)  0.001 (0.001)       0.057 (0.044)
+TREE          0.010 (0.011)  0.151 (0.109)  0.010 (0.015)      0.003 (0.010)  4075.229 (5648.210)  0.001 (0.000)  0.000 (0.000)       0.008 (0.017)
+V3-MAX        0.014 (0.009)  0.147 (0.094)  0.010 (0.009)      0.010 (0.015)  2772.845 (2770.727)  0.001 (0.000)  0.001 (0.001)       0.057 (0.039)
+V3-SUP-DENSE  0.008 (0.011)  0.136 (0.100)  0.008 (0.015)      0.003 (0.010)  2492.052 (1193.636)  0.001 (0.000)  0.000 (0.000)       0.020 (0.021)
+V3-SUP        0.008 (0.012)  0.128 (0.111)  0.008 (0.016)      0.003 (0.010)   1767.859 (524.787)  0.001 (0.000)  0.001 (0.001)       0.057 (0.072)
+V3-SUP-NOA    0.006 (0.006)  0.119 (0.089)  0.005 (0.007)      0.002 (0.005)  2386.995 (1716.673)  0.001 (0.000)  0.001 (0.001)       0.049 (0.050)
+-- per type (mean over seeds): episode recall / minute recall / median time to detect (s)
+               n_episodes                                                  episode_recall                                                  minute_recall                                                  median_ttd_s                                                       
+model                TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA           TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA          TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA         TREE    V3-MAX V3-MAX-RBF    V3-SUP V3-SUP-DENSE V3-SUP-NOA
+type                                                                                                                                                                                                                                                                         
+Analysis             15.0   15.0       15.0   15.0         15.0       15.0          0.000  0.000      0.000   0.00        0.000      0.000         0.000  0.000      0.000  0.000        0.000      0.000          NaN       NaN        NaN       NaN          NaN        NaN
+Backdoor             50.0   50.0       50.0   50.0         50.0       50.0          0.000  0.000      0.000   0.00        0.000      0.000         0.000  0.000      0.000  0.000        0.000      0.000          NaN       NaN        NaN       NaN          NaN        NaN
+DoS                   4.0    4.0        4.0    4.0          4.0        4.0          0.300  0.200      0.200   0.25        0.300      0.225         0.005  0.003      0.003  0.004        0.005      0.003     5644.500  5644.500   5644.500  5644.500     5644.750   6888.600
+Exploits              4.0    4.0        4.0    4.0          4.0        4.0          0.475  0.300      0.325   0.40        0.475      0.400         0.038  0.020      0.023  0.031        0.028      0.013     5260.571  2399.100   2385.000   492.500     1332.929    473.167
+Fuzzers               7.0    7.0        7.0    7.0          7.0        7.0          0.457  0.571      0.557   0.40        0.371      0.386         0.029  0.057      0.084  0.023        0.025      0.022      855.625   687.200    596.100   990.125     1651.688   2375.389
+Generic               4.0    4.0        4.0    4.0          4.0        4.0          0.050  0.175      0.400   0.00        0.000      0.000         0.001  0.003      0.008  0.000        0.000      0.000     4052.500  6911.083   5225.812       NaN          NaN        NaN
+Reconnaissance        5.0    5.0        5.0    5.0          5.0        5.0          0.080  0.080      0.060   0.10        0.080      0.060         0.013  0.004      0.005  0.013        0.013      0.007      492.500   538.000    563.000   444.250      492.500    406.000
+Shellcode             4.0    4.0        4.0    4.0          4.0        4.0          0.000  0.000      0.000   0.00        0.000      0.000         0.000  0.000      0.000  0.000        0.000      0.000          NaN       NaN        NaN       NaN          NaN        NaN
+Worms                57.0   57.0       57.0   57.0         57.0       57.0          0.000  0.000      0.000   0.00        0.000      0.000         0.000  0.000      0.000  0.000        0.000      0.000          NaN       NaN        NaN       NaN          NaN        NaN
+  V3-MAX vs V3-SUP [episode_recall] mean diff +0.020, wins 8/10 seeds, p = 0.0762
+  V3-MAX vs V3-SUP [minute_recall] mean diff +0.002, wins 9/10 seeds, p = 0.0420
+  V3-MAX vs TREE [episode_recall] mean diff -0.004, wins 6/10 seeds, p = 0.3086
+  V3-MAX vs TREE [minute_recall] mean diff +0.000, wins 8/10 seeds, p = 0.1875
+  V3-MAX vs V3-MAX-RBF [episode_recall] mean diff -0.024, wins 1/10 seeds, p = 0.9766
+  V3-MAX vs V3-MAX-RBF [minute_recall] mean diff -0.004, wins 1/10 seeds, p = 0.9990
+
+==== loo | threshold B at 1.0% flow false alarms | minute rule k = 1
+mean over attack types, mean (sd) over seeds; ttd = time to detect (s); fa = false-alarm minutes
+                flow_recall episode_recall  minute_recall share_detected_60s         median_ttd_s       flow_fpr fa_minute_rate fa_minutes_per_hour
+model                                                                                                                                              
+V3-MAX        0.388 (0.006)  1.000 (0.000)  0.659 (0.020)      0.650 (0.079)      78.525 (31.397)  0.010 (0.000)  0.284 (0.015)      16.790 (0.874)
+V3-MAX-RBF    0.377 (0.036)  1.000 (0.000)  0.662 (0.022)      0.600 (0.115)      81.700 (27.781)  0.010 (0.000)  0.287 (0.015)      16.980 (0.878)
+TREE          0.021 (0.017)  0.535 (0.151)  0.102 (0.082)      0.135 (0.176)  1621.850 (2243.134)  0.008 (0.001)  0.275 (0.030)      16.241 (1.770)
+V3-SUP        0.018 (0.015)  0.487 (0.236)  0.073 (0.059)      0.082 (0.117)  1181.694 (2251.802)  0.010 (0.000)  0.302 (0.022)      17.849 (1.274)
+V3-SUP-DENSE  0.018 (0.016)  0.485 (0.189)  0.074 (0.058)      0.115 (0.179)  1298.450 (2108.465)  0.010 (0.000)  0.330 (0.010)      19.486 (0.562)
+V3-SUP-NOA    0.018 (0.019)  0.475 (0.227)  0.071 (0.065)      0.095 (0.186)  1072.694 (1054.924)  0.010 (0.000)  0.303 (0.021)      17.904 (1.256)
+-- per type (mean over seeds): episode recall / minute recall / median time to detect (s)
+               n_episodes                                                  episode_recall                                                  minute_recall                                                  median_ttd_s                                                     
+model                TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA           TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA          TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA         TREE  V3-MAX V3-MAX-RBF    V3-SUP V3-SUP-DENSE V3-SUP-NOA
+type                                                                                                                                                                                                                                                                       
+DoS                   4.0    4.0        4.0    4.0          4.0        4.0           0.75    1.0        1.0  0.775         0.75       0.75         0.139  0.320      0.327  0.132        0.135      0.134      478.889  144.45      150.8   469.056      478.889    495.667
+Reconnaissance        5.0    5.0        5.0    5.0          5.0        5.0           0.32    1.0        1.0  0.200         0.22       0.20         0.065  0.998      0.997  0.014        0.013      0.009     4400.167   12.60       12.6  3696.250     4320.250   3145.875
+  V3-MAX vs V3-SUP [episode_recall] mean diff +0.512, wins 10/10 seeds, p = 0.0010
+  V3-MAX vs V3-SUP [minute_recall] mean diff +0.586, wins 10/10 seeds, p = 0.0010
+  V3-MAX vs TREE [episode_recall] mean diff +0.465, wins 10/10 seeds, p = 0.0010
+  V3-MAX vs TREE [minute_recall] mean diff +0.557, wins 10/10 seeds, p = 0.0010
+  V3-MAX vs V3-MAX-RBF [episode_recall] mean diff +0.000, wins 0/10 seeds, p = nan
+  V3-MAX vs V3-MAX-RBF [minute_recall] mean diff -0.003, wins 2/10 seeds, p = 0.9512
+
+==== loo | threshold B at 1.0% flow false alarms | minute rule k = 3
+mean over attack types, mean (sd) over seeds; ttd = time to detect (s); fa = false-alarm minutes
+                flow_recall episode_recall  minute_recall share_detected_60s         median_ttd_s       flow_fpr fa_minute_rate fa_minutes_per_hour
+model                                                                                                                                              
+V3-MAX        0.388 (0.006)  0.775 (0.000)  0.507 (0.003)      0.400 (0.000)   1444.475 (456.592)  0.010 (0.000)  0.035 (0.003)       2.050 (0.176)
+V3-MAX-RBF    0.377 (0.036)  0.775 (0.000)  0.503 (0.011)      0.390 (0.032)   1351.925 (592.246)  0.010 (0.000)  0.035 (0.003)       2.048 (0.194)
+V3-SUP-NOA    0.018 (0.019)  0.253 (0.129)  0.007 (0.011)      0.000 (0.000)  4173.000 (1912.545)  0.010 (0.000)  0.022 (0.004)       1.278 (0.234)
+V3-SUP        0.018 (0.015)  0.242 (0.100)  0.005 (0.005)      0.000 (0.000)  4025.361 (1947.409)  0.010 (0.000)  0.024 (0.006)       1.416 (0.383)
+TREE          0.021 (0.017)  0.237 (0.116)  0.011 (0.019)      0.000 (0.000)  3760.889 (2253.279)  0.008 (0.001)  0.012 (0.004)       0.711 (0.230)
+V3-SUP-DENSE  0.018 (0.016)  0.223 (0.102)  0.005 (0.008)      0.000 (0.000)  4343.889 (1929.855)  0.010 (0.000)  0.017 (0.003)       1.015 (0.170)
+-- per type (mean over seeds): episode recall / minute recall / median time to detect (s)
+               n_episodes                                                  episode_recall                                                  minute_recall                                                  median_ttd_s                                                      
+model                TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA           TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA          TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA         TREE   V3-MAX V3-MAX-RBF    V3-SUP V3-SUP-DENSE V3-SUP-NOA
+type                                                                                                                                                                                                                                                                        
+DoS                   4.0    4.0        4.0    4.0          4.0        4.0          0.375   0.75       0.75  0.425        0.425      0.425         0.010  0.036      0.036  0.009        0.011      0.012     4699.214  2859.70    2674.10  4817.375     4817.375   4807.000
+Reconnaissance        5.0    5.0        5.0    5.0          5.0        5.0          0.100   0.80       0.80  0.060        0.020      0.080         0.012  0.978      0.969  0.002        0.000      0.001      476.750    29.25      29.75   307.000      556.000   2978.333
+  V3-MAX vs V3-SUP [episode_recall] mean diff +0.532, wins 10/10 seeds, p = 0.0010
+  V3-MAX vs V3-SUP [minute_recall] mean diff +0.501, wins 10/10 seeds, p = 0.0010
+  V3-MAX vs TREE [episode_recall] mean diff +0.538, wins 10/10 seeds, p = 0.0010
+  V3-MAX vs TREE [minute_recall] mean diff +0.496, wins 10/10 seeds, p = 0.0010
+  V3-MAX vs V3-MAX-RBF [episode_recall] mean diff +0.000, wins 0/10 seeds, p = nan
+  V3-MAX vs V3-MAX-RBF [minute_recall] mean diff +0.004, wins 6/10 seeds, p = 0.0371
+
+==== loo | threshold B at 0.1% flow false alarms | minute rule k = 1
+mean over attack types, mean (sd) over seeds; ttd = time to detect (s); fa = false-alarm minutes
+                flow_recall episode_recall  minute_recall share_detected_60s          median_ttd_s       flow_fpr fa_minute_rate fa_minutes_per_hour
+model                                                                                                                                               
+V3-MAX-RBF    0.007 (0.003)  0.750 (0.131)  0.043 (0.016)      0.075 (0.053)   2295.475 (2934.212)  0.001 (0.000)  0.039 (0.004)       2.327 (0.222)
+V3-MAX        0.005 (0.004)  0.412 (0.282)  0.028 (0.024)      0.055 (0.106)   1286.000 (1001.141)  0.001 (0.000)  0.037 (0.005)       2.161 (0.275)
+V3-SUP        0.005 (0.004)  0.295 (0.181)  0.023 (0.020)      0.025 (0.053)   2271.125 (3310.610)  0.001 (0.000)  0.040 (0.004)       2.372 (0.239)
+TREE          0.006 (0.005)  0.280 (0.191)  0.029 (0.026)      0.035 (0.057)   2811.562 (5298.636)  0.001 (0.000)  0.034 (0.008)       2.024 (0.456)
+V3-SUP-DENSE  0.005 (0.004)  0.280 (0.191)  0.024 (0.020)      0.035 (0.057)   1569.250 (2066.444)  0.001 (0.000)  0.040 (0.001)       2.392 (0.088)
+V3-SUP-NOA    0.005 (0.006)  0.273 (0.196)  0.022 (0.025)      0.025 (0.053)  5276.625 (10287.907)  0.001 (0.000)  0.041 (0.004)       2.404 (0.253)
+-- per type (mean over seeds): episode recall / minute recall / median time to detect (s)
+               n_episodes                                                  episode_recall                                                  minute_recall                                                  median_ttd_s                                                   
+model                TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA           TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA          TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA         TREE  V3-MAX V3-MAX-RBF  V3-SUP V3-SUP-DENSE V3-SUP-NOA
+type                                                                                                                                                                                                                                                                     
+DoS                   4.0    4.0        4.0    4.0          4.0        4.0           0.50  0.625        0.8   0.55         0.50      0.525         0.056  0.047      0.061  0.045        0.047      0.045      498.833   956.4    1186.30  1464.0      490.333     5420.0
+Reconnaissance        5.0    5.0        5.0    5.0          5.0        5.0           0.06  0.200        0.7   0.04         0.06      0.020         0.002  0.010      0.025  0.000        0.002      0.000     9749.750  3028.0    3404.65  7921.0     4806.000     4273.0
+  V3-MAX vs V3-SUP [episode_recall] mean diff +0.118, wins 5/10 seeds, p = 0.0312
+  V3-MAX vs V3-SUP [minute_recall] mean diff +0.005, wins 7/10 seeds, p = 0.1328
+  V3-MAX vs TREE [episode_recall] mean diff +0.133, wins 5/10 seeds, p = 0.0312
+  V3-MAX vs TREE [minute_recall] mean diff -0.001, wins 5/10 seeds, p = 0.5391
+  V3-MAX vs V3-MAX-RBF [episode_recall] mean diff -0.338, wins 1/10 seeds, p = 0.9980
+  V3-MAX vs V3-MAX-RBF [minute_recall] mean diff -0.015, wins 1/10 seeds, p = 0.9971
+
+==== loo | threshold B at 0.1% flow false alarms | minute rule k = 3
+mean over attack types, mean (sd) over seeds; ttd = time to detect (s); fa = false-alarm minutes
+                flow_recall episode_recall  minute_recall share_detected_60s        median_ttd_s       flow_fpr fa_minute_rate fa_minutes_per_hour
+model                                                                                                                                             
+V3-MAX        0.005 (0.004)  0.080 (0.183)  0.001 (0.002)      0.000 (0.000)  4063.250 (347.543)  0.001 (0.000)  0.001 (0.001)       0.045 (0.031)
+V3-SUP-DENSE  0.005 (0.004)  0.075 (0.121)  0.001 (0.002)      0.000 (0.000)  4755.167 (772.783)  0.001 (0.000)  0.000 (0.000)       0.016 (0.016)
+V3-SUP-NOA    0.005 (0.006)  0.075 (0.121)  0.001 (0.002)      0.000 (0.000)  4754.167 (771.051)  0.001 (0.000)  0.001 (0.000)       0.034 (0.021)
+TREE          0.006 (0.005)  0.050 (0.105)  0.001 (0.001)      0.000 (0.000)    4309.000 (0.000)  0.001 (0.000)  0.000 (0.000)       0.008 (0.014)
+V3-MAX-RBF    0.007 (0.003)  0.050 (0.105)  0.001 (0.001)      0.000 (0.000)    4309.000 (0.000)  0.001 (0.000)  0.001 (0.000)       0.061 (0.027)
+V3-SUP        0.005 (0.004)  0.050 (0.105)  0.001 (0.001)      0.000 (0.000)    4309.000 (0.000)  0.001 (0.000)  0.001 (0.000)       0.034 (0.021)
+-- per type (mean over seeds): episode recall / minute recall / median time to detect (s)
+               n_episodes                                                  episode_recall                                                  minute_recall                                                  median_ttd_s                                                   
+model                TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA           TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA          TREE V3-MAX V3-MAX-RBF V3-SUP V3-SUP-DENSE V3-SUP-NOA         TREE  V3-MAX V3-MAX-RBF  V3-SUP V3-SUP-DENSE V3-SUP-NOA
+type                                                                                                                                                                                                                                                                     
+DoS                   4.0    4.0        4.0    4.0          4.0        4.0            0.1   0.10        0.1    0.1         0.15       0.15         0.001  0.001      0.001  0.001        0.002      0.002       4309.0  4309.0     4309.0  4309.0     4755.167   4754.167
+Reconnaissance        5.0    5.0        5.0    5.0          5.0        5.0            0.0   0.06        0.0    0.0         0.00       0.00         0.000  0.000      0.000  0.000        0.000      0.000          NaN  3326.0        NaN     NaN          NaN        NaN
+  V3-MAX vs V3-SUP [episode_recall] mean diff +0.030, wins 1/10 seeds, p = nan
+  V3-MAX vs V3-SUP [minute_recall] mean diff +0.000, wins 1/10 seeds, p = nan
+  V3-MAX vs TREE [episode_recall] mean diff +0.030, wins 1/10 seeds, p = nan
+  V3-MAX vs TREE [minute_recall] mean diff +0.000, wins 1/10 seeds, p = nan
+  V3-MAX vs V3-MAX-RBF [episode_recall] mean diff +0.030, wins 1/10 seeds, p = nan
+  V3-MAX vs V3-MAX-RBF [minute_recall] mean diff +0.000, wins 1/10 seeds, p = nan
+

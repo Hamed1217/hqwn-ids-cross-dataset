@@ -1,0 +1,10 @@
+lab,attack row sharing a vector with another attack type only,attack row sharing a vector with benign,benign row,All
+Benign,0,0,558,558
+DoS,110,18,0,128
+Exploits,43,4,0,47
+Fuzzers,242,1930,0,2172
+Generic,123,15,0,138
+Reconnaissance,75,3832,0,3907
+Shellcode,216,32,0,248
+Worms,6,0,0,6
+All,815,5831,558,7204

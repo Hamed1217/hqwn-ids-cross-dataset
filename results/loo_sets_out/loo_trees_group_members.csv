@@ -1,0 +1,501 @@
+group,member,feature_set,model,seed,rec1
+BruteForce,FTP-Patator,flow,HistGB,0,0.0025290844714213456
+BruteForce,SSH-Patator,flow,HistGB,0,0.013979496738117428
+BruteForce,FTP-Patator,flow,XGBoost,0,0.02815714044849098
+BruteForce,SSH-Patator,flow,XGBoost,0,0.011494252873563218
+BruteForce,FTP-Patator,flow+win,HistGB,0,1.0
+BruteForce,SSH-Patator,flow+win,HistGB,0,1.0
+BruteForce,FTP-Patator,flow+win,XGBoost,0,0.9998313943685719
+BruteForce,SSH-Patator,flow+win,XGBoost,0,1.0
+BruteForce,FTP-Patator,flow+src,HistGB,0,1.0
+BruteForce,SSH-Patator,flow+src,HistGB,0,1.0
+BruteForce,FTP-Patator,flow+src,XGBoost,0,1.0
+BruteForce,SSH-Patator,flow+src,XGBoost,0,1.0
+BruteForce,FTP-Patator,flow+dst,HistGB,0,0.7251728207722138
+BruteForce,SSH-Patator,flow+dst,HistGB,0,0.29419074246660454
+BruteForce,FTP-Patator,flow+dst,XGBoost,0,0.8431967627718766
+BruteForce,SSH-Patator,flow+dst,XGBoost,0,0.30040385212799003
+BruteForce,FTP-Patator,flow+pair,HistGB,0,0.9929185634800203
+BruteForce,SSH-Patator,flow+pair,HistGB,0,0.07983845914880397
+BruteForce,FTP-Patator,flow+pair,XGBoost,0,0.9944360141628731
+BruteForce,SSH-Patator,flow+pair,XGBoost,0,0.10500155327741535
+BruteForce,FTP-Patator,flow,HistGB,1,0.010284943517113471
+BruteForce,SSH-Patator,flow,HistGB,1,0.009630319975147562
+BruteForce,FTP-Patator,flow,XGBoost,1,0.0065756196256954984
+BruteForce,SSH-Patator,flow,XGBoost,1,0.14290152221186703
+BruteForce,FTP-Patator,flow+win,HistGB,1,1.0
+BruteForce,SSH-Patator,flow+win,HistGB,1,1.0
+BruteForce,FTP-Patator,flow+win,XGBoost,1,0.9998313943685719
+BruteForce,SSH-Patator,flow+win,XGBoost,1,1.0
+BruteForce,FTP-Patator,flow+src,HistGB,1,1.0
+BruteForce,SSH-Patator,flow+src,HistGB,1,1.0
+BruteForce,FTP-Patator,flow+src,XGBoost,1,1.0
+BruteForce,SSH-Patator,flow+src,XGBoost,1,1.0
+BruteForce,FTP-Patator,flow+dst,HistGB,1,0.9332321699544764
+BruteForce,SSH-Patator,flow+dst,HistGB,1,0.9223361292326809
+BruteForce,FTP-Patator,flow+dst,XGBoost,1,0.9731917046029337
+BruteForce,SSH-Patator,flow+dst,XGBoost,1,0.9714196955576266
+BruteForce,FTP-Patator,flow+pair,HistGB,1,0.9996627887371439
+BruteForce,SSH-Patator,flow+pair,HistGB,1,0.9888164026095061
+BruteForce,FTP-Patator,flow+pair,XGBoost,1,0.9976395211600068
+BruteForce,SSH-Patator,flow+pair,XGBoost,1,0.9993786890338614
+BruteForce,FTP-Patator,flow,HistGB,2,0.005901197099983139
+BruteForce,SSH-Patator,flow,HistGB,2,0.023299161230195712
+BruteForce,FTP-Patator,flow,XGBoost,2,0.12375653346821784
+BruteForce,SSH-Patator,flow,XGBoost,2,0.017707362534948742
+BruteForce,FTP-Patator,flow+win,HistGB,2,1.0
+BruteForce,SSH-Patator,flow+win,HistGB,2,1.0
+BruteForce,FTP-Patator,flow+win,XGBoost,2,1.0
+BruteForce,SSH-Patator,flow+win,XGBoost,2,1.0
+BruteForce,FTP-Patator,flow+src,HistGB,2,1.0
+BruteForce,SSH-Patator,flow+src,HistGB,2,1.0
+BruteForce,FTP-Patator,flow+src,XGBoost,2,1.0
+BruteForce,SSH-Patator,flow+src,XGBoost,2,1.0
+BruteForce,FTP-Patator,flow+dst,HistGB,2,0.8668015511718091
+BruteForce,SSH-Patator,flow+dst,HistGB,2,0.39080459770114945
+BruteForce,FTP-Patator,flow+dst,XGBoost,2,0.8494351711347159
+BruteForce,SSH-Patator,flow+dst,XGBoost,2,0.2851817334575955
+BruteForce,FTP-Patator,flow+pair,HistGB,2,0.9914011127971675
+BruteForce,SSH-Patator,flow+pair,HistGB,2,0.9835352593973283
+BruteForce,FTP-Patator,flow+pair,XGBoost,2,0.9930871691114483
+BruteForce,SSH-Patator,flow+pair,XGBoost,2,0.9838459148803976
+BruteForce,FTP-Patator,flow,HistGB,3,0.0028662957342775247
+BruteForce,SSH-Patator,flow,HistGB,3,0.006834420627524076
+BruteForce,FTP-Patator,flow,XGBoost,3,0.013151239251390997
+BruteForce,SSH-Patator,flow,XGBoost,3,0.010872941907424665
+BruteForce,FTP-Patator,flow+win,HistGB,3,1.0
+BruteForce,SSH-Patator,flow+win,HistGB,3,1.0
+BruteForce,FTP-Patator,flow+win,XGBoost,3,1.0
+BruteForce,SSH-Patator,flow+win,XGBoost,3,1.0
+BruteForce,FTP-Patator,flow+src,HistGB,3,1.0
+BruteForce,SSH-Patator,flow+src,HistGB,3,0.9972041006523765
+BruteForce,FTP-Patator,flow+src,XGBoost,3,1.0
+BruteForce,SSH-Patator,flow+src,XGBoost,3,1.0
+BruteForce,FTP-Patator,flow+dst,HistGB,3,0.79699881976058
+BruteForce,SSH-Patator,flow+dst,HistGB,3,0.4461012736874806
+BruteForce,FTP-Patator,flow+dst,XGBoost,3,0.8563480020232676
+BruteForce,SSH-Patator,flow+dst,XGBoost,3,0.27275551413482446
+BruteForce,FTP-Patator,flow+pair,HistGB,3,0.9952790423200135
+BruteForce,SSH-Patator,flow+pair,HistGB,3,0.8440509474992234
+BruteForce,FTP-Patator,flow+pair,XGBoost,3,0.9720114651829371
+BruteForce,SSH-Patator,flow+pair,XGBoost,3,0.8337993165579373
+BruteForce,FTP-Patator,flow,HistGB,4,0.007418647782835947
+BruteForce,SSH-Patator,flow,HistGB,4,0.013979496738117428
+BruteForce,FTP-Patator,flow,XGBoost,4,0.001686056314280897
+BruteForce,SSH-Patator,flow,XGBoost,4,0.01056228642435539
+BruteForce,FTP-Patator,flow+win,HistGB,4,1.0
+BruteForce,SSH-Patator,flow+win,HistGB,4,1.0
+BruteForce,FTP-Patator,flow+win,XGBoost,4,1.0
+BruteForce,SSH-Patator,flow+win,XGBoost,4,1.0
+BruteForce,FTP-Patator,flow+src,HistGB,4,1.0
+BruteForce,SSH-Patator,flow+src,HistGB,4,1.0
+BruteForce,FTP-Patator,flow+src,XGBoost,4,1.0
+BruteForce,SSH-Patator,flow+src,XGBoost,4,1.0
+BruteForce,FTP-Patator,flow+dst,HistGB,4,0.8895633114146012
+BruteForce,SSH-Patator,flow+dst,HistGB,4,0.6067101584342963
+BruteForce,FTP-Patator,flow+dst,XGBoost,4,0.8605631428089698
+BruteForce,SSH-Patator,flow+dst,XGBoost,4,0.3547685616651134
+BruteForce,FTP-Patator,flow+pair,HistGB,4,0.9964592817400101
+BruteForce,SSH-Patator,flow+pair,HistGB,4,0.9779434607020814
+BruteForce,FTP-Patator,flow+pair,XGBoost,4,0.7179227786208059
+BruteForce,SSH-Patator,flow+pair,XGBoost,4,0.8794656725691209
+DoS,DDoS,flow,HistGB,0,0.0445
+DoS,DoS GoldenEye,flow,HistGB,0,0.1427182578261715
+DoS,DoS Hulk,flow,HistGB,0,0.28905
+DoS,DoS Slowhttptest,flow,HistGB,0,0.15933435348125477
+DoS,DoS slowloris,flow,HistGB,0,0.32156789894111093
+DoS,DDoS,flow,XGBoost,0,0.1422
+DoS,DoS GoldenEye,flow,XGBoost,0,0.07359517791172468
+DoS,DoS Hulk,flow,XGBoost,0,0.04015
+DoS,DoS Slowhttptest,flow,XGBoost,0,0.2570772762050497
+DoS,DoS slowloris,flow,XGBoost,0,0.3325283299275497
+DoS,DDoS,flow+win,HistGB,0,0.98875
+DoS,DoS GoldenEye,flow+win,HistGB,0,1.0
+DoS,DoS Hulk,flow+win,HistGB,0,1.0
+DoS,DoS Slowhttptest,flow+win,HistGB,0,1.0
+DoS,DoS slowloris,flow+win,HistGB,0,0.9212335129110162
+DoS,DDoS,flow+win,XGBoost,0,0.9997
+DoS,DoS GoldenEye,flow+win,XGBoost,0,1.0
+DoS,DoS Hulk,flow+win,XGBoost,0,1.0
+DoS,DoS Slowhttptest,flow+win,XGBoost,0,1.0
+DoS,DoS slowloris,flow+win,XGBoost,0,1.0
+DoS,DDoS,flow+src,HistGB,0,0.9918
+DoS,DoS GoldenEye,flow+src,HistGB,0,1.0
+DoS,DoS Hulk,flow+src,HistGB,0,1.0
+DoS,DoS Slowhttptest,flow+src,HistGB,0,0.8781560826319816
+DoS,DoS slowloris,flow+src,HistGB,0,0.8772060189485417
+DoS,DDoS,flow+src,XGBoost,0,0.9997
+DoS,DoS GoldenEye,flow+src,XGBoost,0,1.0
+DoS,DoS Hulk,flow+src,XGBoost,0,0.95375
+DoS,DoS Slowhttptest,flow+src,XGBoost,0,1.0
+DoS,DoS slowloris,flow+src,XGBoost,0,1.0
+DoS,DDoS,flow+dst,HistGB,0,0.39215
+DoS,DoS GoldenEye,flow+dst,HistGB,0,0.32967139801672174
+DoS,DoS Hulk,flow+dst,HistGB,0,0.0994
+DoS,DoS Slowhttptest,flow+dst,HistGB,0,0.7641545524100994
+DoS,DoS slowloris,flow+dst,HistGB,0,0.4434330299089727
+DoS,DDoS,flow+dst,XGBoost,0,0.6608
+DoS,DoS GoldenEye,flow+dst,XGBoost,0,0.997861170523041
+DoS,DoS Hulk,flow+dst,XGBoost,0,0.2536
+DoS,DoS Slowhttptest,flow+dst,XGBoost,0,0.8882938026013772
+DoS,DoS slowloris,flow+dst,XGBoost,0,0.9756641278097715
+DoS,DDoS,flow+pair,HistGB,0,0.9887
+DoS,DoS GoldenEye,flow+pair,HistGB,0,0.39490569706397044
+DoS,DoS Hulk,flow+pair,HistGB,0,0.99865
+DoS,DoS Slowhttptest,flow+pair,HistGB,0,0.3228768171384851
+DoS,DoS slowloris,flow+pair,HistGB,0,0.43395875905628833
+DoS,DDoS,flow+pair,XGBoost,0,0.6445
+DoS,DoS GoldenEye,flow+pair,XGBoost,0,0.8279214466264826
+DoS,DoS Hulk,flow+pair,XGBoost,0,0.2086
+DoS,DoS Slowhttptest,flow+pair,XGBoost,0,0.9072302983932671
+DoS,DoS slowloris,flow+pair,XGBoost,0,0.9771502879435259
+DoS,DDoS,flow,HistGB,1,0.4592
+DoS,DoS GoldenEye,flow,HistGB,1,0.03402683258798367
+DoS,DoS Hulk,flow,HistGB,1,0.0186
+DoS,DoS Slowhttptest,flow,HistGB,1,0.023335883703136953
+DoS,DoS slowloris,flow,HistGB,1,0.006316180568456251
+DoS,DDoS,flow,XGBoost,1,0.12105
+DoS,DoS GoldenEye,flow,XGBoost,1,0.06153995722341046
+DoS,DoS Hulk,flow,XGBoost,1,0.04095
+DoS,DoS Slowhttptest,flow,XGBoost,1,0.23488905891354248
+DoS,DoS slowloris,flow,XGBoost,1,0.6078394947055545
+DoS,DDoS,flow+win,HistGB,1,0.9889
+DoS,DoS GoldenEye,flow+win,HistGB,1,1.0
+DoS,DoS Hulk,flow+win,HistGB,1,1.0
+DoS,DoS Slowhttptest,flow+win,HistGB,1,1.0
+DoS,DoS slowloris,flow+win,HistGB,1,0.8420954857885937
+DoS,DDoS,flow+win,XGBoost,1,0.99335
+DoS,DoS GoldenEye,flow+win,XGBoost,1,1.0
+DoS,DoS Hulk,flow+win,XGBoost,1,1.0
+DoS,DoS Slowhttptest,flow+win,XGBoost,1,1.0
+DoS,DoS slowloris,flow+win,XGBoost,1,0.9998142299832807
+DoS,DDoS,flow+src,HistGB,1,0.9887
+DoS,DoS GoldenEye,flow+src,HistGB,1,1.0
+DoS,DoS Hulk,flow+src,HistGB,1,1.0
+DoS,DoS Slowhttptest,flow+src,HistGB,1,1.0
+DoS,DoS slowloris,flow+src,HistGB,1,0.8318781348690322
+DoS,DDoS,flow+src,XGBoost,1,0.9903
+DoS,DoS GoldenEye,flow+src,XGBoost,1,1.0
+DoS,DoS Hulk,flow+src,XGBoost,1,1.0
+DoS,DoS Slowhttptest,flow+src,XGBoost,1,1.0
+DoS,DoS slowloris,flow+src,XGBoost,1,0.9988853798996842
+DoS,DDoS,flow+dst,HistGB,1,0.45365
+DoS,DoS GoldenEye,flow+dst,HistGB,1,0.37244798755590125
+DoS,DoS Hulk,flow+dst,HistGB,1,0.4463
+DoS,DoS Slowhttptest,flow+dst,HistGB,1,0.6090283091048202
+DoS,DoS slowloris,flow+dst,HistGB,1,0.3880735649266208
+DoS,DDoS,flow+dst,XGBoost,1,0.4483
+DoS,DoS GoldenEye,flow+dst,XGBoost,1,0.9990278047832004
+DoS,DoS Hulk,flow+dst,XGBoost,1,0.21685
+DoS,DoS Slowhttptest,flow+dst,XGBoost,1,0.9410864575363428
+DoS,DoS slowloris,flow+dst,XGBoost,1,0.9752925877763329
+DoS,DDoS,flow+pair,HistGB,1,0.4684
+DoS,DoS GoldenEye,flow+pair,HistGB,1,0.6130663037137857
+DoS,DoS Hulk,flow+pair,HistGB,1,0.4555
+DoS,DoS Slowhttptest,flow+pair,HistGB,1,0.11667941851568478
+DoS,DoS slowloris,flow+pair,HistGB,1,0.348133011331971
+DoS,DDoS,flow+pair,XGBoost,1,0.2203
+DoS,DoS GoldenEye,flow+pair,XGBoost,1,0.9953334629593622
+DoS,DoS Hulk,flow+pair,XGBoost,1,0.3924
+DoS,DoS Slowhttptest,flow+pair,XGBoost,1,0.9764728385615914
+DoS,DoS slowloris,flow+pair,XGBoost,1,0.9983280698495263
+DoS,DDoS,flow,HistGB,2,0.4258
+DoS,DoS GoldenEye,flow,HistGB,2,0.08496986194827921
+DoS,DoS Hulk,flow,HistGB,2,0.07225
+DoS,DoS Slowhttptest,flow,HistGB,2,0.22169089517980106
+DoS,DoS slowloris,flow,HistGB,2,0.3078209177038826
+DoS,DDoS,flow,XGBoost,2,0.3975
+DoS,DoS GoldenEye,flow,XGBoost,2,0.09158078942251605
+DoS,DoS Hulk,flow,XGBoost,2,0.04015
+DoS,DoS Slowhttptest,flow,XGBoost,2,0.2446442234123948
+DoS,DoS slowloris,flow,XGBoost,2,0.4322868289058146
+DoS,DDoS,flow+win,HistGB,2,0.99335
+DoS,DoS GoldenEye,flow+win,HistGB,2,1.0
+DoS,DoS Hulk,flow+win,HistGB,2,1.0
+DoS,DoS Slowhttptest,flow+win,HistGB,2,1.0
+DoS,DoS slowloris,flow+win,HistGB,2,0.9998142299832807
+DoS,DDoS,flow+win,XGBoost,2,0.99425
+DoS,DoS GoldenEye,flow+win,XGBoost,2,1.0
+DoS,DoS Hulk,flow+win,XGBoost,2,1.0
+DoS,DoS Slowhttptest,flow+win,XGBoost,2,1.0
+DoS,DoS slowloris,flow+win,XGBoost,2,1.0
+DoS,DDoS,flow+src,HistGB,2,0.98885
+DoS,DoS GoldenEye,flow+src,HistGB,2,1.0
+DoS,DoS Hulk,flow+src,HistGB,2,1.0
+DoS,DoS Slowhttptest,flow+src,HistGB,2,1.0
+DoS,DoS slowloris,flow+src,HistGB,2,0.9998142299832807
+DoS,DDoS,flow+src,XGBoost,2,0.99415
+DoS,DoS GoldenEye,flow+src,XGBoost,2,1.0
+DoS,DoS Hulk,flow+src,XGBoost,2,1.0
+DoS,DoS Slowhttptest,flow+src,XGBoost,2,1.0
+DoS,DoS slowloris,flow+src,XGBoost,2,0.9998142299832807
+DoS,DDoS,flow+dst,HistGB,2,0.9925
+DoS,DoS GoldenEye,flow+dst,HistGB,2,0.8249076414544041
+DoS,DoS Hulk,flow+dst,HistGB,2,0.99925
+DoS,DoS Slowhttptest,flow+dst,HistGB,2,0.9324789594491201
+DoS,DoS slowloris,flow+dst,HistGB,2,0.9331227939810515
+DoS,DDoS,flow+dst,XGBoost,2,0.66785
+DoS,DoS GoldenEye,flow+dst,XGBoost,2,0.9954306824810422
+DoS,DoS Hulk,flow+dst,XGBoost,2,0.38555
+DoS,DoS Slowhttptest,flow+dst,XGBoost,2,0.930566182096404
+DoS,DoS slowloris,flow+dst,XGBoost,2,0.9758498978264908
+DoS,DDoS,flow+pair,HistGB,2,0.99005
+DoS,DoS GoldenEye,flow+pair,HistGB,2,0.8142134940696092
+DoS,DoS Hulk,flow+pair,HistGB,2,0.99925
+DoS,DoS Slowhttptest,flow+pair,HistGB,2,0.918133129303749
+DoS,DoS slowloris,flow+pair,HistGB,2,0.979007988110719
+DoS,DDoS,flow+pair,XGBoost,2,0.70275
+DoS,DoS GoldenEye,flow+pair,XGBoost,2,0.7143690453042971
+DoS,DoS Hulk,flow+pair,XGBoost,2,0.2849
+DoS,DoS Slowhttptest,flow+pair,XGBoost,2,0.8651491966335119
+DoS,DoS slowloris,flow+pair,XGBoost,2,0.9732491175924206
+DoS,DDoS,flow,HistGB,3,0.3551
+DoS,DoS GoldenEye,flow,HistGB,3,0.2971028582539374
+DoS,DoS Hulk,flow,HistGB,3,0.2809
+DoS,DoS Slowhttptest,flow,HistGB,3,0.7385233358837031
+DoS,DoS slowloris,flow,HistGB,3,0.7480958573286272
+DoS,DDoS,flow,XGBoost,3,0.0002
+DoS,DoS GoldenEye,flow,XGBoost,3,0.0335407349795839
+DoS,DoS Hulk,flow,XGBoost,3,0.01755
+DoS,DoS Slowhttptest,flow,XGBoost,3,0.2605202754399388
+DoS,DoS slowloris,flow,XGBoost,3,0.5025078952257106
+DoS,DDoS,flow+win,HistGB,3,0.9887
+DoS,DoS GoldenEye,flow+win,HistGB,3,0.9945557067859226
+DoS,DoS Hulk,flow+win,HistGB,3,1.0
+DoS,DoS Slowhttptest,flow+win,HistGB,3,1.0
+DoS,DoS slowloris,flow+win,HistGB,3,0.9193758127438232
+DoS,DDoS,flow+win,XGBoost,3,0.99335
+DoS,DoS GoldenEye,flow+win,XGBoost,3,1.0
+DoS,DoS Hulk,flow+win,XGBoost,3,1.0
+DoS,DoS Slowhttptest,flow+win,XGBoost,3,1.0
+DoS,DoS slowloris,flow+win,XGBoost,3,0.9998142299832807
+DoS,DDoS,flow+src,HistGB,3,0.9887
+DoS,DoS GoldenEye,flow+src,HistGB,3,0.7383822671592456
+DoS,DoS Hulk,flow+src,HistGB,3,1.0
+DoS,DoS Slowhttptest,flow+src,HistGB,3,0.9332440703902066
+DoS,DoS slowloris,flow+src,HistGB,3,0.8448820360393833
+DoS,DDoS,flow+src,XGBoost,3,0.99335
+DoS,DoS GoldenEye,flow+src,XGBoost,3,1.0
+DoS,DoS Hulk,flow+src,XGBoost,3,0.9958
+DoS,DoS Slowhttptest,flow+src,XGBoost,3,1.0
+DoS,DoS slowloris,flow+src,XGBoost,3,1.0
+DoS,DDoS,flow+dst,HistGB,3,0.9936
+DoS,DoS GoldenEye,flow+dst,HistGB,3,0.7940890530818588
+DoS,DoS Hulk,flow+dst,HistGB,3,0.9544
+DoS,DoS Slowhttptest,flow+dst,HistGB,3,0.8314843152257078
+DoS,DoS slowloris,flow+dst,HistGB,3,0.7921233512911016
+DoS,DDoS,flow+dst,XGBoost,3,0.18645
+DoS,DoS GoldenEye,flow+dst,XGBoost,3,0.9725840948862532
+DoS,DoS Hulk,flow+dst,XGBoost,3,0.1241
+DoS,DoS Slowhttptest,flow+dst,XGBoost,3,0.9179418515684774
+DoS,DoS slowloris,flow+dst,XGBoost,3,0.9866245587962102
+DoS,DDoS,flow+pair,HistGB,3,0.56545
+DoS,DoS GoldenEye,flow+pair,HistGB,3,0.4022943807116469
+DoS,DoS Hulk,flow+pair,HistGB,3,0.0729
+DoS,DoS Slowhttptest,flow+pair,HistGB,3,0.6746365723029839
+DoS,DoS slowloris,flow+pair,HistGB,3,0.9362808842652796
+DoS,DDoS,flow+pair,XGBoost,3,0.00635
+DoS,DoS GoldenEye,flow+pair,XGBoost,3,0.9132801866614816
+DoS,DoS Hulk,flow+pair,XGBoost,3,0.13045
+DoS,DoS Slowhttptest,flow+pair,XGBoost,3,0.9120122417750574
+DoS,DoS slowloris,flow+pair,XGBoost,3,0.9853241686791752
+DoS,DDoS,flow,HistGB,4,0.60655
+DoS,DoS GoldenEye,flow,HistGB,4,0.5313046859809449
+DoS,DoS Hulk,flow,HistGB,4,0.65795
+DoS,DoS Slowhttptest,flow,HistGB,4,0.0663733741392502
+DoS,DoS slowloris,flow,HistGB,4,0.28014118521270664
+DoS,DDoS,flow,XGBoost,4,0.3565
+DoS,DoS GoldenEye,flow,XGBoost,4,0.10227493680731091
+DoS,DoS Hulk,flow,XGBoost,4,0.04325
+DoS,DoS Slowhttptest,flow,XGBoost,4,0.07345065034429993
+DoS,DoS slowloris,flow,XGBoost,4,0.2940739364666543
+DoS,DDoS,flow+win,HistGB,4,0.98885
+DoS,DoS GoldenEye,flow+win,HistGB,4,1.0
+DoS,DoS Hulk,flow+win,HistGB,4,1.0
+DoS,DoS Slowhttptest,flow+win,HistGB,4,1.0
+DoS,DoS slowloris,flow+win,HistGB,4,1.0
+DoS,DDoS,flow+win,XGBoost,4,0.99335
+DoS,DoS GoldenEye,flow+win,XGBoost,4,1.0
+DoS,DoS Hulk,flow+win,XGBoost,4,1.0
+DoS,DoS Slowhttptest,flow+win,XGBoost,4,1.0
+DoS,DoS slowloris,flow+win,XGBoost,4,1.0
+DoS,DDoS,flow+src,HistGB,4,0.98955
+DoS,DoS GoldenEye,flow+src,HistGB,4,0.9929029749173635
+DoS,DoS Hulk,flow+src,HistGB,4,1.0
+DoS,DoS Slowhttptest,flow+src,HistGB,4,1.0
+DoS,DoS slowloris,flow+src,HistGB,4,0.8610440274939625
+DoS,DDoS,flow+src,XGBoost,4,0.99125
+DoS,DoS GoldenEye,flow+src,XGBoost,4,1.0
+DoS,DoS Hulk,flow+src,XGBoost,4,0.9992
+DoS,DoS Slowhttptest,flow+src,XGBoost,4,1.0
+DoS,DoS slowloris,flow+src,XGBoost,4,1.0
+DoS,DDoS,flow+dst,HistGB,4,0.99915
+DoS,DoS GoldenEye,flow+dst,HistGB,4,0.9642232160217772
+DoS,DoS Hulk,flow+dst,HistGB,4,0.7677
+DoS,DoS Slowhttptest,flow+dst,HistGB,4,0.986610558530987
+DoS,DoS slowloris,flow+dst,HistGB,4,0.9167750325097529
+DoS,DDoS,flow+dst,XGBoost,4,0.77915
+DoS,DoS GoldenEye,flow+dst,XGBoost,4,0.9910558040054442
+DoS,DoS Hulk,flow+dst,XGBoost,4,0.5688
+DoS,DoS Slowhttptest,flow+dst,XGBoost,4,0.9948355011476664
+DoS,DoS slowloris,flow+dst,XGBoost,4,0.996284599665614
+DoS,DDoS,flow+pair,HistGB,4,0.433
+DoS,DoS GoldenEye,flow+pair,HistGB,4,0.36039276686758703
+DoS,DoS Hulk,flow+pair,HistGB,4,0.17365
+DoS,DoS Slowhttptest,flow+pair,HistGB,4,0.8033664881407804
+DoS,DoS slowloris,flow+pair,HistGB,4,0.36485231283670816
+DoS,DDoS,flow+pair,XGBoost,4,0.1801
+DoS,DoS GoldenEye,flow+pair,XGBoost,4,0.9983472681314408
+DoS,DoS Hulk,flow+pair,XGBoost,4,0.58075
+DoS,DoS Slowhttptest,flow+pair,XGBoost,4,0.9332440703902066
+DoS,DoS slowloris,flow+pair,XGBoost,4,0.9990711499164034
+Web,Web Attack - Brute Force,flow,HistGB,0,0.42653061224489797
+Web,Web Attack - Sql Injection,flow,HistGB,0,0.5238095238095238
+Web,Web Attack - XSS,flow,HistGB,0,0.3205521472392638
+Web,Web Attack - Brute Force,flow,XGBoost,0,0.9034013605442177
+Web,Web Attack - Sql Injection,flow,XGBoost,0,0.8571428571428571
+Web,Web Attack - XSS,flow,XGBoost,0,0.906441717791411
+Web,Web Attack - Brute Force,flow+win,HistGB,0,0.9993197278911564
+Web,Web Attack - Sql Injection,flow+win,HistGB,0,1.0
+Web,Web Attack - XSS,flow+win,HistGB,0,1.0
+Web,Web Attack - Brute Force,flow+win,XGBoost,0,0.9993197278911564
+Web,Web Attack - Sql Injection,flow+win,XGBoost,0,1.0
+Web,Web Attack - XSS,flow+win,XGBoost,0,1.0
+Web,Web Attack - Brute Force,flow+src,HistGB,0,0.998639455782313
+Web,Web Attack - Sql Injection,flow+src,HistGB,0,1.0
+Web,Web Attack - XSS,flow+src,HistGB,0,1.0
+Web,Web Attack - Brute Force,flow+src,XGBoost,0,0.998639455782313
+Web,Web Attack - Sql Injection,flow+src,XGBoost,0,0.8571428571428571
+Web,Web Attack - XSS,flow+src,XGBoost,0,0.9984662576687117
+Web,Web Attack - Brute Force,flow+dst,HistGB,0,0.8578231292517007
+Web,Web Attack - Sql Injection,flow+dst,HistGB,0,0.5714285714285714
+Web,Web Attack - XSS,flow+dst,HistGB,0,0.651840490797546
+Web,Web Attack - Brute Force,flow+dst,XGBoost,0,0.908843537414966
+Web,Web Attack - Sql Injection,flow+dst,XGBoost,0,0.42857142857142855
+Web,Web Attack - XSS,flow+dst,XGBoost,0,0.8220858895705522
+Web,Web Attack - Brute Force,flow+pair,HistGB,0,0.8904761904761904
+Web,Web Attack - Sql Injection,flow+pair,HistGB,0,0.047619047619047616
+Web,Web Attack - XSS,flow+pair,HistGB,0,0.6042944785276073
+Web,Web Attack - Brute Force,flow+pair,XGBoost,0,0.9340136054421768
+Web,Web Attack - Sql Injection,flow+pair,XGBoost,0,0.2857142857142857
+Web,Web Attack - XSS,flow+pair,XGBoost,0,0.8067484662576687
+Web,Web Attack - Brute Force,flow,HistGB,1,0.8782312925170068
+Web,Web Attack - Sql Injection,flow,HistGB,1,0.3333333333333333
+Web,Web Attack - XSS,flow,HistGB,1,0.9279141104294478
+Web,Web Attack - Brute Force,flow,XGBoost,1,0.9299319727891157
+Web,Web Attack - Sql Injection,flow,XGBoost,1,0.9047619047619048
+Web,Web Attack - XSS,flow,XGBoost,1,0.9141104294478528
+Web,Web Attack - Brute Force,flow+win,HistGB,1,0.9965986394557823
+Web,Web Attack - Sql Injection,flow+win,HistGB,1,1.0
+Web,Web Attack - XSS,flow+win,HistGB,1,1.0
+Web,Web Attack - Brute Force,flow+win,XGBoost,1,0.9993197278911564
+Web,Web Attack - Sql Injection,flow+win,XGBoost,1,1.0
+Web,Web Attack - XSS,flow+win,XGBoost,1,1.0
+Web,Web Attack - Brute Force,flow+src,HistGB,1,0.9993197278911564
+Web,Web Attack - Sql Injection,flow+src,HistGB,1,1.0
+Web,Web Attack - XSS,flow+src,HistGB,1,1.0
+Web,Web Attack - Brute Force,flow+src,XGBoost,1,0.9993197278911564
+Web,Web Attack - Sql Injection,flow+src,XGBoost,1,1.0
+Web,Web Attack - XSS,flow+src,XGBoost,1,0.9984662576687117
+Web,Web Attack - Brute Force,flow+dst,HistGB,1,0.6843537414965987
+Web,Web Attack - Sql Injection,flow+dst,HistGB,1,0.047619047619047616
+Web,Web Attack - XSS,flow+dst,HistGB,1,0.7837423312883436
+Web,Web Attack - Brute Force,flow+dst,XGBoost,1,0.7931972789115647
+Web,Web Attack - Sql Injection,flow+dst,XGBoost,1,0.5714285714285714
+Web,Web Attack - XSS,flow+dst,XGBoost,1,0.843558282208589
+Web,Web Attack - Brute Force,flow+pair,HistGB,1,0.12380952380952381
+Web,Web Attack - Sql Injection,flow+pair,HistGB,1,0.047619047619047616
+Web,Web Attack - XSS,flow+pair,HistGB,1,0.006134969325153374
+Web,Web Attack - Brute Force,flow+pair,XGBoost,1,0.8
+Web,Web Attack - Sql Injection,flow+pair,XGBoost,1,0.2857142857142857
+Web,Web Attack - XSS,flow+pair,XGBoost,1,0.13650306748466257
+Web,Web Attack - Brute Force,flow,HistGB,2,0.9095238095238095
+Web,Web Attack - Sql Injection,flow,HistGB,2,0.5714285714285714
+Web,Web Attack - XSS,flow,HistGB,2,0.9386503067484663
+Web,Web Attack - Brute Force,flow,XGBoost,2,0.9292517006802721
+Web,Web Attack - Sql Injection,flow,XGBoost,2,0.9047619047619048
+Web,Web Attack - XSS,flow,XGBoost,2,0.9386503067484663
+Web,Web Attack - Brute Force,flow+win,HistGB,2,0.9993197278911564
+Web,Web Attack - Sql Injection,flow+win,HistGB,2,1.0
+Web,Web Attack - XSS,flow+win,HistGB,2,1.0
+Web,Web Attack - Brute Force,flow+win,XGBoost,2,0.9979591836734694
+Web,Web Attack - Sql Injection,flow+win,XGBoost,2,1.0
+Web,Web Attack - XSS,flow+win,XGBoost,2,1.0
+Web,Web Attack - Brute Force,flow+src,HistGB,2,0.9993197278911564
+Web,Web Attack - Sql Injection,flow+src,HistGB,2,1.0
+Web,Web Attack - XSS,flow+src,HistGB,2,1.0
+Web,Web Attack - Brute Force,flow+src,XGBoost,2,0.9979591836734694
+Web,Web Attack - Sql Injection,flow+src,XGBoost,2,1.0
+Web,Web Attack - XSS,flow+src,XGBoost,2,0.9984662576687117
+Web,Web Attack - Brute Force,flow+dst,HistGB,2,0.936734693877551
+Web,Web Attack - Sql Injection,flow+dst,HistGB,2,0.2857142857142857
+Web,Web Attack - XSS,flow+dst,HistGB,2,0.950920245398773
+Web,Web Attack - Brute Force,flow+dst,XGBoost,2,0.9319727891156463
+Web,Web Attack - Sql Injection,flow+dst,XGBoost,2,0.09523809523809523
+Web,Web Attack - XSS,flow+dst,XGBoost,2,0.9831288343558282
+Web,Web Attack - Brute Force,flow+pair,HistGB,2,0.9340136054421768
+Web,Web Attack - Sql Injection,flow+pair,HistGB,2,0.3333333333333333
+Web,Web Attack - XSS,flow+pair,HistGB,2,0.8374233128834356
+Web,Web Attack - Brute Force,flow+pair,XGBoost,2,0.9809523809523809
+Web,Web Attack - Sql Injection,flow+pair,XGBoost,2,0.23809523809523808
+Web,Web Attack - XSS,flow+pair,XGBoost,2,0.9539877300613497
+Web,Web Attack - Brute Force,flow,HistGB,3,0.9095238095238095
+Web,Web Attack - Sql Injection,flow,HistGB,3,0.5238095238095238
+Web,Web Attack - XSS,flow,HistGB,3,0.9340490797546013
+Web,Web Attack - Brute Force,flow,XGBoost,3,0.964625850340136
+Web,Web Attack - Sql Injection,flow,XGBoost,3,0.8095238095238095
+Web,Web Attack - XSS,flow,XGBoost,3,0.9539877300613497
+Web,Web Attack - Brute Force,flow+win,HistGB,3,1.0
+Web,Web Attack - Sql Injection,flow+win,HistGB,3,1.0
+Web,Web Attack - XSS,flow+win,HistGB,3,1.0
+Web,Web Attack - Brute Force,flow+win,XGBoost,3,1.0
+Web,Web Attack - Sql Injection,flow+win,XGBoost,3,1.0
+Web,Web Attack - XSS,flow+win,XGBoost,3,1.0
+Web,Web Attack - Brute Force,flow+src,HistGB,3,0.998639455782313
+Web,Web Attack - Sql Injection,flow+src,HistGB,3,0.5714285714285714
+Web,Web Attack - XSS,flow+src,HistGB,3,0.9984662576687117
+Web,Web Attack - Brute Force,flow+src,XGBoost,3,0.9993197278911564
+Web,Web Attack - Sql Injection,flow+src,XGBoost,3,0.7619047619047619
+Web,Web Attack - XSS,flow+src,XGBoost,3,0.9984662576687117
+Web,Web Attack - Brute Force,flow+dst,HistGB,3,0.9061224489795918
+Web,Web Attack - Sql Injection,flow+dst,HistGB,3,0.23809523809523808
+Web,Web Attack - XSS,flow+dst,HistGB,3,0.7883435582822086
+Web,Web Attack - Brute Force,flow+dst,XGBoost,3,0.9122448979591836
+Web,Web Attack - Sql Injection,flow+dst,XGBoost,3,0.3333333333333333
+Web,Web Attack - XSS,flow+dst,XGBoost,3,0.8834355828220859
+Web,Web Attack - Brute Force,flow+pair,HistGB,3,0.9129251700680272
+Web,Web Attack - Sql Injection,flow+pair,HistGB,3,0.09523809523809523
+Web,Web Attack - XSS,flow+pair,HistGB,3,0.3941717791411043
+Web,Web Attack - Brute Force,flow+pair,XGBoost,3,0.9537414965986395
+Web,Web Attack - Sql Injection,flow+pair,XGBoost,3,0.14285714285714285
+Web,Web Attack - XSS,flow+pair,XGBoost,3,0.8404907975460123
+Web,Web Attack - Brute Force,flow,HistGB,4,0.882312925170068
+Web,Web Attack - Sql Injection,flow,HistGB,4,0.5238095238095238
+Web,Web Attack - XSS,flow,HistGB,4,0.9340490797546013
+Web,Web Attack - Brute Force,flow,XGBoost,4,0.9156462585034013
+Web,Web Attack - Sql Injection,flow,XGBoost,4,0.8571428571428571
+Web,Web Attack - XSS,flow,XGBoost,4,0.9355828220858896
+Web,Web Attack - Brute Force,flow+win,HistGB,4,1.0
+Web,Web Attack - Sql Injection,flow+win,HistGB,4,1.0
+Web,Web Attack - XSS,flow+win,HistGB,4,1.0
+Web,Web Attack - Brute Force,flow+win,XGBoost,4,1.0
+Web,Web Attack - Sql Injection,flow+win,XGBoost,4,1.0
+Web,Web Attack - XSS,flow+win,XGBoost,4,1.0
+Web,Web Attack - Brute Force,flow+src,HistGB,4,1.0
+Web,Web Attack - Sql Injection,flow+src,HistGB,4,1.0
+Web,Web Attack - XSS,flow+src,HistGB,4,1.0
+Web,Web Attack - Brute Force,flow+src,XGBoost,4,1.0
+Web,Web Attack - Sql Injection,flow+src,XGBoost,4,1.0
+Web,Web Attack - XSS,flow+src,XGBoost,4,0.9984662576687117
+Web,Web Attack - Brute Force,flow+dst,HistGB,4,0.9870748299319728
+Web,Web Attack - Sql Injection,flow+dst,HistGB,4,0.14285714285714285
+Web,Web Attack - XSS,flow+dst,HistGB,4,0.9877300613496932
+Web,Web Attack - Brute Force,flow+dst,XGBoost,4,0.9945578231292517
+Web,Web Attack - Sql Injection,flow+dst,XGBoost,4,0.8571428571428571
+Web,Web Attack - XSS,flow+dst,XGBoost,4,0.995398773006135
+Web,Web Attack - Brute Force,flow+pair,HistGB,4,0.9870748299319728
+Web,Web Attack - Sql Injection,flow+pair,HistGB,4,0.047619047619047616
+Web,Web Attack - XSS,flow+pair,HistGB,4,0.9846625766871165
+Web,Web Attack - Brute Force,flow+pair,XGBoost,4,0.9891156462585035
+Web,Web Attack - Sql Injection,flow+pair,XGBoost,4,0.14285714285714285
+Web,Web Attack - XSS,flow+pair,XGBoost,4,0.9815950920245399

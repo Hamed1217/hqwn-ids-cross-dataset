@@ -1,0 +1,100 @@
+
+==== SUMMARY: mean recall @ 1% FPR (threshold B) over 2018 attack types, mean (sd) over seeds
+                     mean     sd
+scenario model                  
+known    FLOW-MLP   0.043  0.024
+         FULL       0.195  0.025
+         FULL-SHUF  0.093  0.039
+         SEQ-GRU    0.097  0.090
+loo      FLOW-MLP   0.004  0.000
+         FULL       0.120  0.051
+         FULL-SHUF  0.122  0.032
+         SEQ-GRU    0.112  0.070
+
+==== PRE-REGISTERED (loo): FULL must reach >= 0.399 (tree baseline 0.299 + 0.10) and beat FULL-SHUF and SEQ-GRU
+  FULL 0.120  -> target not met; beats FULL-SHUF and SEQ-GRU: NO  => overall: not a success under the pre-registered rule
+  FULL - FULL-SHUF   -0.001  (seeds where FULL is better: 2/3)
+  FULL - SEQ-GRU     +0.008  (seeds where FULL is better: 2/3)
+  FULL - FLOW-MLP    +0.117  (seeds where FULL is better: 3/3)
+
+-- [known] recall @ 1% FPR, threshold B
+model                               2017 counterpart  FLOW-MLP   FULL  FULL-SHUF  SEQ-GRU
+type18                                                                                   
+Bot                                              Bot     0.000  0.030      0.001    0.000
+Brute Force -Web            Web Attack - Brute Force     0.032  0.000      0.038    0.006
+Brute Force -XSS                    Web Attack - XSS     0.000  0.000      0.000    0.000
+DDOS attack-HOIC                  none (new in 2018)     0.000  0.009      0.000    0.005
+DDOS attack-LOIC-UDP              none (new in 2018)     0.000  0.212      0.001    0.000
+DDoS attacks-LOIC-HTTP                          DDoS     0.010  0.218      0.189    0.157
+DoS attacks-GoldenEye                  DoS GoldenEye     0.107  0.183      0.116    0.130
+DoS attacks-Hulk                            DoS Hulk     0.002  0.033      0.001    0.438
+DoS attacks-SlowHTTPTest            DoS Slowhttptest     0.000  0.491      0.204    0.296
+DoS attacks-Slowloris                  DoS slowloris     0.452  0.201      0.254    0.016
+FTP-BruteForce                           FTP-Patator     0.000  0.892      0.290    0.301
+Infilteration                           Infiltration     0.006  0.010      0.012    0.004
+SQL Injection             Web Attack - Sql Injection     0.000  0.000      0.000    0.000
+SSH-Bruteforce                           SSH-Patator     0.000  0.446      0.200    0.000
+
+-- [known] AUC vs 2018 benign
+model                               2017 counterpart  FLOW-MLP   FULL  FULL-SHUF  SEQ-GRU
+type18                                                                                   
+Bot                                              Bot     0.498  0.566      0.532    0.672
+Brute Force -Web            Web Attack - Brute Force     0.643  0.471      0.529    0.614
+Brute Force -XSS                    Web Attack - XSS     0.666  0.475      0.482    0.543
+DDOS attack-HOIC                  none (new in 2018)     0.662  0.566      0.732    0.714
+DDOS attack-LOIC-UDP              none (new in 2018)     0.612  0.863      0.724    0.860
+DDoS attacks-LOIC-HTTP                          DDoS     0.747  0.792      0.714    0.824
+DoS attacks-GoldenEye                  DoS GoldenEye     0.873  0.851      0.801    0.868
+DoS attacks-Hulk                            DoS Hulk     0.932  0.744      0.849    0.966
+DoS attacks-SlowHTTPTest            DoS Slowhttptest     0.965  0.978      0.964    0.961
+DoS attacks-Slowloris                  DoS slowloris     0.982  0.935      0.968    0.953
+FTP-BruteForce                           FTP-Patator     0.965  0.994      0.970    0.961
+Infilteration                           Infiltration     0.447  0.443      0.437    0.438
+SQL Injection             Web Attack - Sql Injection     0.615  0.436      0.449    0.565
+SSH-Bruteforce                           SSH-Patator     0.675  0.920      0.875    0.778
+
+-- [known] actual 2018 false-alarm rate at threshold A (2017 benign, nominal 1%)
+model
+FLOW-MLP     0.046
+FULL         0.038
+FULL-SHUF    0.045
+SEQ-GRU      0.084
+
+-- [loo] recall @ 1% FPR, threshold B
+model                               2017 counterpart  FLOW-MLP   FULL  FULL-SHUF  SEQ-GRU
+type18                                                                                   
+Bot                                              Bot     0.000  0.015      0.003    0.000
+Brute Force -Web            Web Attack - Brute Force     0.035  0.001      0.024    0.012
+Brute Force -XSS                    Web Attack - XSS     0.000  0.000      0.000    0.000
+DDoS attacks-LOIC-HTTP                          DDoS     0.000  0.219      0.142    0.033
+DoS attacks-GoldenEye                  DoS GoldenEye     0.001  0.131      0.001    0.023
+DoS attacks-Hulk                            DoS Hulk     0.000  0.000      0.000    0.059
+DoS attacks-SlowHTTPTest            DoS Slowhttptest     0.000  0.417      0.667    0.500
+DoS attacks-Slowloris                  DoS slowloris     0.000  0.001      0.069    0.075
+FTP-BruteForce                           FTP-Patator     0.000  0.591      0.452    0.634
+Infilteration                           Infiltration     0.007  0.010      0.013    0.006
+SQL Injection             Web Attack - Sql Injection     0.000  0.000      0.000    0.000
+SSH-Bruteforce                           SSH-Patator     0.000  0.060      0.088    0.001
+
+-- [loo] AUC vs 2018 benign
+model                               2017 counterpart  FLOW-MLP   FULL  FULL-SHUF  SEQ-GRU
+type18                                                                                   
+Bot                                              Bot     0.470  0.664      0.546    0.603
+Brute Force -Web            Web Attack - Brute Force     0.610  0.465      0.516    0.599
+Brute Force -XSS                    Web Attack - XSS     0.633  0.419      0.437    0.521
+DDoS attacks-LOIC-HTTP                          DDoS     0.658  0.762      0.597    0.721
+DoS attacks-GoldenEye                  DoS GoldenEye     0.713  0.829      0.591    0.792
+DoS attacks-Hulk                            DoS Hulk     0.775  0.750      0.838    0.843
+DoS attacks-SlowHTTPTest            DoS Slowhttptest     0.958  0.982      0.986    0.976
+DoS attacks-Slowloris                  DoS slowloris     0.937  0.843      0.918    0.871
+FTP-BruteForce                           FTP-Patator     0.973  0.987      0.984    0.974
+Infilteration                           Infiltration     0.440  0.447      0.426    0.421
+SQL Injection             Web Attack - Sql Injection     0.540  0.451      0.427    0.559
+SSH-Bruteforce                           SSH-Patator     0.556  0.778      0.824    0.679
+
+-- [loo] actual 2018 false-alarm rate at threshold A (2017 benign, nominal 1%)
+model
+FLOW-MLP     0.042
+FULL         0.033
+FULL-SHUF    0.040
+SEQ-GRU      0.067

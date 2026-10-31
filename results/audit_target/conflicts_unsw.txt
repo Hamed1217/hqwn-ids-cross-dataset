@@ -1,0 +1,44 @@
+pass 1: 3,540,241 rows, sampled 369,022 [38s]
+pass 2: dropped NaN/inf 0, conflicting 7,204, duplicates 109,790 -> kept 252,028 [94s]
+check vs raw cache: kept rows IDENTICAL, labels IDENTICAL
+
+== conflicting rows removed from the sample: 7,204 in 370 distinct vectors
+kind            attack row sharing a vector with another attack type only  attack row sharing a vector with benign  benign row   All
+lab                                                                                                                                 
+Benign                                                                  0                                        0         558   558
+DoS                                                                   110                                       18           0   128
+Exploits                                                               43                                        4           0    47
+Fuzzers                                                               242                                     1930           0  2172
+Generic                                                               123                                       15           0   138
+Reconnaissance                                                         75                                     3832           0  3907
+Shellcode                                                             216                                       32           0   248
+Worms                                                                   6                                        0           0     6
+All                                                                   815                                     5831         558  7204
+   other labels in the conflict groups of each attack type (rows of that type, by partner label):
+     DoS: Shellcode 52, Fuzzers 50, Reconnaissance 48, Benign 18, Generic 11, Exploits 6
+     Exploits: Fuzzers 26, Generic 16, DoS 8, Shellcode 6, Benign 4
+     Fuzzers: Benign 1930, DoS 146, Shellcode 141, Generic 99, Exploits 45, Reconnaissance 8, Worms 1
+     Generic: Fuzzers 86, Exploits 23, Shellcode 19, Benign 15, DoS 14, Worms 11
+     Reconnaissance: Benign 3832, DoS 1953, Fuzzers 942, Shellcode 34
+     Shellcode: Fuzzers 175, DoS 50, Benign 32, Generic 20, Reconnaissance 17, Exploits 11
+     Worms: Generic 5, Fuzzers 1
+   benign rows removed as conflicting: 558 (about one third would have joined the test benign part)
+
+== recall bounds had the conflicting attack rows been kept (threshold unchanged; mean over seeds, macro)
+scenario        model  types  macro_recall  macro_low_none_detected  macro_high_all_detected
+   known         TREE      9        0.0268                   0.0247                   0.0879
+   known       V3-MAX      9        0.1634                   0.1387                   0.2019
+   known   V3-MAX-RBF      9        0.1610                   0.1370                   0.2002
+   known       V3-SUP      9        0.0231                   0.0212                   0.0844
+   known V3-SUP-DENSE      9        0.0229                   0.0210                   0.0842
+   known   V3-SUP-NOA      9        0.0164                   0.0149                   0.0781
+     loo         TREE      2        0.0214                   0.0200                   0.1572
+     loo       V3-MAX      2        0.3878                   0.3016                   0.4388
+     loo   V3-MAX-RBF      2        0.3772                   0.2939                   0.4311
+     loo       V3-SUP      2        0.0177                   0.0169                   0.1542
+     loo V3-SUP-DENSE      2        0.0177                   0.0171                   0.1544
+     loo   V3-SUP-NOA      2        0.0182                   0.0176                   0.1548
+   known: worst case V3-MAX - V3-SUP = +0.054 (observed +0.140)
+   loo: worst case V3-MAX - V3-SUP = +0.147 (observed +0.370)
+
+== primary (harmonised) cache: 252,028 rows; rows in label conflicts created by the harmonisation: 0; rows sharing a vector with the same label: 0

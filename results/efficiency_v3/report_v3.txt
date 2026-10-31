@@ -1,0 +1,39 @@
+EFFICIENCY v3 | CPU AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD | threads 12 | torch 2.14.1+cpu | seed 0, 'known' task models
+
+latency per part, ms (batch = 1):
+                          part  med_1thr  p95_1thr  p99_1thr  med_all  p95_all
+            tree (incl. logit)    3.0002    3.4239    4.0069   3.0151   3.6099
+                V3-SUP network   11.8002   15.0859   19.3036  16.4068  24.0437
+          V3-SUP-DENSE network    8.0728   11.2324   13.1140   9.1677  10.5113
+                   novelty IQP   44.6653   51.3373   60.0636  47.7120  63.8251
+                   novelty RBF   43.2348   63.1134   67.5730  42.2783  50.7301
+16-minute sequence (PortTable)    1.1356    1.7509       NaN      NaN      NaN
+
+end-to-end per configuration = sum of the parts' p95 (1 thread; conservative) and throughput:
+      config  end_to_end_p95_ms  flows_per_s
+        TREE              3.424   235878.665
+      V3-SUP             20.261    28864.475
+V3-SUP-DENSE             16.407    42250.456
+V3-MAX (IQP)             71.598     4162.297
+  V3-MAX-RBF             83.374     8181.037
+
+Claim latency < 40 ms: worst end-to-end p95 = 83.374 ms -> NOT met
+Spiking vs dense twin on this CPU: p95 15.086 vs 11.232 ms (a CPU computes spikes as ordinary numbers; any energy gain needs event-driven neuromorphic hardware)
+
+energy estimate per flow (nJ) with memory-access sensitivity (pJ added per weight/state read, one read per operation):
+                P_energy_nJ              total_energy_nJ             
+model                V3-SUP V3-SUP-DENSE          V3-SUP V3-SUP-DENSE
+mem_pJ_per_read                                                      
+0.0                    56.1        422.6            96.9        463.4
+5.0                   175.6        894.3           260.7        979.4
+50.0                 1251.0       5139.4          1734.9       5623.4
+
+  memory +   0 pJ/read: spiking/dense temporal path 0.133, whole model 0.209 (pre-registered claim <= 0.5)
+  memory +   5 pJ/read: spiking/dense temporal path 0.196, whole model 0.266 (pre-registered claim <= 0.5)
+  memory +  50 pJ/read: spiking/dense temporal path 0.243, whole model 0.309 (pre-registered claim <= 0.5)
+
+simulated novelty channel, multiply-adds per flow (classical simulation):
+  IQP quantum kernel 2,069,592 MAC (~9,520 nJ) | RBF kernel 20,600 MAC (~95 nJ) | ratio 100x | V3-SUP network 18,208 MAC + 14,554 adds
+  (same detection result in all tests; on real quantum hardware the cost would be shots x circuits instead)
+
+Energy values are ESTIMATES (45 nm). For a MEASURED value run --power_test with HWiNFO.

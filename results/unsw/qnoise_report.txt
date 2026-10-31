@@ -1,0 +1,17 @@
+QUANTUM-HARDWARE CHECK on unsw_sample_v1h.npz: 24 reference + 24 benign + 24 attack flows, 2000 shots, backend FakeBrisbane
+
+0. Qiskit circuit = our kernel: max difference 4.68e-14
+   exact kernel values (off-diagonal): mean 0.229, sd 0.244
+1. shots : mean |error| 0.0056, max 0.028, correlation 1.000, values mean 0.229 sd 0.244
+1. noisy : mean |error| 0.2199, max 0.980, correlation 0.833, values mean 0.009 sd 0.004
+
+2. reduced detector (24 reference flows), AUC benign vs attack on the same 48 test flows:
+   exact (our simulation)       AUC 0.722
+   ideal QC, finite shots       AUC 0.698
+   noisy IBM hardware model     AUC 0.753
+   classical RBF (reference)    AUC 0.698
+   full model as in the runs (2,000 reference flows, exact) AUC 0.795
+
+3. cost on a real device: each kernel value = 1 circuit (501 two-qubit gates, depth 1039) x 2000 shots; one flow needs 2,000 kernel values -> 4,000,000 shots ~ 1,000 s per flow at 4,000 shots/s (budget 0.040 s)
+
+time 522s

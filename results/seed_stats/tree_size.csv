@@ -1,0 +1,2 @@
+seed,n_train,attack_share,trees_built,early_stopping,max_leaf_nodes,fit_seconds,nodes_total,leaves_total,max_depth,expected_comparisons_per_flow,pickled_bytes
+0,100000,0.1545,118,auto,31,2.558631658554077,7198,3658,22,600.3748888888891,481098

@@ -1,0 +1,114 @@
+count_manifest.py  2026-10-30 13:18  python 3.13.14  numpy 2.5.4  pandas 3.0.6
+
+[A] CIC-IDS2017: stage-1 cleaning repeated step by step
+  D:/revised model/stage1_pw\feature_names.json: Destination_Port is NOT a feature -> the stage-1 run used --drop_dst_port
+  loaded 2,830,743 rows [70s]
+  D:/revised model/stage1_pw\splits.npz: train 1,346,659  val 439,535  test 446,836  total 2,233,030
+
+rows per label at every cleaning step:
+                                raw  nan_inf  conflict     dup    clean  if_port   splits same
+label                                                                                         
+BENIGN                      2273097     1777      1179  373334  1896807  2094524  1896807  yes
+DoS Hulk                     231073      949      4882   52529   172713   172718   172713  yes
+PortScan                     158930      126     76265   80689     1850    90130     1850  yes
+DDoS                         128027        2         6       8   128011   128011   128011  yes
+DoS GoldenEye                 10293        0         0       7    10286    10286    10286  yes
+FTP-Patator                    7938        3         0    2004     5931     5931     5931  yes
+SSH-Patator                    5897        0         0    2678     3219     3219     3219  yes
+DoS slowloris                  5796        0         2     411     5383     5384     5383  yes
+DoS Slowhttptest               5499        0         0     271     5228     5228     5228  yes
+Bot                            1966       10       122     422     1412     1948     1412  yes
+Web Attack - Brute Force       1507        0         0      37     1470     1470     1470  yes
+Web Attack - XSS                652        0         0       0      652      652      652  yes
+Infiltration                     36        0         0       0       36       36       36  yes
+Web Attack - Sql Injection       21        0         0       0       21       21       21  yes
+Heartbleed                       11        0         0       0       11       11       11  yes
+TOTAL                       2830743     2867     82456  512390  2233030  2519569  2233030  yes
+
+numbers of the earlier reports:
+  shortcut_check.py (raw CSV)    DoS Hulk        231,073  this run (raw)    231,073  same
+  shortcut_check.py (raw CSV)    FTP-Patator       7,938  this run (raw)      7,938  same
+  shortcut_check.py (raw CSV)    TOTAL         2,830,743  this run (raw)  2,830,743  same
+  loo_trees.py (stage-1 output)  DoS Hulk        172,713  this run (clean)    172,713  same
+  loo_trees.py (stage-1 output)  FTP-Patator       5,931  this run (clean)      5,931  same
+  loo_trees.py (stage-1 output)  TOTAL         2,233,030  this run (clean)  2,233,030  same
+VERDICT A: the stage-1 cleaning reproduces splits.npz for every label. The two counts in the reports are the same data before cleaning (shortcut_check.py reads the raw CSVs) and after it (loo_trees.py reads the stage-1 output).
+
+  D:/revised model/stage1_win/splits_win.npz (loo_trees.py, cross_out, cross_out2): train 1,346,659 val 439,535 test 446,836 -> rows per label IDENTICAL to the cleaning above
+
+[B] CIC-IDS2018: cached samples
+  69 flow columns in all caches (duplicates were judged on these)
+  D:/revised model/cross_out2/ids2018_sample.npz: 378,521 rows, 69 columns
+  D:/revised model/cross_out3/ids2018_sample_v3.npz: 378,401 rows, 76 columns
+  D:/revised model/cross_out4/ids2018_sample_v4.npz: 378,401 rows, 76 columns, also ['seq']
+
+rows per label; '&' = rows that are the same flow (all 69 columns + label) in cross_out4, the sample of hybrid_v2 / hybrid_v3:
+                          cross_out2  cross_out3  cross_out4  cross_out2&cross_out4  cross_out3&cross_out4  share_cross_out2  share_cross_out3
+label                                                                                                                                         
+Benign                        260649      260681      260681                  61085                 260681             0.234               1.0
+DoS attacks-GoldenEye          20014       20014       20014                  20014                  20014             1.000               1.0
+DDoS attacks-LOIC-HTTP         19868       19875       19875                    696                  19875             0.035               1.0
+DoS attacks-Hulk               15343       15343       15343                  15343                  15343             1.000               1.0
+Infilteration                  14856       14659       14659                   2186                  14659             0.147               1.0
+DDOS attack-HOIC               14378       14441       14441                   4705                  14441             0.327               1.0
+Bot                            10697       10677       10677                   1261                  10677             0.118               1.0
+SSH-Bruteforce                 10194       10194       10194                  10194                  10194             1.000               1.0
+DoS attacks-Slowloris           9869        9866        9866                   9863                   9866             0.999               1.0
+DDOS attack-LOIC-UDP            1730        1730        1730                   1730                   1730             1.000               1.0
+Brute Force -Web                 549         550         550                    549                    550             1.000               1.0
+Brute Force -XSS                 227         227         227                    227                    227             1.000               1.0
+SQL Injection                     77          77          77                     77                     77             1.000               1.0
+DoS attacks-SlowHTTPTest          39          36          36                     36                     36             0.923               1.0
+FTP-BruteForce                    31          31          31                     31                     31             1.000               1.0
+TOTAL                         378521      378401      378401                 127997                 378401             0.338               1.0
+VERDICT B: cross_out2 (378,521) and cross_out4 (378,401) are DIFFERENT draws; 33.8% of the rows of cross_out2 are also in cross_out4. A share near 1 for the small labels (kept whole) and well below 1 for the labels drawn at a rate < 1 means: same files and sampling rates, another random draw.
+VERDICT B: cross_out3 and cross_out4 hold the SAME sample.
+
+[C] manifest (size, SHA-256)
+                                                  role                                                        name     MB  fingerprint     check
+                       2017 stage-1 output (hybrid_v3)                                                  splits.npz  831.3 bbf2cb5bee70          
+                       2017 stage-1 output (hybrid_v3)                                                   seq17.npz  214.4 2e8a05f19597          
+                       2017 stage-1 output (hybrid_v3)                                          feature_names.json    0.0 158b936d2dd4          
+                       2017 stage-1 output (hybrid_v3)                                 quantile_transformer.joblib    0.7 f93702dd99b0          
+                       2017 stage-1 output (hybrid_v3)                                      label_time_windows.csv    0.0 b98420f81153          
+2017 stage-1 output (loo_trees, cross_out, cross_out2)                                              splits_win.npz  768.8 e72939aac382          
+                                     2018 sample cache                                          ids2018_sample.npz  209.7 30e2b82c62c6          
+                                     2018 sample cache                                       ids2018_sample_v3.npz  230.8 42f3fc272440          
+                                     2018 sample cache                                       ids2018_sample_v4.npz  267.2 f299d617abc1          
+                                                  code                                       benign_sensitivity.py    0.0 18ee5e1180e5        OK
+                                                  code                                             bootstrap_ci.py    0.0 fe379e80fe2d        OK
+                                                  code                                           check_splits17.py    0.0 08dd79e79923        OK
+                                                  code                                            cross_dataset.py    0.0 71416d6efbcb        OK
+                                                  code                                              dump_scores.py    0.0 7f395451426b        OK
+                                                  code                                            event_metrics.py    0.0 920bfad1b184        OK
+                                                  code                                             fast_novelty.py    0.0 043b785601f9        OK
+                                                  code                                           harmonize_unsw.py    0.0 fb3887e8fd87        OK
+                                         code (locked)                                                hybrid_v2.py    0.0 a55b7fcf3afe        OK
+                                         code (locked)                                                hybrid_v3.py    0.1 30721b06ba80        OK
+                                                  code                                                loo_trees.py    0.0 5198133311d6        OK
+                                                  code                                             make_figures.py    0.0 4b1ed64bad51        OK
+                                         code (locked)                                             port_windows.py    0.0 bdff25827432        OK
+                                                  code                                                prep_unsw.py    0.0 4f2e5eebc9aa        OK
+                                         code (locked)                                                  qkernel.py    0.0 aa1423c82892        OK
+                                                  code                                           shortcut_check.py    NaN          NaN NOT FOUND
+                                                  code                               stage1_cicids2017_pipeline.py    0.0 140ec0eb454b        OK
+                                                  code                                                  ts_2018.py    0.0 4eb4223e106e        OK
+                                        raw CSV (2017)            Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv   96.1 1f779b4f0d78          
+                                        raw CSV (2017)        Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv  101.9 7e2ddaa80a58          
+                                        raw CSV (2017)                   Friday-WorkingHours-Morning.pcap_ISCX.csv   75.4 c061cd98f39d          
+                                        raw CSV (2017)                           Monday-WorkingHours.pcap_ISCX.csv  268.6 96f26aea87d5          
+                                        raw CSV (2017) Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv  108.7 d74238e05402          
+                                        raw CSV (2017)      Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv   92.0 e3deaff483d1          
+                                        raw CSV (2017)                          Tuesday-WorkingHours.pcap_ISCX.csv  174.7 ae9c88e10c41          
+                                        raw CSV (2017)                        Wednesday-workingHours.pcap_ISCX.csv  285.6 ed538e85b841          
+                                        raw CSV (2018)                                              02-14-2018.csv  358.2 acff8bc61376          
+                                        raw CSV (2018)                                              02-15-2018.csv  375.9 fa2947a8256d          
+                                        raw CSV (2018)                                              02-16-2018.csv  333.7 1a4919faa0c4          
+                                        raw CSV (2018)                                              02-20-2018.csv 4054.9 7287a4d7740a          
+                                        raw CSV (2018)                                              02-21-2018.csv  328.9 a5f4a1c2689e          
+                                        raw CSV (2018)                                              02-22-2018.csv  382.6 da33c9270182          
+                                        raw CSV (2018)                                              02-23-2018.csv  382.8 d0a7f5059d98          
+                                        raw CSV (2018)                                              02-28-2018.csv  209.2 f15e2a123044          
+                                        raw CSV (2018)                                              03-01-2018.csv  107.8 b0534c5d7d8b          
+                                        raw CSV (2018)                                              03-02-2018.csv  352.4 d96f38e7496a          
+LOCKED MODEL FILES: all match the paper version

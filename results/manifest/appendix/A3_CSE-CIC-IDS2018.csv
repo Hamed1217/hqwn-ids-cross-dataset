@@ -1,0 +1,17 @@
+type,raw_dataset,cleaned_sample,counterpart_2017_(L4),tiny
+Benign,13484708,260681,benign,
+DoS attacks-GoldenEye,41508,20014,DoS GoldenEye,
+DDoS attacks-LOIC-HTTP,576191,19875,DDoS,
+DoS attacks-Hulk,461912,15343,DoS Hulk,
+Infilteration,161934,14659,Infiltration,
+DDOS attack-HOIC,686012,14441,none (L3 only),
+Bot,286191,10677,Bot,
+SSH-Bruteforce,187589,10194,SSH-Patator,
+DoS attacks-Slowloris,10990,9866,DoS slowloris,
+DDOS attack-LOIC-UDP,1730,1730,none (L3 only),
+Brute Force -Web,611,550,Web Attack - Brute Force,
+Brute Force -XSS,230,227,Web Attack - XSS,
+SQL Injection,87,77,Web Attack - Sql Injection,
+DoS attacks-SlowHTTPTest,139890,36,DoS Slowhttptest,yes
+FTP-BruteForce,193360,31,FTP-Patator,yes
+TOTAL,16232943,378401,,
