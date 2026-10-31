@@ -4,7 +4,7 @@ Code, analysis plan and saved outputs for the article:
 
 > H. Kamel. *A Hybrid Quantum–Wavelet–Neuromorphic Deep Learning Intrusion Detection System under Cross-Dataset Shift: A Pre-Specified Evaluation of What Transfers.* Journal of Network and Computer Applications (under review), 2026.
 
-Archived version: [Zenodo DOI]
+Archived at Zenodo: https://doi.org/10.5281/zenodo.23842133 (all versions). Code release v1.0.1: https://doi.org/10.5281/zenodo.23842134. Per-seed scores (v2): https://doi.org/10.5281/zenodo.23842225.
 
 ## What is here
 

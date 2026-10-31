@@ -10,6 +10,7 @@ authors:
 version: "1.0.0"
 date-released: "[YYYY-MM-DD]"
 license: MIT
+doi: "10.5281/zenodo.23842133"
 repository-code: "https://github.com/Hamed1217/hqwn-ids-cross-dataset"
 keywords:
   - intrusion detection
