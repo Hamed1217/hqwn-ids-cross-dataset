@@ -1,0 +1,15 @@
+{
+  "title": "Hybrid Quantum-Wavelet-Neuromorphic IDS under Cross-Dataset Shift: code, analysis plan and saved outputs",
+  "upload_type": "software",
+  "description": "Code, analysis plan and saved outputs for the article 'A Hybrid Quantum-Wavelet-Neuromorphic Deep Learning Intrusion Detection System under Cross-Dataset Shift: A Pre-Specified Evaluation of What Transfers' (submitted to the Journal of Network and Computer Applications).",
+  "creators": [
+    {
+      "name": "Kamel, Hamed",
+      "affiliation": "Islamic Azad University, North Tehran Branch",
+      "orcid": "0009-0007-6096-1574"
+    }
+  ],
+  "license": "mit",
+  "access_right": "open",
+  "keywords": ["intrusion detection", "cross-dataset generalization", "quantum kernel", "spiking neural network", "wavelet"]
+}

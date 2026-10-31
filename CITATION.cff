@@ -1,4 +1,4 @@
-﻿cff-version: 1.2.0
+cff-version: 1.2.0
 message: "If you use this code or these results, please cite the article and this archive."
 title: "Hybrid Quantum-Wavelet-Neuromorphic IDS under Cross-Dataset Shift: code, analysis plan and saved outputs"
 type: software
@@ -11,7 +11,6 @@ version: "1.0.0"
 date-released: "[YYYY-MM-DD]"
 license: MIT
 repository-code: "https://github.com/Hamed1217/hqwn-ids-cross-dataset"
-doi: "[Zenodo DOI]"
 keywords:
   - intrusion detection
   - cross-dataset generalization
