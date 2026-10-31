@@ -1,0 +1,84 @@
+
+==== [known] mean recall@1%FPR (threshold B) over target types, all types; mean (sd) over seeds
+             mean    std
+model                   
+V3-SUP      0.421  0.027
+V3-MAX-RBF  0.373  0.014
+V3-MAX      0.371  0.011
+TREE        0.342  0.074
+real false-alarm rate on the test benign third (nominal 1%): TREE 0.0053, V3-MAX 0.0092, V3-MAX-RBF 0.0088, V3-SUP 0.0099
+
+==== [known] mean recall@1%FPR (threshold B) over target types, non-tiny types; mean (sd) over seeds
+             mean    std
+model                   
+V3-SUP      0.330  0.040
+V3-MAX      0.275  0.020
+V3-MAX-RBF  0.274  0.019
+TREE        0.254  0.051
+
+-- [known] per type, recall@1%FPR
+model                      TREE  V3-MAX  V3-MAX-RBF  V3-SUP
+type                                                       
+Bot                       0.002   0.003       0.003   0.048
+Brute Force -Web          0.240   0.438       0.458   0.241
+Brute Force -XSS          0.322   0.217       0.210   0.430
+DDOS attack-HOIC          0.000   0.000       0.000   0.000
+DDOS attack-LOIC-UDP      0.000   0.000       0.000   0.000
+DDoS attacks-LOIC-HTTP    0.276   0.361       0.358   0.541
+DoS attacks-GoldenEye     0.527   0.605       0.603   0.688
+DoS attacks-Hulk          0.266   0.288       0.283   0.511
+DoS attacks-SlowHTTPTest  0.880   0.944       0.944   0.981
+DoS attacks-Slowloris     0.987   0.987       0.987   0.985
+FTP-BruteForce            0.860   0.957       1.000   0.957
+Infilteration             0.014   0.028       0.032   0.020
+SQL Injection             0.078   0.056       0.056   0.056
+SSH-Bruteforce            0.336   0.315       0.293   0.443
+
+-- [known] PRE-REGISTERED paired tests (one-sided Wilcoxon over seed x type)
+  V3-MAX     vs TREE       mean diff +0.029  p = 0.0750  not supported
+  V3-SUP     vs TREE       mean diff +0.080  p = 0.0023  SUPPORTED
+  V3-MAX     vs V3-SUP     mean diff -0.050  p = 0.9920  not supported
+  V3-MAX     vs V3-MAX-RBF mean diff -0.002  p = 0.2165  not supported
+
+==== [loo] mean recall@1%FPR (threshold B) over target types, all types; mean (sd) over seeds
+             mean    std
+model                   
+V3-MAX-RBF  0.276  0.048
+V3-MAX      0.266  0.060
+TREE        0.263  0.075
+V3-SUP      0.263  0.071
+real false-alarm rate on the test benign third (nominal 1%): TREE 0.008, V3-MAX 0.0095, V3-MAX-RBF 0.0092, V3-SUP 0.01
+
+==== [loo] mean recall@1%FPR (threshold B) over target types, non-tiny types; mean (sd) over seeds
+             mean    std
+model                   
+TREE        0.176  0.030
+V3-MAX-RBF  0.168  0.020
+V3-MAX      0.166  0.017
+V3-SUP      0.161  0.007
+
+-- [loo] per type, recall@1%FPR
+model                      TREE  V3-MAX  V3-MAX-RBF  V3-SUP
+type                                                       
+Bot                       0.001   0.001       0.001   0.001
+Brute Force -Web          0.012   0.205       0.225   0.021
+Brute Force -XSS          0.295   0.068       0.066   0.115
+DDoS attacks-LOIC-HTTP    0.127   0.135       0.135   0.141
+DoS attacks-GoldenEye     0.279   0.271       0.270   0.286
+DoS attacks-Hulk          0.000   0.000       0.000   0.000
+DoS attacks-SlowHTTPTest  0.731   0.667       0.667   0.667
+DoS attacks-Slowloris     0.987   0.902       0.901   0.984
+FTP-BruteForce            0.667   0.871       0.968   0.882
+Infilteration             0.017   0.031       0.036   0.019
+SQL Injection             0.039   0.039       0.039   0.039
+SSH-Bruteforce            0.004   0.004       0.004   0.004
+
+-- [loo] PRE-REGISTERED paired tests (one-sided Wilcoxon over seed x type)
+  V3-MAX     vs TREE       mean diff +0.003  p = 0.2906  not supported
+  V3-SUP     vs TREE       mean diff -0.000  p = 0.2832  not supported
+  V3-MAX     vs V3-SUP     mean diff +0.003  p = 0.5843  not supported
+  V3-MAX     vs V3-MAX-RBF mean diff -0.010  p = 0.8183  not supported
+
+==== energy estimate per flow (45 nm: 4.6 pJ/MAC, 0.9 pJ/add; temporal path P in detail)
+ model  other_mac  P_mac      P_ac  P_rate  P_energy_nJ  total_energy_nJ
+V3-SUP       8864 9344.0 14553.891   0.111       56.081           96.855

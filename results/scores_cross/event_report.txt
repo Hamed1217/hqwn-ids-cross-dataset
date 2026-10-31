@@ -1,0 +1,212 @@
+EVENT-LEVEL metrics (episodes split at gaps > 5 min; minute alarm = >= k alarming flows).
+CAVEAT: sampled caches -> event recall and false-alarm minutes are lower bounds of the full-traffic values;
+model comparisons at the same setting are fair.
+
+==== known | threshold B at 1.0% flow false alarms | minute rule k = 1
+mean over attack types, mean (sd) over seeds; ttd = time to detect (s); fa = false-alarm minutes
+          flow_recall episode_recall  minute_recall share_detected_60s       median_ttd_s       flow_fpr fa_minute_rate fa_minutes_per_hour
+model                                                                                                                                      
+V3-SUP  0.340 (0.123)  0.693 (0.121)  0.565 (0.146)      0.497 (0.098)  385.731 (181.267)  0.010 (0.000)  0.137 (0.020)       5.257 (0.751)
+TREE    0.312 (0.135)  0.657 (0.130)  0.532 (0.187)      0.475 (0.151)  567.195 (367.690)  0.005 (0.003)  0.082 (0.048)       3.157 (1.864)
+-- per type (mean over seeds): episode recall / minute recall / median time to detect (s)
+                         n_episodes        episode_recall        minute_recall        median_ttd_s          
+model                          TREE V3-SUP           TREE V3-SUP          TREE V3-SUP         TREE    V3-SUP
+type                                                                                                        
+Bot                             2.0    2.0          0.800  0.800         0.133  0.092     4632.812  3946.188
+Brute Force -Web                4.0    4.0          0.475  0.475         0.756  0.782      485.650   131.600
+Brute Force -XSS                2.0    2.0          0.750  0.900         0.491  0.663      483.438   304.100
+DDOS attack-HOIC                1.0    1.0          0.000  0.200         0.000  0.048          NaN   518.000
+DDOS attack-LOIC-UDP            1.0    1.0          0.000  0.000         0.000  0.000          NaN       NaN
+DDoS attacks-LOIC-HTTP          2.0    2.0          0.400  0.500         0.595  0.748        2.250     2.400
+DoS attacks-GoldenEye           3.0    3.0          1.000  1.000         0.967  0.972        6.300     6.000
+DoS attacks-Hulk                1.0    1.0          0.800  0.800         0.800  0.775        0.000     0.125
+DoS attacks-SlowHTTPTest        4.0    4.0          0.900  0.900         0.877  0.892        0.167     0.000
+DoS attacks-Slowloris           1.0    1.0          1.000  1.000         1.000  1.000        0.000     0.000
+FTP-BruteForce                  3.0    3.0          0.900  0.900         0.867  0.873        0.000     0.000
+Infilteration                   4.0    4.0          0.950  1.000         0.290  0.374      497.800   161.300
+SQL Injection                   7.0    7.0          0.229  0.229         0.142  0.108      273.071   400.500
+SSH-Bruteforce                  1.0    1.0          1.000  1.000         0.534  0.584      291.900   191.300
+  V3-SUP vs TREE [episode_recall] mean diff +0.036, wins 6/10 seeds, p = 0.0742
+  V3-SUP vs TREE [minute_recall] mean diff +0.033, wins 6/10 seeds, p = 0.1162
+
+==== known | threshold B at 1.0% flow false alarms | minute rule k = 3
+mean over attack types, mean (sd) over seeds; ttd = time to detect (s); fa = false-alarm minutes
+          flow_recall episode_recall  minute_recall share_detected_60s       median_ttd_s       flow_fpr fa_minute_rate fa_minutes_per_hour
+model                                                                                                                                      
+V3-SUP  0.340 (0.123)  0.440 (0.121)  0.320 (0.079)      0.341 (0.068)  757.112 (360.224)  0.010 (0.000)  0.013 (0.004)       0.517 (0.158)
+TREE    0.312 (0.135)  0.401 (0.131)  0.306 (0.102)      0.329 (0.090)  727.538 (569.732)  0.005 (0.003)  0.004 (0.004)       0.135 (0.136)
+-- per type (mean over seeds): episode recall / minute recall / median time to detect (s)
+                         n_episodes        episode_recall        minute_recall        median_ttd_s          
+model                          TREE V3-SUP           TREE V3-SUP          TREE V3-SUP         TREE    V3-SUP
+type                                                                                                        
+Bot                             2.0    2.0          0.400  0.500         0.098  0.042     8236.429  6875.357
+Brute Force -Web                4.0    4.0          0.000  0.000         0.000  0.000          NaN       NaN
+Brute Force -XSS                2.0    2.0          0.100  0.000         0.002  0.000       54.000       NaN
+DDOS attack-HOIC                1.0    1.0          0.000  0.200         0.000  0.048          NaN   518.000
+DDOS attack-LOIC-UDP            1.0    1.0          0.000  0.000         0.000  0.000          NaN       NaN
+DDoS attacks-LOIC-HTTP          2.0    2.0          0.400  0.500         0.560  0.701        7.250     4.800
+DoS attacks-GoldenEye           3.0    3.0          1.000  1.000         0.967  0.972        6.700     6.500
+DoS attacks-Hulk                1.0    1.0          0.800  0.800         0.800  0.775        0.000     0.250
+DoS attacks-SlowHTTPTest        4.0    4.0          0.225  0.225         0.208  0.208        5.778     3.222
+DoS attacks-Slowloris           1.0    1.0          1.000  1.000         1.000  1.000        0.000     0.000
+FTP-BruteForce                  3.0    3.0          0.300  0.300         0.160  0.167       10.333     6.111
+Infilteration                   4.0    4.0          0.650  0.825         0.072  0.094     1033.000  1394.450
+SQL Injection                   7.0    7.0          0.043  0.014         0.012  0.004      661.667   688.000
+SSH-Bruteforce                  1.0    1.0          0.700  0.800         0.412  0.474        5.143     8.000
+  V3-SUP vs TREE [episode_recall] mean diff +0.039, wins 6/10 seeds, p = 0.0410
+  V3-SUP vs TREE [minute_recall] mean diff +0.014, wins 6/10 seeds, p = 0.1875
+
+==== known | threshold B at 0.1% flow false alarms | minute rule k = 1
+mean over attack types, mean (sd) over seeds; ttd = time to detect (s); fa = false-alarm minutes
+          flow_recall episode_recall  minute_recall share_detected_60s       median_ttd_s       flow_fpr fa_minute_rate fa_minutes_per_hour
+model                                                                                                                                      
+V3-SUP  0.195 (0.078)  0.546 (0.135)  0.355 (0.109)      0.358 (0.092)  969.645 (484.400)  0.001 (0.000)  0.017 (0.002)       0.643 (0.060)
+TREE    0.193 (0.074)  0.485 (0.131)  0.342 (0.122)      0.348 (0.111)  726.655 (562.607)  0.001 (0.000)  0.015 (0.002)       0.561 (0.073)
+-- per type (mean over seeds): episode recall / minute recall / median time to detect (s)
+                         n_episodes        episode_recall        minute_recall        median_ttd_s          
+model                          TREE V3-SUP           TREE V3-SUP          TREE V3-SUP         TREE    V3-SUP
+type                                                                                                        
+Bot                             2.0    2.0          0.250  0.350         0.002  0.005     9247.750  9632.167
+Brute Force -Web                4.0    4.0          0.300  0.425         0.463  0.289      239.071   801.950
+Brute Force -XSS                2.0    2.0          0.450  0.550         0.348  0.155      114.300   673.250
+DDOS attack-HOIC                1.0    1.0          0.000  0.000         0.000  0.000          NaN       NaN
+DDOS attack-LOIC-UDP            1.0    1.0          0.000  0.000         0.000  0.000          NaN       NaN
+DDoS attacks-LOIC-HTTP          2.0    2.0          0.200  0.500         0.088  0.457        3.000   141.000
+DoS attacks-GoldenEye           3.0    3.0          1.000  1.000         0.944  0.950        9.000     8.200
+DoS attacks-Hulk                1.0    1.0          0.200  0.200         0.200  0.175        0.000     8.500
+DoS attacks-SlowHTTPTest        4.0    4.0          0.775  0.850         0.731  0.762        8.944    22.389
+DoS attacks-Slowloris           1.0    1.0          1.000  1.000         1.000  1.000        0.000     0.000
+FTP-BruteForce                  3.0    3.0          0.767  0.867         0.673  0.773       62.375     0.778
+Infilteration                   4.0    4.0          0.675  0.850         0.023  0.040     1472.350  1504.350
+SQL Injection                   7.0    7.0          0.171  0.157         0.079  0.062      437.500   434.643
+SSH-Bruteforce                  1.0    1.0          1.000  0.900         0.237  0.303      394.100   427.667
+  V3-SUP vs TREE [episode_recall] mean diff +0.061, wins 6/10 seeds, p = 0.0273
+  V3-SUP vs TREE [minute_recall] mean diff +0.013, wins 7/10 seeds, p = 0.1875
+
+==== known | threshold B at 0.1% flow false alarms | minute rule k = 3
+mean over attack types, mean (sd) over seeds; ttd = time to detect (s); fa = false-alarm minutes
+          flow_recall episode_recall  minute_recall share_detected_60s       median_ttd_s       flow_fpr fa_minute_rate fa_minutes_per_hour
+model                                                                                                                                      
+V3-SUP  0.195 (0.078)  0.279 (0.044)  0.205 (0.033)      0.254 (0.036)  100.550 (122.318)  0.001 (0.000)  0.000 (0.000)       0.010 (0.013)
+TREE    0.193 (0.074)  0.240 (0.068)  0.176 (0.035)      0.232 (0.055)    31.787 (67.905)  0.001 (0.000)  0.000 (0.000)       0.003 (0.008)
+-- per type (mean over seeds): episode recall / minute recall / median time to detect (s)
+                         n_episodes        episode_recall        minute_recall        median_ttd_s          
+model                          TREE V3-SUP           TREE V3-SUP          TREE V3-SUP         TREE    V3-SUP
+type                                                                                                        
+Bot                             2.0    2.0          0.000  0.000         0.000  0.000          NaN       NaN
+Brute Force -Web                4.0    4.0          0.000  0.000         0.000  0.000          NaN       NaN
+Brute Force -XSS                2.0    2.0          0.000  0.000         0.000  0.000          NaN       NaN
+DDOS attack-HOIC                1.0    1.0          0.000  0.000         0.000  0.000          NaN       NaN
+DDOS attack-LOIC-UDP            1.0    1.0          0.000  0.000         0.000  0.000          NaN       NaN
+DDoS attacks-LOIC-HTTP          2.0    2.0          0.200  0.500         0.027  0.345       17.250   171.700
+DoS attacks-GoldenEye           3.0    3.0          1.000  1.000         0.944  0.950        9.500     9.000
+DoS attacks-Hulk                1.0    1.0          0.200  0.100         0.200  0.100        1.000     1.000
+DoS attacks-SlowHTTPTest        4.0    4.0          0.175  0.225         0.162  0.177       10.429    17.000
+DoS attacks-Slowloris           1.0    1.0          1.000  1.000         1.000  1.000        0.000     0.000
+FTP-BruteForce                  3.0    3.0          0.233  0.300         0.107  0.140       49.143    63.111
+Infilteration                   4.0    4.0          0.050  0.075         0.003  0.002     1428.500  1970.000
+SQL Injection                   7.0    7.0          0.000  0.000         0.000  0.000          NaN       NaN
+SSH-Bruteforce                  1.0    1.0          0.500  0.700         0.020  0.153        2.000    25.143
+  V3-SUP vs TREE [episode_recall] mean diff +0.039, wins 7/10 seeds, p = 0.0547
+  V3-SUP vs TREE [minute_recall] mean diff +0.029, wins 9/10 seeds, p = 0.0244
+
+==== loo | threshold B at 1.0% flow false alarms | minute rule k = 1
+mean over attack types, mean (sd) over seeds; ttd = time to detect (s); fa = false-alarm minutes
+          flow_recall episode_recall  minute_recall share_detected_60s       median_ttd_s       flow_fpr fa_minute_rate fa_minutes_per_hour
+model                                                                                                                                      
+V3-SUP  0.273 (0.043)  0.724 (0.077)  0.478 (0.062)      0.520 (0.074)  398.103 (264.713)  0.010 (0.000)  0.138 (0.003)       5.313 (0.099)
+TREE    0.274 (0.042)  0.719 (0.070)  0.491 (0.060)      0.530 (0.077)  326.430 (246.109)  0.008 (0.000)  0.118 (0.006)       4.533 (0.241)
+-- per type (mean over seeds): episode recall / minute recall / median time to detect (s)
+                         n_episodes        episode_recall        minute_recall        median_ttd_s          
+model                          TREE V3-SUP           TREE V3-SUP          TREE V3-SUP         TREE    V3-SUP
+type                                                                                                        
+Bot                             2.0    2.0          0.800  0.650         0.114  0.075     3008.444  4492.429
+Brute Force -Web                4.0    4.0          0.375  0.425         0.114  0.089      157.167    88.700
+Brute Force -XSS                2.0    2.0          0.550  0.600         0.188  0.096      130.062   461.929
+DDoS attacks-LOIC-HTTP          2.0    2.0          0.350  0.400         0.522  0.490        3.000     3.000
+DoS attacks-GoldenEye           3.0    3.0          1.000  1.000         0.917  0.944        8.600     5.800
+DoS attacks-Hulk                1.0    1.0          0.500  0.500         0.400  0.425        0.800     0.800
+DoS attacks-SlowHTTPTest        4.0    4.0          0.950  0.900         0.938  0.900        4.950     0.000
+DoS attacks-Slowloris           1.0    1.0          1.000  1.000         1.000  0.983        0.000     0.000
+FTP-BruteForce                  3.0    3.0          0.833  0.967         0.813  0.920        5.667    10.300
+Infilteration                   4.0    4.0          1.000  1.000         0.375  0.340      120.450   181.000
+SQL Injection                   7.0    7.0          0.271  0.243         0.158  0.125      288.625   345.188
+SSH-Bruteforce                  1.0    1.0          1.000  1.000         0.358  0.345      102.000    69.600
+  V3-SUP vs TREE [episode_recall] mean diff +0.005, wins 5/10 seeds, p = 0.3438
+  V3-SUP vs TREE [minute_recall] mean diff -0.014, wins 4/10 seeds, p = 0.8623
+
+==== loo | threshold B at 1.0% flow false alarms | minute rule k = 3
+mean over attack types, mean (sd) over seeds; ttd = time to detect (s); fa = false-alarm minutes
+          flow_recall episode_recall  minute_recall share_detected_60s       median_ttd_s       flow_fpr fa_minute_rate fa_minutes_per_hour
+model                                                                                                                                      
+TREE    0.274 (0.042)  0.465 (0.083)  0.270 (0.055)      0.356 (0.050)  741.670 (461.575)  0.008 (0.000)  0.006 (0.001)       0.250 (0.021)
+V3-SUP  0.273 (0.043)  0.460 (0.062)  0.270 (0.046)      0.356 (0.057)  621.900 (499.197)  0.010 (0.000)  0.013 (0.001)       0.495 (0.031)
+-- per type (mean over seeds): episode recall / minute recall / median time to detect (s)
+                         n_episodes        episode_recall        minute_recall        median_ttd_s          
+model                          TREE V3-SUP           TREE V3-SUP          TREE V3-SUP         TREE    V3-SUP
+type                                                                                                        
+Bot                             2.0    2.0          0.550  0.450         0.019  0.024     7103.786  5798.500
+Brute Force -Web                4.0    4.0          0.000  0.000         0.000  0.000          NaN       NaN
+Brute Force -XSS                2.0    2.0          0.000  0.000         0.000  0.000          NaN       NaN
+DDoS attacks-LOIC-HTTP          2.0    2.0          0.350  0.400         0.435  0.403        3.000     3.500
+DoS attacks-GoldenEye           3.0    3.0          1.000  1.000         0.911  0.944        9.700     6.300
+DoS attacks-Hulk                1.0    1.0          0.500  0.500         0.375  0.400        1.800     1.800
+DoS attacks-SlowHTTPTest        4.0    4.0          0.225  0.225         0.208  0.208        3.000     3.222
+DoS attacks-Slowloris           1.0    1.0          1.000  1.000         1.000  0.981        0.000     0.000
+FTP-BruteForce                  3.0    3.0          0.300  0.300         0.167  0.173       12.556     6.889
+Infilteration                   4.0    4.0          0.725  0.850         0.073  0.076      806.900  1125.600
+SQL Injection                   7.0    7.0          0.029  0.000         0.008  0.000      688.000       NaN
+SSH-Bruteforce                  1.0    1.0          0.900  0.800         0.039  0.035        2.000     5.250
+  V3-SUP vs TREE [episode_recall] mean diff -0.004, wins 5/10 seeds, p = 0.6641
+  V3-SUP vs TREE [minute_recall] mean diff +0.001, wins 6/10 seeds, p = 0.3848
+
+==== loo | threshold B at 0.1% flow false alarms | minute rule k = 1
+mean over attack types, mean (sd) over seeds; ttd = time to detect (s); fa = false-alarm minutes
+          flow_recall episode_recall  minute_recall share_detected_60s       median_ttd_s       flow_fpr fa_minute_rate fa_minutes_per_hour
+model                                                                                                                                      
+V3-SUP  0.151 (0.052)  0.490 (0.071)  0.298 (0.059)      0.367 (0.065)  482.144 (284.008)  0.001 (0.000)  0.016 (0.000)       0.626 (0.014)
+TREE    0.147 (0.041)  0.480 (0.068)  0.285 (0.053)      0.364 (0.069)  548.096 (489.597)  0.001 (0.000)  0.014 (0.000)       0.555 (0.013)
+-- per type (mean over seeds): episode recall / minute recall / median time to detect (s)
+                         n_episodes        episode_recall        minute_recall        median_ttd_s          
+model                          TREE V3-SUP           TREE V3-SUP          TREE V3-SUP         TREE    V3-SUP
+type                                                                                                        
+Bot                             2.0    2.0          0.300  0.250         0.006  0.006     5995.125  3871.250
+Brute Force -Web                4.0    4.0          0.100  0.100         0.003  0.003        1.000   788.750
+Brute Force -XSS                2.0    2.0          0.150  0.100         0.003  0.002      165.000   165.000
+DDoS attacks-LOIC-HTTP          2.0    2.0          0.150  0.250         0.169  0.243        3.000     3.000
+DoS attacks-GoldenEye           3.0    3.0          1.000  1.000         0.733  0.756       21.900    20.800
+DoS attacks-Hulk                1.0    1.0          0.100  0.100         0.025  0.025        1.000     3.000
+DoS attacks-SlowHTTPTest        4.0    4.0          0.800  0.825         0.746  0.754        8.389     5.833
+DoS attacks-Slowloris           1.0    1.0          1.000  1.000         1.000  0.976        0.000     0.000
+FTP-BruteForce                  3.0    3.0          0.400  0.567         0.347  0.507       34.333    29.583
+Infilteration                   4.0    4.0          0.700  0.750         0.032  0.050     1212.200  1278.650
+SQL Injection                   7.0    7.0          0.157  0.043         0.062  0.012      476.333   517.000
+SSH-Bruteforce                  1.0    1.0          0.900  0.900         0.292  0.245        2.444   215.000
+  V3-SUP vs TREE [episode_recall] mean diff +0.011, wins 5/10 seeds, p = 0.4229
+  V3-SUP vs TREE [minute_recall] mean diff +0.013, wins 7/10 seeds, p = 0.2158
+
+==== loo | threshold B at 0.1% flow false alarms | minute rule k = 3
+mean over attack types, mean (sd) over seeds; ttd = time to detect (s); fa = false-alarm minutes
+          flow_recall episode_recall  minute_recall share_detected_60s       median_ttd_s       flow_fpr fa_minute_rate fa_minutes_per_hour
+model                                                                                                                                      
+TREE    0.147 (0.041)  0.296 (0.054)  0.167 (0.025)      0.267 (0.054)  278.867 (561.103)  0.001 (0.000)  0.000 (0.000)       0.004 (0.003)
+V3-SUP  0.151 (0.052)  0.278 (0.066)  0.173 (0.023)      0.248 (0.051)   92.059 (113.657)  0.001 (0.000)  0.000 (0.000)       0.011 (0.004)
+-- per type (mean over seeds): episode recall / minute recall / median time to detect (s)
+                         n_episodes        episode_recall        minute_recall        median_ttd_s          
+model                          TREE V3-SUP           TREE V3-SUP          TREE V3-SUP         TREE    V3-SUP
+type                                                                                                        
+Bot                             2.0    2.0           0.05  0.000         0.000  0.000     9430.000       NaN
+Brute Force -Web                4.0    4.0           0.00  0.000         0.000  0.000          NaN       NaN
+Brute Force -XSS                2.0    2.0           0.00  0.000         0.000  0.000          NaN       NaN
+DDoS attacks-LOIC-HTTP          2.0    2.0           0.15  0.250         0.056  0.152        3.000     3.000
+DoS attacks-GoldenEye           3.0    3.0           1.00  1.000         0.694  0.728       26.300    24.300
+DoS attacks-Hulk                1.0    1.0           0.10  0.000         0.025  0.000        3.000       NaN
+DoS attacks-SlowHTTPTest        4.0    4.0           0.20  0.175         0.146  0.123       19.750    39.714
+DoS attacks-Slowloris           1.0    1.0           1.00  1.000         1.000  0.976        0.000     0.000
+FTP-BruteForce                  3.0    3.0           0.10  0.167         0.040  0.067       25.667   113.800
+Infilteration                   4.0    4.0           0.15  0.150         0.007  0.008     1624.750  1432.333
+SQL Injection                   7.0    7.0           0.00  0.000         0.000  0.000          NaN       NaN
+SSH-Bruteforce                  1.0    1.0           0.80  0.600         0.032  0.021        5.125    12.333
+  V3-SUP vs TREE [episode_recall] mean diff -0.017, wins 3/10 seeds, p = 0.8125
+  V3-SUP vs TREE [minute_recall] mean diff +0.006, wins 7/10 seeds, p = 0.1611
+

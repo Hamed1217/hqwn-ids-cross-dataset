@@ -1,0 +1,78 @@
+##### D:/revised model/v33_within10/v3_results.csv
+test benign third: 382291 flows (inferred from the stored rates)
+
+==== MEDIUM (within, loo), operating point 1% false alarms on the local calibration benign
+evaluation set per task: 382291 test benign flows + attack flows; attack share (prevalence) 0.144 -> accuracy / precision / F1 depend on it
+mean (sd) over seeds; macro_recall = mean recall over attack types (primary metric), recall = pooled over all attack flows:
+               macro_recall         recall      precision             f1            mcc       accuracy   balanced_acc            fpr            auc          pauc1 precision_at_prev1
+model                                                                                                                                                                                
+V3-MAX        0.565 (0.027)  0.816 (0.054)  0.927 (0.004)  0.867 (0.032)  0.850 (0.034)  0.964 (0.008)  0.903 (0.027)  0.011 (0.000)  0.963 (0.016)  0.849 (0.028)      0.434 (0.013)
+V3-MAX-RBF    0.561 (0.024)  0.800 (0.040)  0.927 (0.004)  0.858 (0.024)  0.840 (0.026)  0.962 (0.006)  0.895 (0.020)  0.011 (0.000)  0.965 (0.013)  0.842 (0.021)      0.433 (0.014)
+V3-SUP        0.524 (0.027)  0.777 (0.039)  0.933 (0.004)  0.847 (0.024)  0.829 (0.026)  0.960 (0.006)  0.884 (0.020)  0.009 (0.000)  0.964 (0.019)  0.856 (0.014)      0.454 (0.017)
+TREE          0.524 (0.026)  0.747 (0.013)  0.927 (0.001)  0.827 (0.008)  0.808 (0.009)  0.955 (0.002)  0.869 (0.006)  0.010 (0.000)  0.934 (0.025)  0.844 (0.016)      0.432 (0.005)
+V3-SUP-DENSE  0.516 (0.029)  0.733 (0.025)  0.926 (0.002)  0.818 (0.017)  0.798 (0.016)  0.953 (0.004)  0.861 (0.012)  0.010 (0.000)  0.937 (0.017)  0.835 (0.023)      0.428 (0.008)
+
+confusion matrix, mean over seeds  [rows: true benign / true attack; columns: no alarm / alarm]
+  TREE          benign [    378496     3795]  ( 99.0% /  1.0%)
+                attack [     16277    48135]  ( 25.3% / 74.7%)
+  V3-MAX        benign [    378183     4108]  ( 98.9% /  1.1%)
+                attack [     11841    52571]  ( 18.4% / 81.6%)
+  V3-MAX-RBF    benign [    378250     4041]  ( 98.9% /  1.1%)
+                attack [     12894    51518]  ( 20.0% / 80.0%)
+  V3-SUP        benign [    378684     3607]  ( 99.1% /  0.9%)
+                attack [     14384    50028]  ( 22.3% / 77.7%)
+  V3-SUP-DENSE  benign [    378509     3782]  ( 99.0% /  1.0%)
+                attack [     17226    47186]  ( 26.7% / 73.3%)
+
+per attack type: share of its flows that raised an alarm (recall), mean over seeds. (No per-type F1: a
+binary detector does not assign false alarms to a type; per-family F1 comes from the family stage.)
+model                      TREE  V3-MAX  V3-MAX-RBF  V3-SUP  V3-SUP-DENSE
+type                                                                     
+Bot                       0.000   0.000       0.000   0.001         0.000
+DDoS                      0.625   0.771       0.731   0.700         0.623
+DoS GoldenEye             0.855   0.760       0.761   0.835         0.827
+DoS Hulk                  0.928   0.911       0.912   0.924         0.900
+DoS Slowhttptest          0.361   0.972       0.972   0.416         0.360
+DoS slowloris             0.998   0.966       0.966   0.994         0.989
+FTP-Patator               0.291   0.127       0.128   0.211         0.279
+PortScan                  0.255   0.250       0.247   0.250         0.252
+SSH-Patator               0.020   0.013       0.013   0.018         0.020
+Web Attack - Brute Force  0.911   0.877       0.877   0.893         0.906
+
+==== MEDIUM (within, loo), operating point 0.1% false alarms on the local calibration benign
+evaluation set per task: 382291 test benign flows + attack flows; attack share (prevalence) 0.144 -> accuracy / precision / F1 depend on it
+mean (sd) over seeds; macro_recall = mean recall over attack types (primary metric), recall = pooled over all attack flows:
+               macro_recall         recall      precision             f1            mcc       accuracy   balanced_acc            fpr            auc          pauc1 precision_at_prev1
+model                                                                                                                                                                                
+V3-SUP        0.395 (0.030)  0.590 (0.072)  0.990 (0.001)  0.737 (0.059)  0.737 (0.051)  0.940 (0.010)  0.794 (0.036)  0.001 (0.000)  0.964 (0.019)  0.856 (0.014)      0.857 (0.016)
+V3-MAX        0.377 (0.045)  0.566 (0.098)  0.989 (0.002)  0.715 (0.088)  0.719 (0.073)  0.937 (0.014)  0.783 (0.049)  0.001 (0.000)  0.963 (0.016)  0.849 (0.028)      0.842 (0.027)
+V3-MAX-RBF    0.376 (0.047)  0.566 (0.098)  0.989 (0.003)  0.715 (0.089)  0.719 (0.073)  0.937 (0.014)  0.782 (0.049)  0.001 (0.000)  0.965 (0.013)  0.842 (0.021)      0.841 (0.029)
+V3-SUP-DENSE  0.376 (0.031)  0.566 (0.095)  0.989 (0.003)  0.715 (0.086)  0.719 (0.072)  0.936 (0.014)  0.782 (0.048)  0.001 (0.000)  0.937 (0.017)  0.835 (0.023)      0.845 (0.029)
+TREE          0.375 (0.035)  0.572 (0.103)  0.989 (0.003)  0.720 (0.093)  0.723 (0.077)  0.937 (0.015)  0.786 (0.051)  0.001 (0.000)  0.934 (0.025)  0.844 (0.016)      0.846 (0.031)
+
+confusion matrix, mean over seeds  [rows: true benign / true attack; columns: no alarm / alarm]
+  TREE          benign [    381902      389]  ( 99.9% /  0.1%)
+                attack [     27554    36858]  ( 42.8% / 57.2%)
+  V3-MAX        benign [    381893      398]  ( 99.9% /  0.1%)
+                attack [     27949    36463]  ( 43.4% / 56.6%)
+  V3-MAX-RBF    benign [    381889      402]  ( 99.9% /  0.1%)
+                attack [     27963    36449]  ( 43.4% / 56.6%)
+  V3-SUP        benign [    381916      375]  ( 99.9% /  0.1%)
+                attack [     26432    37980]  ( 41.0% / 59.0%)
+  V3-SUP-DENSE  benign [    381902      389]  ( 99.9% /  0.1%)
+                attack [     27986    36426]  ( 43.4% / 56.6%)
+
+per attack type: share of its flows that raised an alarm (recall), mean over seeds. (No per-type F1: a
+binary detector does not assign false alarms to a type; per-family F1 comes from the family stage.)
+model                      TREE  V3-MAX  V3-MAX-RBF  V3-SUP  V3-SUP-DENSE
+type                                                                     
+Bot                       0.000   0.000       0.000   0.000         0.000
+DDoS                      0.556   0.557       0.557   0.563         0.556
+DoS GoldenEye             0.476   0.463       0.459   0.585         0.516
+DoS Hulk                  0.659   0.639       0.639   0.679         0.640
+DoS Slowhttptest          0.348   0.435       0.436   0.350         0.348
+DoS slowloris             0.685   0.675       0.674   0.741         0.675
+FTP-Patator               0.002   0.001       0.001   0.004         0.001
+PortScan                  0.198   0.180       0.180   0.202         0.199
+SSH-Patator               0.006   0.005       0.005   0.005         0.005
+Web Attack - Brute Force  0.822   0.814       0.814   0.823         0.818

@@ -1,0 +1,15 @@
+EFFICIENCY | CPU AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD | torch threads 6 | torch 2.14.1+cpu
+  config  params  lat1_med_ms  lat1_p95_ms  lat1_p99_ms  latN_med_ms  latN_p95_ms  tree_p95_ms  seq_build_p95_ms  end_to_end_p95_ms  flows_per_s  MFLOPs_per_flow  gru_not_counted  lif_spike_rate  SOPs_per_flow  energy_nJ_per_flow_est  energy_nJ_neuromorphic_est  compute_mW_at_rate_est
+    TREE    2273       0.3855       0.5023       0.5589       0.4872       0.5581       3.0392            1.2363             4.7777  249662.7278           0.0042            False             NaN         0.0000                  9.7152                         NaN                  0.0972
+FLOW-MLP    7841       0.4532       0.6937       0.8670       0.5328       0.7730       0.0000            1.2363             1.9300 2467618.5363           0.0150            False             NaN         0.0000                 34.5920                         NaN                  0.3459
+ SEQ-GRU   11587       1.4474       1.6097       1.9004       1.9665       2.3907       0.0000            1.2363             2.8459  118035.3795           0.1228             True             NaN         0.0000                282.4768                         NaN                  2.8248
+    FULL   25018       4.8804       7.4678       8.1865       6.1720       7.0224       0.0000            1.2363             8.7041   39233.0626           0.1756            False          0.0904      1481.3274                403.9536                    405.7476                  4.0395
+H21-FLOW   11284       1.0035       1.2562       1.3287       1.3095       1.4129       3.0392            1.2363             5.5316  187343.4040           0.0214            False             NaN         0.0000                 49.2752                         NaN                  0.4928
+H21-FULL   26555       4.9278       5.2032       6.0869       5.1223       6.6644       3.0392            1.2363             9.4787   43591.5646           0.1784            False          0.0937      1535.4248                410.4304                    412.2731                  4.1043
+  H21-QD   26705       4.8830       7.4292       7.9497       6.1544       6.4154       3.0392            1.2363            11.7046   41275.0636           0.1787            False          0.0478       782.7168                411.0928                    412.2580                  4.1109
+
+16-minute sequence from the PortTable: p95 1.236 ms per flow, table build 0.29 s per 1M flows (offline; online it is a counter update)
+Claim latency < 40 ms: worst end-to-end p95 (1 thread) = 11.705 ms -> MET
+Energy columns are ESTIMATES (45 nm, Horowitz 2014); the neuromorphic column assumes the spiking branch on
+neuromorphic hardware and everything else dense. For a MEASURED value run --power_test with HWiNFO.
+Detection delay of the service-load windows: up to 60 s (1-minute windows), report separately.

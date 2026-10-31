@@ -1,0 +1,58 @@
+2017 train 1346659 | 2018 sample 378401 | benign thirds 86893 | types 14
+
+== A  ceiling INSIDE 2018 (upper bound only; 2018 labels never used for the real models)
+
+== B  shift between the networks
+B1 benign 2017 vs benign 2018, domain-classifier AUC: flow features 0.999 | service-load sequences 1.000   (0.5 = same distribution)
+   most shifted flow features (benign KS): min_seg_size_forward 0.43, Bwd_Header_Length 0.36, Fwd_Header_Length 0.32, Flow_IAT_Min 0.30, Fwd_Packet_Length_Min 0.28, Min_Packet_Length 0.27, Bwd_Packet_Length_Min 0.26, Fwd_IAT_Min 0.26, Fwd_IAT_Total 0.25, Fwd_IAT_Max 0.25
+   features with KS < 0.1 / 0.2 / 0.3: 21 / 54 / 66 of 69
+B2 the SAME attack, 2017 counterpart vs 2018 (AUC; ~1.0 = looks completely different):
+                  type18            counterpart17     n  AUC_flow  AUC_seq
+   DoS attacks-GoldenEye            DoS GoldenEye  6012       1.0      1.0
+  DDoS attacks-LOIC-HTTP                     DDoS 19875       1.0      1.0
+        DoS attacks-Hulk                 DoS Hulk 15343       1.0      1.0
+                     Bot                      Bot   825       1.0      1.0
+          SSH-Bruteforce              SSH-Patator  1895       1.0      1.0
+   DoS attacks-Slowloris            DoS slowloris  3348       1.0      1.0
+        Brute Force -Web Web Attack - Brute Force   550       1.0      1.0
+        Brute Force -XSS         Web Attack - XSS   227       1.0      1.0
+DoS attacks-SlowHTTPTest         DoS Slowhttptest    36       0.5      0.5
+          FTP-BruteForce              FTP-Patator    31       0.5      0.5
+
+== C  2017 -> 2018 with only the benign-stable flow features (HistGB, threshold B)
+
+== SUMMARY: mean recall @ 1% FPR over 2018 types (sd over seeds)
+                           mean     sd  real_fpr
+part            features                        
+A1 known-2018   flow      0.927  0.012     0.010
+                flow+seq  0.974  0.014     0.009
+A2 unseen-2018  flow      0.665  0.045     0.010
+                flow+seq  0.503  0.029     0.009
+C known 17->18  KS<0.05   0.012  0.005     0.002
+                KS<0.1    0.000  0.000     0.000
+                KS<0.2    0.229  0.036     0.003
+                KS<0.3    0.116  0.045     0.002
+                all       0.303  0.085     0.006
+C unseen 17->18 KS<0.05   0.002  0.002     0.002
+                KS<0.1    0.001  0.002     0.000
+                KS<0.2    0.160  0.049     0.004
+                KS<0.3    0.102  0.064     0.005
+                all       0.260  0.041     0.007
+
+-- per type: inside 2018 (flow+seq) vs 2017->2018 unseen
+                          A1 known-2018  A2 unseen-2018  17->18 unseen (trees)
+type                                                                          
+Bot                               0.997           0.801                  0.002
+Brute Force -Web                  0.915           0.492                  0.009
+Brute Force -XSS                  0.939           0.482                  0.003
+DDOS attack-HOIC                  1.000             NaN                    NaN
+DDOS attack-LOIC-UDP              1.000             NaN                    NaN
+DDoS attacks-LOIC-HTTP            1.000           0.007                  0.014
+DoS attacks-GoldenEye             1.000           0.978                  0.277
+DoS attacks-Hulk                  1.000           0.738                  0.011
+DoS attacks-SlowHTTPTest          0.981           0.259                  1.000
+DoS attacks-Slowloris             0.999           0.783                  0.691
+FTP-BruteForce                    0.979           0.854                  0.989
+Infilteration                     0.975           0.027                  0.014
+SQL Injection                     0.846           0.615                  0.104
+SSH-Bruteforce                    0.999           0.005                  0.006

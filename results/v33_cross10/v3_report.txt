@@ -1,0 +1,108 @@
+
+==== [known] mean recall@1%FPR (threshold B) over target types, all types; mean (sd) over seeds
+               mean    std
+model                     
+V3-SUP        0.340  0.123
+V3-MAX-RBF    0.315  0.096
+TREE          0.312  0.135
+V3-MAX        0.311  0.105
+V3-SUP-DENSE  0.241  0.139
+real false-alarm rate on the test benign third (nominal 1%): TREE 0.0052, V3-MAX 0.0094, V3-MAX-RBF 0.009, V3-SUP 0.01, V3-SUP-DENSE 0.0101
+partial AUC up to 1% FPR (standardised, 0.5 = chance), mean (sd) over seeds:
+               mean    std
+model                     
+V3-SUP        0.635  0.049
+TREE          0.627  0.044
+V3-MAX-RBF    0.619  0.040
+V3-MAX        0.616  0.042
+V3-SUP-DENSE  0.599  0.051
+
+==== [known] mean recall@1%FPR (threshold B) over target types, non-tiny types; mean (sd) over seeds
+               mean    std
+model                     
+V3-SUP        0.251  0.102
+TREE          0.230  0.119
+V3-MAX        0.223  0.077
+V3-MAX-RBF    0.223  0.074
+V3-SUP-DENSE  0.179  0.099
+
+-- [known] per type, recall@1%FPR
+model                      TREE  V3-MAX  V3-MAX-RBF  V3-SUP  V3-SUP-DENSE
+type                                                                     
+Bot                       0.052   0.002       0.002   0.017         0.002
+Brute Force -Web          0.191   0.389       0.396   0.203         0.149
+Brute Force -XSS          0.243   0.259       0.255   0.324         0.144
+DDOS attack-HOIC          0.000   0.000       0.000   0.017         0.000
+DDOS attack-LOIC-UDP      0.000   0.000       0.000   0.000         0.000
+DDoS attacks-LOIC-HTTP    0.229   0.272       0.270   0.393         0.146
+DoS attacks-GoldenEye     0.412   0.438       0.437   0.515         0.356
+DoS attacks-Hulk          0.208   0.096       0.094   0.194         0.096
+DoS attacks-SlowHTTPTest  0.814   0.847       0.847   0.889         0.622
+DoS attacks-Slowloris     0.982   0.936       0.937   0.934         0.934
+FTP-BruteForce            0.803   0.835       0.894   0.852         0.610
+Infilteration             0.018   0.030       0.034   0.021         0.015
+SQL Injection             0.060   0.032       0.032   0.038         0.039
+SSH-Bruteforce            0.362   0.221       0.213   0.362         0.266
+
+-- [known] PRE-REGISTERED paired tests (one-sided Wilcoxon over seed x type)
+  V3-MAX     vs TREE       mean diff -0.001  p = 0.0758  not supported   | per-seed: wins 5/10, p = 0.5391
+  V3-SUP     vs TREE       mean diff +0.027  p = 0.0019  SUPPORTED   | per-seed: wins 7/10, p = 0.0801
+  V3-SUP     vs V3-SUP-DENSE mean diff +0.098  p = 0.0000  SUPPORTED   | per-seed: wins 8/10, p = 0.0068
+  V3-MAX     vs V3-SUP     mean diff -0.029  p = 0.9959  not supported   | per-seed: wins 2/10, p = 0.9932
+  V3-MAX     vs V3-MAX-RBF mean diff -0.004  p = 0.4058  not supported   | per-seed: wins 5/10, p = 0.8125
+
+==== [loo] mean recall@1%FPR (threshold B) over target types, all types; mean (sd) over seeds
+               mean    std
+model                     
+V3-MAX-RBF    0.279  0.031
+TREE          0.274  0.042
+V3-SUP        0.273  0.043
+V3-MAX        0.272  0.038
+V3-SUP-DENSE  0.254  0.053
+real false-alarm rate on the test benign third (nominal 1%): TREE 0.0077, V3-MAX 0.0095, V3-MAX-RBF 0.0091, V3-SUP 0.0099, V3-SUP-DENSE 0.0097
+partial AUC up to 1% FPR (standardised, 0.5 = chance), mean (sd) over seeds:
+               mean    std
+model                     
+V3-SUP        0.614  0.021
+TREE          0.612  0.020
+V3-MAX-RBF    0.606  0.018
+V3-SUP-DENSE  0.605  0.024
+V3-MAX        0.602  0.021
+
+==== [loo] mean recall@1%FPR (threshold B) over target types, non-tiny types; mean (sd) over seeds
+               mean    std
+model                     
+TREE          0.156  0.027
+V3-MAX-RBF    0.152  0.028
+V3-MAX        0.151  0.027
+V3-SUP        0.150  0.027
+V3-SUP-DENSE  0.136  0.026
+
+-- [loo] per type, recall@1%FPR
+model                      TREE  V3-MAX  V3-MAX-RBF  V3-SUP  V3-SUP-DENSE
+type                                                                     
+Bot                       0.006   0.005       0.005   0.006         0.018
+Brute Force -Web          0.028   0.200       0.211   0.022         0.019
+Brute Force -XSS          0.091   0.041       0.038   0.048         0.003
+DDoS attacks-LOIC-HTTP    0.117   0.129       0.128   0.152         0.116
+DoS attacks-GoldenEye     0.260   0.223       0.219   0.314         0.237
+DoS attacks-Hulk          0.014   0.008       0.008   0.010         0.014
+DoS attacks-SlowHTTPTest  0.919   0.894       0.894   0.897         0.897
+DoS attacks-Slowloris     0.955   0.839       0.838   0.880         0.882
+FTP-BruteForce            0.813   0.858       0.935   0.881         0.797
+Infilteration             0.023   0.032       0.036   0.021         0.022
+SQL Injection             0.061   0.032       0.032   0.040         0.043
+SSH-Bruteforce            0.005   0.005       0.005   0.005         0.005
+
+-- [loo] PRE-REGISTERED paired tests (one-sided Wilcoxon over seed x type)
+  V3-MAX     vs TREE       mean diff -0.002  p = 0.5669  not supported   | per-seed: wins 6/10, p = 0.5391
+  V3-SUP     vs TREE       mean diff -0.001  p = 0.6953  not supported   | per-seed: wins 6/10, p = 0.5391
+  V3-SUP     vs V3-SUP-DENSE mean diff +0.019  p = 0.0180  SUPPORTED   | per-seed: wins 9/10, p = 0.0244
+  V3-MAX     vs V3-SUP     mean diff -0.001  p = 0.8993  not supported   | per-seed: wins 5/10, p = 0.6523
+  V3-MAX     vs V3-MAX-RBF mean diff -0.007  p = 0.7898  not supported   | per-seed: wins 2/10, p = 0.9678
+
+==== energy estimate per flow (45 nm: 4.6 pJ/MAC, 0.9 pJ/add; temporal path P in detail)
+       model  params  D_params  P_params  other_mac   P_mac      P_ac  P_rate  P_energy_nJ  total_energy_nJ
+      V3-SUP   16416      6752      7100       8864  9344.0 14553.891   0.111       56.081           96.855
+V3-SUP-DENSE   16416      6752      7100       8864 91264.0  3072.000     NaN      422.579          463.354
+neuromorphic claim V3-SUP: temporal-path energy spiking/dense = 0.133, whole model 0.209 (pre-registered <= 0.5, with recall drop <= 0.02 -> see the paired test vs V3-SUP-DENSE)

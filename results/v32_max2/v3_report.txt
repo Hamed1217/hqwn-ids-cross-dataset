@@ -1,0 +1,84 @@
+
+==== [known] mean recall@1%FPR (threshold B) over target types, all types; mean (sd) over seeds
+              mean    std
+model                    
+V3-SUP       0.421  0.027
+V3-MAX2-RBF  0.402  0.030
+V3-MAX2      0.396  0.019
+TREE         0.342  0.074
+real false-alarm rate on the test benign third (nominal 1%): TREE 0.0053, V3-MAX2 0.0097, V3-MAX2-RBF 0.0094, V3-SUP 0.0099
+
+==== [known] mean recall@1%FPR (threshold B) over target types, non-tiny types; mean (sd) over seeds
+              mean    std
+model                    
+V3-SUP       0.330  0.040
+V3-MAX2-RBF  0.307  0.042
+V3-MAX2      0.301  0.030
+TREE         0.254  0.051
+
+-- [known] per type, recall@1%FPR
+model                      TREE  V3-MAX2  V3-MAX2-RBF  V3-SUP
+type                                                         
+Bot                       0.002    0.014        0.018   0.048
+Brute Force -Web          0.240    0.239        0.287   0.241
+Brute Force -XSS          0.322    0.408        0.423   0.430
+DDOS attack-HOIC          0.000    0.000        0.000   0.000
+DDOS attack-LOIC-UDP      0.000    0.000        0.000   0.000
+DDoS attacks-LOIC-HTTP    0.276    0.428        0.432   0.541
+DoS attacks-GoldenEye     0.527    0.654        0.655   0.688
+DoS attacks-Hulk          0.266    0.417        0.409   0.511
+DoS attacks-SlowHTTPTest  0.880    0.981        0.981   0.981
+DoS attacks-Slowloris     0.987    0.989        0.989   0.985
+FTP-BruteForce            0.860    0.957        0.968   0.957
+Infilteration             0.014    0.027        0.028   0.020
+SQL Injection             0.078    0.056        0.056   0.056
+SSH-Bruteforce            0.336    0.378        0.382   0.443
+
+-- [known] PRE-REGISTERED paired tests (one-sided Wilcoxon over seed x type)
+  V3-SUP     vs TREE       mean diff +0.080  p = 0.0023  SUPPORTED
+  V3-MAX2    vs V3-SUP     mean diff -0.025  p = 0.9990  not supported
+  V3-MAX2    vs TREE       mean diff +0.055  p = 0.0084  SUPPORTED
+  V3-MAX2    vs V3-MAX2-RBF mean diff -0.006  p = 0.9925  not supported
+
+==== [loo] mean recall@1%FPR (threshold B) over target types, all types; mean (sd) over seeds
+              mean    std
+model                    
+TREE         0.263  0.075
+V3-SUP       0.263  0.071
+V3-MAX2-RBF  0.260  0.065
+V3-MAX2      0.255  0.064
+real false-alarm rate on the test benign third (nominal 1%): TREE 0.008, V3-MAX2 0.0099, V3-MAX2-RBF 0.0096, V3-SUP 0.01
+
+==== [loo] mean recall@1%FPR (threshold B) over target types, non-tiny types; mean (sd) over seeds
+              mean    std
+model                    
+TREE         0.176  0.030
+V3-SUP       0.161  0.007
+V3-MAX2-RBF  0.156  0.007
+V3-MAX2      0.151  0.014
+
+-- [loo] per type, recall@1%FPR
+model                      TREE  V3-MAX2  V3-MAX2-RBF  V3-SUP
+type                                                         
+Bot                       0.001    0.001        0.001   0.001
+Brute Force -Web          0.012    0.016        0.058   0.021
+Brute Force -XSS          0.295    0.094        0.100   0.115
+DDoS attacks-LOIC-HTTP    0.127    0.141        0.141   0.141
+DoS attacks-GoldenEye     0.279    0.279        0.279   0.286
+DoS attacks-Hulk          0.000    0.000        0.000   0.000
+DoS attacks-SlowHTTPTest  0.731    0.667        0.667   0.667
+DoS attacks-Slowloris     0.987    0.911        0.911   0.984
+FTP-BruteForce            0.667    0.882        0.892   0.882
+Infilteration             0.017    0.028        0.029   0.019
+SQL Injection             0.039    0.039        0.039   0.039
+SSH-Bruteforce            0.004    0.004        0.004   0.004
+
+-- [loo] PRE-REGISTERED paired tests (one-sided Wilcoxon over seed x type)
+  V3-SUP     vs TREE       mean diff -0.000  p = 0.2832  not supported
+  V3-MAX2    vs V3-SUP     mean diff -0.008  p = 0.7810  not supported
+  V3-MAX2    vs TREE       mean diff -0.008  p = 0.3035  not supported
+  V3-MAX2    vs V3-MAX2-RBF mean diff -0.005  p = 0.9891  not supported
+
+==== energy estimate per flow (45 nm: 4.6 pJ/MAC, 0.9 pJ/add; temporal path P in detail)
+ model  params  D_params  P_params  other_mac  P_mac      P_ac  P_rate  P_energy_nJ  total_energy_nJ
+V3-SUP   16416      6752      7100       8864 9344.0 14553.891   0.111       56.081           96.855

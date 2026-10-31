@@ -1,0 +1,31 @@
+﻿cff-version: 1.2.0
+message: "If you use this code or these results, please cite the article and this archive."
+title: "Hybrid Quantum-Wavelet-Neuromorphic IDS under Cross-Dataset Shift: code, analysis plan and saved outputs"
+type: software
+authors:
+  - family-names: "[Family name]"
+    given-names: "[Given name]"
+    affiliation: "[Affiliation]"
+    orcid: "https://orcid.org/[0000-0000-0000-0000]"
+version: "1.0.0"
+date-released: "[YYYY-MM-DD]"
+license: MIT
+repository-code: "https://github.com/Hamed1217/hqwn-ids-cross-dataset"
+doi: "[Zenodo DOI]"
+keywords:
+  - intrusion detection
+  - cross-dataset generalization
+  - quantum kernel
+  - spiking neural network
+  - wavelet
+preferred-citation:
+  type: article
+  title: "A Hybrid Quantum-Wavelet-Neuromorphic Deep Learning Intrusion Detection System under Cross-Dataset Shift: A Pre-Specified Evaluation of What Transfers"
+  authors:
+    - family-names: "[Family name]"
+      given-names: "[Given name]"
+  journal: "Journal of Network and Computer Applications"
+  year: 2026
+  status: submitted
+
+

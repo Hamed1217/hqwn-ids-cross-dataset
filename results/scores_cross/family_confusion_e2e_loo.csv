@@ -1,0 +1,6 @@
+true,Bot,BruteForce,DDoS,DoS,Infiltration,Scan,Web,unknown
+BruteForce,193,17,0,6,50,142,21,343
+DoS,24,244,23,53920,2902,6928,1139,86339
+Web,2,27,0,39,1,40,6,143
+benign (false alarm),2259,360,213,10802,10354,11827,1822,66010
+unknown,22,0,6,20664,0,65,0,13236

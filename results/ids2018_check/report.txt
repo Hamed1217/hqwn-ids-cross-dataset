@@ -1,0 +1,74 @@
+
+02-14-2018.csv: rows 1048575, columns 80, IP columns: no, repeated header lines 0, timestamps with non-zero seconds 98.4%
+     Benign                              667626
+     FTP-BruteForce                      193360
+     SSH-Bruteforce                      187589
+
+02-15-2018.csv: rows 1048575, columns 80, IP columns: no, repeated header lines 0, timestamps with non-zero seconds 98.4%
+     Benign                              996077
+     DoS attacks-GoldenEye                41508
+     DoS attacks-Slowloris                10990
+
+02-16-2018.csv: rows 1048574, columns 80, IP columns: no, repeated header lines 1, timestamps with non-zero seconds 98.5%
+     DoS attacks-Hulk                    461912
+     Benign                              446772
+     DoS attacks-SlowHTTPTest            139890
+
+02-20-2018.csv: rows 7948748, columns 84, IP columns: YES, repeated header lines 0, timestamps with non-zero seconds 98.4%
+     Benign                             7372557
+     DDoS attacks-LOIC-HTTP              576191
+
+02-21-2018.csv: rows 1048575, columns 80, IP columns: no, repeated header lines 0, timestamps with non-zero seconds 98.4%
+     DDOS attack-HOIC                    686012
+     Benign                              360833
+     DDOS attack-LOIC-UDP                  1730
+
+02-22-2018.csv: rows 1048575, columns 80, IP columns: no, repeated header lines 0, timestamps with non-zero seconds 98.2%
+     Benign                             1048213
+     Brute Force -Web                       249
+     Brute Force -XSS                        79
+     SQL Injection                           34
+
+02-23-2018.csv: rows 1048575, columns 80, IP columns: no, repeated header lines 0, timestamps with non-zero seconds 98.3%
+     Benign                             1048009
+     Brute Force -Web                       362
+     Brute Force -XSS                       151
+     SQL Injection                           53
+
+02-28-2018.csv: rows 613071, columns 80, IP columns: no, repeated header lines 33, timestamps with non-zero seconds 98.1%
+     Benign                              544200
+     Infilteration                        68871
+
+03-01-2018.csv: rows 331100, columns 80, IP columns: no, repeated header lines 25, timestamps with non-zero seconds 98.5%
+     Benign                              238037
+     Infilteration                        93063
+
+03-02-2018.csv: rows 1048575, columns 80, IP columns: no, repeated header lines 0, timestamps with non-zero seconds 98.3%
+     Benign                              762384
+     Bot                                 286191
+
+== all files: label totals
+     Benign                            13484708
+     DDOS attack-HOIC                    686012
+     DDoS attacks-LOIC-HTTP              576191
+     DoS attacks-Hulk                    461912
+     Bot                                 286191
+     FTP-BruteForce                      193360
+     SSH-Bruteforce                      187589
+     Infilteration                       161934
+     DoS attacks-SlowHTTPTest            139890
+     DoS attacks-GoldenEye                41508
+     DoS attacks-Slowloris                10990
+     DDOS attack-LOIC-UDP                  1730
+     Brute Force -Web                       611
+     Brute Force -XSS                       230
+     SQL Injection                           87
+
+== files with IP columns: attacker hosts per label
+DDoS attacks-LOIC-HTTP           flows   576191 | distinct sources     10 | hosts covering 90%:     9 | top 18.219.9.1 10%, 18.218.229.235 10%, 52.14.136.135 10%
+
+== trivial identity rule (alarm if Src IP in the 10 attacker hosts): false-alarm rate on benign 0.000% (0 of 7372557)
+DDoS attacks-LOIC-HTTP           recall 1.000
+Reading guide: low FPR + recall ~1 means attacker identity is still a shortcut inside 2018 itself.
+  Few hosts per label  -> like CIC-IDS2017: only the cross-dataset test (train 2017 -> test 2018) is clean.
+  Many hosts per label -> a host-disjoint split (attacker hosts in test never seen in train) is possible.

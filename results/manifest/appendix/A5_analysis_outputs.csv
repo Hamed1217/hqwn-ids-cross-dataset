@@ -1,0 +1,8 @@
+folder,file,date
+efficiency_v3,energy_memory_sensitivity.csv,2026-10-26 08:22
+efficiency_v3,latency_end_to_end.csv,2026-10-26 08:22
+curves,learning_curves.csv,2026-10-26 09:21
+unsw,qnoise_report.txt,2026-10-26 10:13
+ci,ci_pairs.csv,2026-10-26 13:42
+sens_smoke,sensitivity_report.txt,2026-10-26 14:53
+sens_unsw,sensitivity_report.txt,2026-10-26 17:41

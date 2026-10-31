@@ -1,0 +1,11 @@
+rank,Bot,BENIGN,other,dst_ports,status,Total_Fwd_Packets,Total_Backward_Packets,Total_Length_of_Fwd_Packets,Total_Length_of_Bwd_Packets,Flow_Duration
+1,21,0,0,21,duplicate/kept,1.0,1.0,6.0,6.0,3.0
+2,21,0,0,21,duplicate/kept,1.0,1.0,6.0,6.0,48.0
+3,19,0,0,19,duplicate/kept,1.0,1.0,6.0,6.0,40.0
+4,18,0,0,18,duplicate/kept,1.0,1.0,6.0,6.0,33.0
+5,17,1,0,18,conflict,1.0,1.0,6.0,6.0,32.0
+6,17,0,0,17,duplicate/kept,1.0,1.0,6.0,6.0,49.0
+7,16,0,0,16,duplicate/kept,1.0,1.0,6.0,6.0,50.0
+8,16,1,0,17,conflict,1.0,1.0,6.0,6.0,39.0
+9,16,0,0,16,duplicate/kept,1.0,1.0,6.0,6.0,34.0
+10,15,0,0,15,duplicate/kept,1.0,1.0,6.0,6.0,36.0

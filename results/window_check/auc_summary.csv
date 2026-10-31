@@ -1,0 +1,4 @@
+file,family,n_attack,n_benign,best_window_feature,best_window_auc,best_flow_feature,best_flow_auc
+Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv,DDoS,128027,97718,f_grp_day,0.9999818901137131,Bwd_Packet_Length_Min,0.7970530434123098
+Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv,PortScan,158930,127537,f_pair_dports,0.9998408506082306,Bwd_Packets/s,0.9439404034535923
+Friday-WorkingHours-Morning.pcap_ISCX.csv,Bot,1966,189067,f_src_flows,0.7794484288299441,Average_Packet_Size,0.7771697835203086

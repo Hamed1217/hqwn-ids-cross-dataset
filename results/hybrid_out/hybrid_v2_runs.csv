@@ -1,0 +1,157 @@
+scenario,held,seed,model,branches,gate,secs
+known,,0,FLOW-MLP,D,,9.9
+known,,0,SEQ-GRU,DG,"[0.325, 0.675]",17.1
+known,,0,FULL,DQWSA,"[0.103, 0.002, 0.037, 0.065, 0.793]",35.4
+known,,0,FULL-SHUF,DQWSA,"[0.119, 0.002, 0.089, 0.003, 0.786]",35.7
+known,,1,FLOW-MLP,D,,3.5
+known,,1,SEQ-GRU,DG,"[0.139, 0.861]",16.8
+known,,1,FULL,DQWSA,"[0.904, 0.018, 0.027, 0.048, 0.004]",35.1
+known,,1,FULL-SHUF,DQWSA,"[0.948, 0.003, 0.016, 0.022, 0.011]",33.9
+known,,2,FLOW-MLP,D,,3.6
+known,,2,SEQ-GRU,DG,"[0.948, 0.052]",17.0
+known,,2,FULL,DQWSA,"[0.011, 0.89, 0.018, 0.049, 0.033]",36.7
+known,,2,FULL-SHUF,DQWSA,"[0.131, 0.004, 0.002, 0.081, 0.782]",34.9
+loo,Bot,0,FLOW-MLP,D,,2.7
+loo,Bot,0,SEQ-GRU,DG,"[0.258, 0.742]",14.8
+loo,Bot,0,FULL,DQWSA,"[0.049, 0.001, 0.032, 0.003, 0.916]",32.1
+loo,Bot,0,FULL-SHUF,DQWSA,"[0.117, 0.006, 0.025, 0.005, 0.847]",31.1
+loo,Bot,1,FLOW-MLP,D,,2.8
+loo,Bot,1,SEQ-GRU,DG,"[0.107, 0.893]",14.8
+loo,Bot,1,FULL,DQWSA,"[0.913, 0.03, 0.004, 0.046, 0.007]",23.1
+loo,Bot,1,FULL-SHUF,DQWSA,"[0.912, 0.014, 0.021, 0.041, 0.013]",32.8
+loo,Bot,2,FLOW-MLP,D,,2.8
+loo,Bot,2,SEQ-GRU,DG,"[0.873, 0.127]",15.4
+loo,Bot,2,FULL,DQWSA,"[0.006, 0.914, 0.004, 0.032, 0.045]",30.2
+loo,Bot,2,FULL-SHUF,DQWSA,"[0.169, 0.031, 0.004, 0.059, 0.738]",31.7
+loo,DDoS,0,FLOW-MLP,D,,2.9
+loo,DDoS,0,SEQ-GRU,DG,"[0.389, 0.611]",15.8
+loo,DDoS,0,FULL,DQWSA,"[0.942, 0.0, 0.051, 0.0, 0.006]",23.0
+loo,DDoS,0,FULL-SHUF,DQWSA,"[0.139, 0.018, 0.055, 0.004, 0.784]",33.6
+loo,DDoS,1,FLOW-MLP,D,,2.7
+loo,DDoS,1,SEQ-GRU,DG,"[0.155, 0.845]",14.9
+loo,DDoS,1,FULL,DQWSA,"[0.96, 0.012, 0.0, 0.026, 0.001]",33.8
+loo,DDoS,1,FULL-SHUF,DQWSA,"[0.906, 0.013, 0.018, 0.036, 0.027]",32.8
+loo,DDoS,2,FLOW-MLP,D,,2.7
+loo,DDoS,2,SEQ-GRU,DG,"[0.947, 0.053]",16.2
+loo,DDoS,2,FULL,DQWSA,"[0.062, 0.885, 0.018, 0.029, 0.006]",34.0
+loo,DDoS,2,FULL-SHUF,DQWSA,"[0.146, 0.058, 0.008, 0.036, 0.752]",31.8
+loo,DoS GoldenEye,0,FLOW-MLP,D,,2.7
+loo,DoS GoldenEye,0,SEQ-GRU,DG,"[0.19, 0.81]",14.3
+loo,DoS GoldenEye,0,FULL,DQWSA,"[0.406, 0.001, 0.094, 0.001, 0.498]",26.0
+loo,DoS GoldenEye,0,FULL-SHUF,DQWSA,"[0.103, 0.032, 0.024, 0.003, 0.838]",32.9
+loo,DoS GoldenEye,1,FLOW-MLP,D,,2.7
+loo,DoS GoldenEye,1,SEQ-GRU,DG,"[0.128, 0.872]",15.0
+loo,DoS GoldenEye,1,FULL,DQWSA,"[0.843, 0.001, 0.001, 0.031, 0.124]",32.1
+loo,DoS GoldenEye,1,FULL-SHUF,DQWSA,"[0.93, 0.002, 0.02, 0.013, 0.035]",31.5
+loo,DoS GoldenEye,2,FLOW-MLP,D,,2.7
+loo,DoS GoldenEye,2,SEQ-GRU,DG,"[0.601, 0.399]",14.9
+loo,DoS GoldenEye,2,FULL,DQWSA,"[0.016, 0.951, 0.001, 0.03, 0.002]",34.8
+loo,DoS GoldenEye,2,FULL-SHUF,DQWSA,"[0.144, 0.007, 0.003, 0.045, 0.801]",39.1
+loo,DoS Hulk,0,FLOW-MLP,D,,3.5
+loo,DoS Hulk,0,SEQ-GRU,DG,"[0.969, 0.031]",17.9
+loo,DoS Hulk,0,FULL,DQWSA,"[0.089, 0.007, 0.12, 0.749, 0.035]",30.7
+loo,DoS Hulk,0,FULL-SHUF,DQWSA,"[0.16, 0.002, 0.001, 0.835, 0.002]",34.9
+loo,DoS Hulk,1,FLOW-MLP,D,,2.8
+loo,DoS Hulk,1,SEQ-GRU,DG,"[0.151, 0.849]",14.6
+loo,DoS Hulk,1,FULL,DQWSA,"[0.917, 0.002, 0.066, 0.004, 0.011]",27.5
+loo,DoS Hulk,1,FULL-SHUF,DQWSA,"[0.94, 0.002, 0.034, 0.002, 0.022]",27.7
+loo,DoS Hulk,2,FLOW-MLP,D,,2.6
+loo,DoS Hulk,2,SEQ-GRU,DG,"[0.992, 0.008]",14.8
+loo,DoS Hulk,2,FULL,DQWSA,"[0.068, 0.846, 0.003, 0.08, 0.003]",28.1
+loo,DoS Hulk,2,FULL-SHUF,DQWSA,"[0.037, 0.002, 0.004, 0.073, 0.884]",30.7
+loo,DoS Slowhttptest,0,FLOW-MLP,D,,2.9
+loo,DoS Slowhttptest,0,SEQ-GRU,DG,"[0.401, 0.599]",14.1
+loo,DoS Slowhttptest,0,FULL,DQWSA,"[0.116, 0.003, 0.057, 0.002, 0.822]",33.6
+loo,DoS Slowhttptest,0,FULL-SHUF,DQWSA,"[0.164, 0.006, 0.017, 0.003, 0.81]",33.5
+loo,DoS Slowhttptest,1,FLOW-MLP,D,,2.9
+loo,DoS Slowhttptest,1,SEQ-GRU,DG,"[0.138, 0.862]",16.0
+loo,DoS Slowhttptest,1,FULL,DQWSA,"[0.919, 0.002, 0.002, 0.038, 0.039]",30.1
+loo,DoS Slowhttptest,1,FULL-SHUF,DQWSA,"[0.904, 0.002, 0.025, 0.05, 0.018]",35.8
+loo,DoS Slowhttptest,2,FLOW-MLP,D,,2.7
+loo,DoS Slowhttptest,2,SEQ-GRU,DG,"[0.872, 0.128]",16.7
+loo,DoS Slowhttptest,2,FULL,DQWSA,"[0.008, 0.942, 0.002, 0.046, 0.002]",34.9
+loo,DoS Slowhttptest,2,FULL-SHUF,DQWSA,"[0.138, 0.006, 0.004, 0.034, 0.818]",34.4
+loo,DoS slowloris,0,FLOW-MLP,D,,2.8
+loo,DoS slowloris,0,SEQ-GRU,DG,"[0.396, 0.604]",15.7
+loo,DoS slowloris,0,FULL,DQWSA,"[0.097, 0.004, 0.057, 0.007, 0.835]",34.6
+loo,DoS slowloris,0,FULL-SHUF,DQWSA,"[0.076, 0.003, 0.073, 0.002, 0.846]",35.3
+loo,DoS slowloris,1,FLOW-MLP,D,,3.0
+loo,DoS slowloris,1,SEQ-GRU,DG,"[0.147, 0.853]",16.5
+loo,DoS slowloris,1,FULL,DQWSA,"[0.94, 0.001, 0.011, 0.047, 0.001]",34.8
+loo,DoS slowloris,1,FULL-SHUF,DQWSA,"[0.928, 0.005, 0.023, 0.026, 0.018]",33.4
+loo,DoS slowloris,2,FLOW-MLP,D,,2.8
+loo,DoS slowloris,2,SEQ-GRU,DG,"[0.89, 0.11]",16.4
+loo,DoS slowloris,2,FULL,DQWSA,"[0.012, 0.884, 0.006, 0.086, 0.013]",24.5
+loo,DoS slowloris,2,FULL-SHUF,DQWSA,"[0.071, 0.009, 0.002, 0.079, 0.84]",34.4
+loo,FTP-Patator,0,FLOW-MLP,D,,2.8
+loo,FTP-Patator,0,SEQ-GRU,DG,"[0.266, 0.734]",15.4
+loo,FTP-Patator,0,FULL,DQWSA,"[0.109, 0.001, 0.042, 0.002, 0.845]",33.9
+loo,FTP-Patator,0,FULL-SHUF,DQWSA,"[0.041, 0.849, 0.079, 0.007, 0.025]",33.0
+loo,FTP-Patator,1,FLOW-MLP,D,,2.7
+loo,FTP-Patator,1,SEQ-GRU,DG,"[0.164, 0.836]",15.7
+loo,FTP-Patator,1,FULL,DQWSA,"[0.977, 0.002, 0.0, 0.015, 0.005]",37.2
+loo,FTP-Patator,1,FULL-SHUF,DQWSA,"[0.461, 0.177, 0.008, 0.029, 0.325]",39.1
+loo,FTP-Patator,2,FLOW-MLP,D,,2.7
+loo,FTP-Patator,2,SEQ-GRU,DG,"[0.677, 0.323]",17.9
+loo,FTP-Patator,2,FULL,DQWSA,"[0.144, 0.816, 0.005, 0.031, 0.004]",38.2
+loo,FTP-Patator,2,FULL-SHUF,DQWSA,"[0.164, 0.004, 0.002, 0.079, 0.751]",36.9
+loo,Infiltration,0,FLOW-MLP,D,,3.1
+loo,Infiltration,0,SEQ-GRU,DG,"[0.387, 0.613]",16.0
+loo,Infiltration,0,FULL,DQWSA,"[0.113, 0.001, 0.064, 0.002, 0.82]",36.7
+loo,Infiltration,0,FULL-SHUF,DQWSA,"[0.116, 0.013, 0.09, 0.004, 0.777]",37.4
+loo,Infiltration,1,FLOW-MLP,D,,2.8
+loo,Infiltration,1,SEQ-GRU,DG,"[0.135, 0.865]",16.3
+loo,Infiltration,1,FULL,DQWSA,"[0.951, 0.023, 0.001, 0.023, 0.002]",34.3
+loo,Infiltration,1,FULL-SHUF,DQWSA,"[0.854, 0.008, 0.033, 0.055, 0.05]",32.9
+loo,Infiltration,2,FLOW-MLP,D,,2.6
+loo,Infiltration,2,SEQ-GRU,DG,"[0.824, 0.176]",15.0
+loo,Infiltration,2,FULL,DQWSA,"[0.079, 0.691, 0.015, 0.034, 0.181]",32.1
+loo,Infiltration,2,FULL-SHUF,DQWSA,"[0.139, 0.004, 0.001, 0.059, 0.797]",31.1
+loo,SSH-Patator,0,FLOW-MLP,D,,2.6
+loo,SSH-Patator,0,SEQ-GRU,DG,"[0.213, 0.787]",15.4
+loo,SSH-Patator,0,FULL,DQWSA,"[0.09, 0.002, 0.09, 0.002, 0.817]",31.9
+loo,SSH-Patator,0,FULL-SHUF,DQWSA,"[0.187, 0.007, 0.052, 0.002, 0.751]",34.5
+loo,SSH-Patator,1,FLOW-MLP,D,,2.8
+loo,SSH-Patator,1,SEQ-GRU,DG,"[0.09, 0.91]",15.0
+loo,SSH-Patator,1,FULL,DQWSA,"[0.937, 0.027, 0.001, 0.032, 0.003]",32.6
+loo,SSH-Patator,1,FULL-SHUF,DQWSA,"[0.949, 0.007, 0.014, 0.022, 0.007]",33.9
+loo,SSH-Patator,2,FLOW-MLP,D,,2.7
+loo,SSH-Patator,2,SEQ-GRU,DG,"[0.764, 0.236]",15.0
+loo,SSH-Patator,2,FULL,DQWSA,"[0.008, 0.933, 0.004, 0.046, 0.009]",33.1
+loo,SSH-Patator,2,FULL-SHUF,DQWSA,"[0.021, 0.01, 0.003, 0.074, 0.892]",24.0
+loo,Web Attack - Brute Force,0,FLOW-MLP,D,,2.7
+loo,Web Attack - Brute Force,0,SEQ-GRU,DG,"[0.417, 0.583]",14.8
+loo,Web Attack - Brute Force,0,FULL,DQWSA,"[0.507, 0.002, 0.048, 0.003, 0.44]",32.7
+loo,Web Attack - Brute Force,0,FULL-SHUF,DQWSA,"[0.06, 0.892, 0.032, 0.014, 0.002]",35.0
+loo,Web Attack - Brute Force,1,FLOW-MLP,D,,3.3
+loo,Web Attack - Brute Force,1,SEQ-GRU,DG,"[0.143, 0.857]",15.1
+loo,Web Attack - Brute Force,1,FULL,DQWSA,"[0.299, 0.058, 0.002, 0.034, 0.607]",23.0
+loo,Web Attack - Brute Force,1,FULL-SHUF,DQWSA,"[0.521, 0.033, 0.016, 0.045, 0.385]",35.4
+loo,Web Attack - Brute Force,2,FLOW-MLP,D,,2.7
+loo,Web Attack - Brute Force,2,SEQ-GRU,DG,"[0.942, 0.058]",15.4
+loo,Web Attack - Brute Force,2,FULL,DQWSA,"[0.004, 0.928, 0.01, 0.049, 0.009]",31.4
+loo,Web Attack - Brute Force,2,FULL-SHUF,DQWSA,"[0.154, 0.005, 0.003, 0.038, 0.8]",33.7
+loo,Web Attack - Sql Injection,0,FLOW-MLP,D,,2.6
+loo,Web Attack - Sql Injection,0,SEQ-GRU,DG,"[0.249, 0.752]",15.0
+loo,Web Attack - Sql Injection,0,FULL,DQWSA,"[0.111, 0.001, 0.043, 0.001, 0.844]",35.4
+loo,Web Attack - Sql Injection,0,FULL-SHUF,DQWSA,"[0.099, 0.001, 0.041, 0.001, 0.857]",34.7
+loo,Web Attack - Sql Injection,1,FLOW-MLP,D,,2.8
+loo,Web Attack - Sql Injection,1,SEQ-GRU,DG,"[0.143, 0.857]",16.4
+loo,Web Attack - Sql Injection,1,FULL,DQWSA,"[0.615, 0.004, 0.034, 0.046, 0.301]",28.9
+loo,Web Attack - Sql Injection,1,FULL-SHUF,DQWSA,"[0.942, 0.008, 0.011, 0.016, 0.023]",36.6
+loo,Web Attack - Sql Injection,2,FLOW-MLP,D,,3.1
+loo,Web Attack - Sql Injection,2,SEQ-GRU,DG,"[0.712, 0.288]",15.1
+loo,Web Attack - Sql Injection,2,FULL,DQWSA,"[0.013, 0.929, 0.007, 0.039, 0.011]",27.9
+loo,Web Attack - Sql Injection,2,FULL-SHUF,DQWSA,"[0.127, 0.093, 0.007, 0.075, 0.698]",33.6
+loo,Web Attack - XSS,0,FLOW-MLP,D,,2.7
+loo,Web Attack - XSS,0,SEQ-GRU,DG,"[0.335, 0.665]",14.8
+loo,Web Attack - XSS,0,FULL,DQWSA,"[0.104, 0.002, 0.054, 0.006, 0.834]",32.1
+loo,Web Attack - XSS,0,FULL-SHUF,DQWSA,"[0.08, 0.077, 0.078, 0.016, 0.75]",33.1
+loo,Web Attack - XSS,1,FLOW-MLP,D,,2.7
+loo,Web Attack - XSS,1,SEQ-GRU,DG,"[0.145, 0.855]",15.1
+loo,Web Attack - XSS,1,FULL,DQWSA,"[0.95, 0.002, 0.001, 0.046, 0.002]",33.7
+loo,Web Attack - XSS,1,FULL-SHUF,DQWSA,"[0.898, 0.016, 0.016, 0.053, 0.017]",37.8
+loo,Web Attack - XSS,2,FLOW-MLP,D,,3.1
+loo,Web Attack - XSS,2,SEQ-GRU,DG,"[0.734, 0.266]",14.6
+loo,Web Attack - XSS,2,FULL,DQWSA,"[0.009, 0.899, 0.044, 0.043, 0.005]",26.8
+loo,Web Attack - XSS,2,FULL-SHUF,DQWSA,"[0.139, 0.005, 0.004, 0.072, 0.78]",34.5

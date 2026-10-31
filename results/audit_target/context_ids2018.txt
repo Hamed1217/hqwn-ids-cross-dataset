@@ -1,0 +1,53 @@
+== context audit: ids2018  (378,401 flows, 117,720 attack, 260,681 benign; time known for 100.0%; sessions [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+   minutes with at least one sampled flow: 4,624; with at least one sampled attack flow: 1,209 (26.1%)
+   share of benign flows whose window contains a sampled attack flow (LOWER bound: attacks are sampled)
+                   n  network | 16 min  network | same minute
+part                                                         
+fit            43446            0.3231                 0.2514
+ref            43447            0.3238                 0.2523
+cal            86893            0.3244                 0.2523
+test           86895            0.3239                 0.2522
+reference_all  86893            0.3234                 0.2519
+   (no destination port in this cache -> network level only)
+   calibration benign by session (network level, 16 min):
+          size    mean
+session               
+0         4555  0.3052
+1         6547  0.2274
+2         3328  0.9994
+3        46483  0.2183
+4         2615  0.9989
+5         6849  0.3345
+6         6697  0.3745
+7         3172  0.2509
+8         1546  0.1876
+9         5101  0.6542
+
+== threshold-only sensitivity: threshold B from calibration flows WITHOUT sampled attack flows in their 16-minute window (network level); novelty channel and alignment unchanged
+  rebuilt thirds vs saved index: calibration IDENTICAL, test IDENTICAL
+  clean calibration flows 58,707 of 86,893; clean test benign 58,747 of 86,895
+  check: recall at B rebuilt from the scores vs v3_results.csv recall1 -> max |diff| 1.11e-16 over 520 rows
+
+  -- nominal FPR 1.0%: mean over seeds of the macro recall (all types); test FPR on clean / attack-window test benign
+                 recall_B  recall_Bclean  fpr_test_B  fpr_cleantest_B  fpr_cleantest_Bclean  fpr_attackwindow_test_B
+scenario model                                                                                                      
+known    TREE      0.3124         0.3098      0.0052           0.0054                0.0054                   0.0048
+         V3-SUP    0.3399         0.3308      0.0100           0.0111                0.0099                   0.0078
+loo      TREE      0.2743         0.2690      0.0077           0.0080                0.0070                   0.0069
+         V3-SUP    0.2730         0.2708      0.0099           0.0107                0.0098                   0.0083
+     known V3-SUP     vs TREE       [recall_B     ] diff +0.027  seeds 7/10  p_seed 0.0801
+     known V3-SUP     vs TREE       [recall_Bclean] diff +0.021  seeds 7/10  p_seed 0.1162
+     loo   V3-SUP     vs TREE       [recall_B     ] diff -0.001  seeds 6/10  p_seed 0.5391
+     loo   V3-SUP     vs TREE       [recall_Bclean] diff +0.002  seeds 6/10  p_seed 0.2783
+
+  -- nominal FPR 0.1%: mean over seeds of the macro recall (all types); test FPR on clean / attack-window test benign
+                 recall_B  recall_Bclean  fpr_test_B  fpr_cleantest_B  fpr_cleantest_Bclean  fpr_attackwindow_test_B
+scenario model                                                                                                      
+known    TREE      0.1934         0.1800      0.0008           0.0009                0.0008                   0.0005
+         V3-SUP    0.1950         0.1818      0.0009           0.0010                0.0009                   0.0007
+loo      TREE      0.1469         0.1376      0.0008           0.0008                0.0008                   0.0007
+         V3-SUP    0.1509         0.1493      0.0009           0.0010                0.0009                   0.0007
+     known V3-SUP     vs TREE       [recall_B     ] diff +0.002  seeds 6/10  p_seed 0.4609
+     known V3-SUP     vs TREE       [recall_Bclean] diff +0.002  seeds 6/10  p_seed 0.3848
+     loo   V3-SUP     vs TREE       [recall_B     ] diff +0.004  seeds 7/10  p_seed 0.1875
+     loo   V3-SUP     vs TREE       [recall_Bclean] diff +0.012  seeds 6/10  p_seed 0.1162

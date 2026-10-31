@@ -1,0 +1,10 @@
+PRE-REGISTERED (every run writes prereg_v3.txt with this text and the SHA-256 of hybrid_v3.py + qkernel.py):
+  primary   cross loo: V3-FULL mean recall@1%FPR > TREE (paired one-sided Wilcoxon over seed x type, p < 0.05),
+            reported against 0.399 and on the non-tiny types
+  quantum   V3-FULL > V3-QRBF, V3-QRFF, V3-QIF and Q-IQP > Q-RBF, Q-RFF, Q-IF (same test)
+  others    V3-FULL > V3-NOALIGN (alignment), > V3-NOW (wavelet), > V3-NOA (attention), > V3-SHUF (time order)
+  neuro     energy estimate of P: V3-FULL <= 0.5 x V3-DENSE and recall drop <= 0.02
+
+sha256 hybrid_v3.py 30721b06ba807cc0fd67241b3ad19cb6234eb0a80183350bb02dfc381ce1ea5e
+sha256 qkernel.py aa1423c8289247c3af2ef2294362403b4cd23bce81f87300c0497d882bb99fb6
+settings {"protocol": "cross", "target": "ids2018", "s17_dir": "D:/revised model/stage1_pw", "target_cache": "D:/revised model/cross_out4/ids2018_sample_v4.npz", "out_dir": "D:/revised model/v33_cross10", "mode": "both", "configs": "TREE,V3-SUP,V3-MAX,V3-MAX-RBF,V3-SUP-DENSE", "within_fams": "DDoS,PortScan,DoS Hulk,DoS GoldenEye,DoS slowloris,DoS Slowhttptest,FTP-Patator,SSH-Patator,Bot,Web Attack - Brute Force", "seeds": 10, "max_train": 30000, "val_max": 10000, "tree_train": 100000, "epochs": 6, "patience": 2, "bs": 512, "lr": 0.002, "lb": 0.1, "qubits": 8, "q_m": 2000, "q_nu": 0.1, "device": "auto", "selftest": false, "smoke": false}

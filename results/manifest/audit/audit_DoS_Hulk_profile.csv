@@ -1,0 +1,17 @@
+,conflict,duplicate,kept
+Total_Fwd_Packets,2.0,2.0,6.0
+Total_Backward_Packets,0.0,0.0,6.0
+Total_Length_of_Fwd_Packets,0.0,0.0,354.0
+Total_Length_of_Bwd_Packets,0.0,0.0,11595.0
+Flow_Duration,1.0,3.0,86419475.0
+Flow_IAT_Mean,1.0,3.0,7215206.42
+Init_Win_bytes_forward,274.0,251.0,251.0
+Init_Win_bytes_backward,-1.0,-1.0,235.0
+SYN_Flag_Count,0.0,0.0,0.0
+RST_Flag_Count,0.0,0.0,0.0
+ACK_Flag_Count,1.0,1.0,1.0
+PSH_Flag_Count,0.0,0.0,0.0
+FIN_Flag_Count,0.0,0.0,0.0
+packets,2.0,2.0,13.0
+share_le2,1.0,0.949,0.007
+rows,4882.0,52529.0,172713.0

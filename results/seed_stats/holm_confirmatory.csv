@@ -1,0 +1,9 @@
+hypothesis,level,A,B,kind,mean_diff,seed_wins,n_seeds,p_seed,p_cell_descriptive,pre_specified_decision,missing,p_seed_holm,seed_level_decision,holm_decision
+U1,unsw_known,V3-SUP,TREE,superiority,-0.003621556538495799,5,10,0.8388671875,0.9659655950123522,not met,False,1.0,not met,not met
+U2,unsw_known,V3-SUP,V3-SUP-DENSE,non-inferiority,0.00027269426369005235,10,10,0.0009765625,4.003582386467331e-17,met,False,0.0078125,met,met
+U3 known,unsw_known,V3-MAX,V3-SUP,superiority,0.1402322405068518,10,10,0.0009765625,2.4399612068249717e-13,met,False,0.0078125,met,met
+U3 loo,unsw_loo,V3-MAX,V3-SUP,superiority,0.37009001646210504,10,10,0.0009765625,9.5367431640625e-07,met,False,0.0078125,met,met
+U3 quantum known,unsw_known,V3-MAX,V3-MAX-RBF,superiority,0.0023655957058437644,2,10,0.8125,0.45523633250603945,not met,False,1.0,not met,not met
+U3 quantum loo,unsw_loo,V3-MAX,V3-MAX-RBF,superiority,0.010551570110708628,6,10,0.384765625,0.1951631897091886,not met,False,1.0,not met,not met
+U4,unsw_known,V3-SUP-NOA,V3-SUP,non-inferiority,-0.006744840316132401,9,10,0.0419921875,2.07191810616846e-10,met,False,0.2099609375,met,not met
+U5,unsw_loo,V3-SUP,TREE,superiority,-0.0037333733443359746,4,10,0.6875,0.6231581411369214,not met,False,1.0,not met,not met

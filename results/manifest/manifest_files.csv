@@ -1,0 +1,46 @@
+role,path,bytes,sha256,fingerprint,modified,check
+2017 stage-1 output (hybrid_v3),D:/revised model/stage1_pw\splits.npz,831297909.0,bbf2cb5bee70343bd061e79617f98c219c8031f29693ab9ce3678ee0c20b2a43,bbf2cb5bee70,2026-10-23 16:44,
+2017 stage-1 output (hybrid_v3),D:/revised model/stage1_pw\seq17.npz,214371616.0,2e8a05f195976d6c986ed981284a56ac7a7a68380745a69bcc7d7c06cd7816f4,2e8a05f19597,2026-10-23 16:44,
+2017 stage-1 output (hybrid_v3),D:/revised model/stage1_pw\feature_names.json,1765.0,158b936d2dd498b4fb6619e8572cd21977817623af1dcd219b3d060d2b77fc3b,158b936d2dd4,2026-10-23 16:44,
+2017 stage-1 output (hybrid_v3),D:/revised model/stage1_pw\quantile_transformer.joblib,746487.0,f93702dd99b02058d84780922e7b9d4d394c9f04635df68a2638e0bfea226438,f93702dd99b0,2026-10-23 16:44,
+2017 stage-1 output (hybrid_v3),D:/revised model/stage1_pw\label_time_windows.csv,2284.0,b98420f81153afcd2ecc845fd84431d486c10c440700ba998c4c33fad96e607f,b98420f81153,2026-10-23 16:43,
+"2017 stage-1 output (loo_trees, cross_out, cross_out2)",D:/revised model/stage1_win/splits_win.npz,768773069.0,e72939aac382e2e69b39ae833b1e105a1e56c04dec863d2b299a1150e811f54b,e72939aac382,2026-10-22 10:09,
+2018 sample cache,D:/revised model/cross_out2/ids2018_sample.npz,209710771.0,30e2b82c62c699fe4dfd929534f41a6d4b831c2ab4a939397ffa668cd7d636e0,30e2b82c62c6,2026-10-23 12:26,
+2018 sample cache,D:/revised model/cross_out3/ids2018_sample_v3.npz,230835503.0,42f3fc2724401271e652b599985aab7d3126646a23dcd70c1ee53de6486f215d,42f3fc272440,2026-10-23 15:15,
+2018 sample cache,D:/revised model/cross_out4/ids2018_sample_v4.npz,267162237.0,f299d617abc110cebbd8272f8ff2223d30cc2bc1e87554024fb12006f8f88a71,f299d617abc1,2026-10-23 16:53,
+code,.\benign_sensitivity.py,12486.0,18ee5e1180e54c49fe46363edf7443dde7ba2854f2d12742a1c22dbfeca82615,18ee5e1180e5,2026-10-26 13:36,OK
+code,.\bootstrap_ci.py,9789.0,fe379e80fe2d3ec2c01b9fecc0aeb05a5d0b462c67a9d11bf63f9fc09c3b713c,fe379e80fe2d,2026-10-26 13:36,OK
+code,.\check_splits17.py,2693.0,08dd79e79923dc7c8638352821ee16d4be963ebf9043a3dc2f70053891cd6977,08dd79e79923,2026-10-27 22:13,OK
+code,.\cross_dataset.py,21928.0,71416d6efbcb4c2994eae0230fdccd817836a451dc139205bef3d65a9ae15dd3,71416d6efbcb,2026-10-23 16:24,OK
+code,.\dump_scores.py,8457.0,7f395451426bc649a0d9f8e4bb07e81b7438703fcf389bf83b1815ecbc503592,7f395451426b,2026-10-25 18:35,OK
+code,.\event_metrics.py,11414.0,920bfad1b184203efcd56395b2b0b2c013bf9de6bc8985085a47e651c4571e2e,920bfad1b184,2026-10-26 13:36,OK
+code,.\fast_novelty.py,5926.0,043b785601f9cb5e7d9ca156e74815adb0d5184c44254e986cca8ae77a4a5e7b,043b785601f9,2026-10-26 08:27,OK
+code,.\harmonize_unsw.py,3038.0,fb3887e8fd87600ffa37c425572c9b091d5ed098a48f4ae2442551d6f84fde9d,fb3887e8fd87,2026-10-25 19:15,OK
+code (locked),.\hybrid_v2.py,38466.0,a55b7fcf3afe54b8af22d27fbc2de44c6608c232f66eb51bd0bf4487e012d0c4,a55b7fcf3afe,2026-10-23 18:27,OK
+code (locked),.\hybrid_v3.py,53062.0,30721b06ba807cc0fd67241b3ad19cb6234eb0a80183350bb02dfc381ce1ea5e,30721b06ba80,2026-10-24 21:10,OK
+code,.\loo_trees.py,11880.0,5198133311d6df18571229445f6c8512273ac4f31a572bd5c22297f5fcccfa8d,5198133311d6,2026-10-23 14:56,OK
+code,.\make_figures.py,26230.0,4b1ed64bad514df34e4d89299f5abb948687aef6a9a54f6fc486c9b986985b5e,4b1ed64bad51,2026-10-26 20:45,OK
+code (locked),.\port_windows.py,7339.0,bdff258274325e113570e19b14c90b46f19e5a22e7ecec8edb985894b3c4bc3b,bdff25827432,2026-10-23 16:24,OK
+code,.\prep_unsw.py,13915.0,4f2e5eebc9aa91fc29a509834f9083f802059d90005af6cb63ade9b3942caa0e,4f2e5eebc9aa,2026-10-25 19:05,OK
+code (locked),.\qkernel.py,11867.0,aa1423c8289247c3af2ef2294362403b4cd23bce81f87300c0497d882bb99fb6,aa1423c82892,2026-10-24 01:29,OK
+code,.\shortcut_check.py,,,,,NOT FOUND
+code,.\stage1_cicids2017_pipeline.py,29302.0,140ec0eb454b305f6d9ec558644a27b4c8101ee1fb8b822dbfdcf5914b21bba2,140ec0eb454b,2026-10-23 16:24,OK
+code,.\ts_2018.py,6406.0,4eb4223e106e0ced0d48b6b102fd6f93f2361da209319afb5588b47111be5348,4eb4223e106e,2026-10-26 13:36,OK
+raw CSV (2017),D:/revised model/GeneratedLabelledFlows(1)\TrafficLabelling_\Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv,96101069.0,1f779b4f0d78f9225554c4de53b5a2c07912b60dcd136ee4c5c1d0d2496b7cc4,1f779b4f0d78,2018-06-07 20:03,
+raw CSV (2017),D:/revised model/GeneratedLabelledFlows(1)\TrafficLabelling_\Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv,101874777.0,7e2ddaa80a5849ba629463296b6128436c161b4a32e8034bb5beae06b0c45e08,7e2ddaa80a58,2017-08-17 17:46,
+raw CSV (2017),D:/revised model/GeneratedLabelledFlows(1)\TrafficLabelling_\Friday-WorkingHours-Morning.pcap_ISCX.csv,75386737.0,c061cd98f39d8054aeaed6244a5129a20b3985983d0d022b860ae8aa07fe8d21,c061cd98f39d,2017-08-17 17:46,
+raw CSV (2017),D:/revised model/GeneratedLabelledFlows(1)\TrafficLabelling_\Monday-WorkingHours.pcap_ISCX.csv,268649908.0,96f26aea87d513073769b48ce204c2921791149e1c6225f7db65a3fed7973820,96f26aea87d5,2017-08-10 20:45,
+raw CSV (2017),D:/revised model/GeneratedLabelledFlows(1)\TrafficLabelling_\Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv,108723183.0,d74238e054023c8bd4d8056650463cadb25c100fb0e26ebd4272c07b5c022c4b,d74238e05402,2017-08-17 17:46,
+raw CSV (2017),D:/revised model/GeneratedLabelledFlows(1)\TrafficLabelling_\Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv,92030223.0,e3deaff483d18b53b100a441dff9b8919416df8876b4edcc0f0d1e4bf48397d0,e3deaff483d1,2017-08-17 17:46,
+raw CSV (2017),D:/revised model/GeneratedLabelledFlows(1)\TrafficLabelling_\Tuesday-WorkingHours.pcap_ISCX.csv,174696560.0,ae9c88e10c41a8eb1ff454ae98bc513454925097d0b0b57180f94e79de445815,ae9c88e10c41,2017-08-17 17:46,
+raw CSV (2017),D:/revised model/GeneratedLabelledFlows(1)\TrafficLabelling_\Wednesday-workingHours.pcap_ISCX.csv,285642925.0,ed538e85b84181e8897dedb3d37d365982f44b27eccd67c477581a8b65f3d170,ed538e85b841,2017-08-17 17:46,
+raw CSV (2018),D:/revised model/ids2018\02-14-2018.csv,358223333.0,acff8bc61376ee031d80878ee6099e0b1a87a1bd711d8068298421418c9f8147,acff8bc61376,2020-10-01 23:50,
+raw CSV (2018),D:/revised model/ids2018\02-15-2018.csv,375945899.0,fa2947a8256d81ee9103ae16139d62d0e17aa23e696ee80d9e76fb51c01c9c4b,fa2947a8256d,2020-10-01 23:51,
+raw CSV (2018),D:/revised model/ids2018\02-16-2018.csv,333723605.0,1a4919faa0c49c7af97230b0c2d076eba23ee6dd81103a3801d51ac316355d8b,1a4919faa0c4,2020-10-01 23:52,
+raw CSV (2018),D:/revised model/ids2018\02-20-2018.csv,4054925350.0,7287a4d7740a1dddbf330ceb2beb6a4889d33ba63674558a68b5eb50d16711df,7287a4d7740a,2020-10-01 23:52,
+raw CSV (2018),D:/revised model/ids2018\02-21-2018.csv,328893673.0,a5f4a1c2689e0aa6566c03a58466de9c407c0be0cbd3cc69306544026611be04,a5f4a1c2689e,2020-10-01 23:58,
+raw CSV (2018),D:/revised model/ids2018\02-22-2018.csv,382636202.0,da33c927018274f9d49b145baa00e4ce0526c25b3b890b34c489e247b5e24544,da33c9270182,2020-10-01 23:59,
+raw CSV (2018),D:/revised model/ids2018\02-23-2018.csv,382840456.0,d0a7f5059d9823b6e9b392b759e306481a3502d190dea7a1b5502ae079ea069b,d0a7f5059d98,2020-10-01 23:59,
+raw CSV (2018),D:/revised model/ids2018\02-28-2018.csv,209249758.0,f15e2a12304446058a0186c8ad67de2bd15735a9ba5c70c9a1f4c4242ab06771,f15e2a123044,2020-10-02 00:00,
+raw CSV (2018),D:/revised model/ids2018\03-01-2018.csv,107842858.0,b0534c5d7d8b41e03df71c6966c995d116a8ed28e61f377c8b14cdf5d28f4edf,b0534c5d7d8b,2020-10-02 00:00,
+raw CSV (2018),D:/revised model/ids2018\03-02-2018.csv,352368373.0,d96f38e7496aba83475031e6fb8c6fdf1abf6aa1b71325a917798f3c7de93de1,d96f38e7496a,2020-10-02 00:00,

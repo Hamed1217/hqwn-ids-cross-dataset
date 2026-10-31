@@ -1,0 +1,43 @@
+
+==== [known] mean recall@1%FPR (threshold B) over target types, all types; mean (sd) over seeds
+         mean    std
+model               
+TREE    0.906  0.053
+V3-SUP  0.888  0.050
+real false-alarm rate on the test benign third (nominal 1%): TREE 0.01, V3-SUP 0.0094
+partial AUC up to 1% FPR (standardised, 0.5 = chance), mean (sd) over seeds:
+         mean    std
+model               
+TREE    0.926  0.019
+V3-SUP  0.924  0.023
+
+==== [known] mean recall@1%FPR (threshold B) over target types, non-tiny types; mean (sd) over seeds
+         mean    std
+model               
+TREE    0.983  0.007
+V3-SUP  0.982  0.006
+
+-- [known] per type, recall@1%FPR
+model                        TREE  V3-SUP
+type                                     
+Bot                         0.925   0.912
+DDoS                        1.000   1.000
+DoS GoldenEye               1.000   0.999
+DoS Hulk                    1.000   1.000
+DoS Slowhttptest            0.999   0.999
+DoS slowloris               1.000   1.000
+FTP-Patator                 0.997   0.999
+Heartbleed                  0.400   0.250
+Infiltration                0.589   0.544
+PortScan                    0.966   0.960
+SSH-Patator                 1.000   1.000
+Web Attack - Brute Force    0.981   0.982
+Web Attack - Sql Injection  0.880   0.840
+Web Attack - XSS            0.948   0.948
+
+-- [known] PRE-REGISTERED paired tests (one-sided Wilcoxon over seed x type)
+  V3-SUP     vs TREE       mean diff -0.018  p = 0.9976  not supported   | per-seed: wins 2/10, p = 0.9902
+
+==== energy estimate per flow (45 nm: 4.6 pJ/MAC, 0.9 pJ/add; temporal path P in detail)
+ model  params  D_params  P_params  other_mac  P_mac      P_ac  P_rate  P_energy_nJ  total_energy_nJ
+V3-SUP   16416      6752      7100       8864 9344.0 19789.652   0.171       60.793          101.567

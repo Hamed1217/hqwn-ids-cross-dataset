@@ -1,0 +1,107 @@
+make_appendix_tables.py  2026-10-30 14:28
+
+[A1] run registry (folders under D:\revised model)
+            folder                       script protocol          target scenarios  seeds seed_range                                                                          configs  types  rows    hybrid_v3      qkernel max_train scores_saved             date
+         cross_out                cross_dataset    cross CSE-CIC-IDS2018 known+loo      3        0-2                                                   HistGB,IsolationForest,XGBoost     14   210                                                  2026-10-23 12:10
+        cross_out2                cross_dataset    cross CSE-CIC-IDS2018 known+loo      3        0-2                                      HistGB,IF-local2018,IsolationForest,XGBoost     14   576                                                  2026-10-23 13:03
+        cross_out3                cross_dataset    cross CSE-CIC-IDS2018 known+loo      3        0-2                    FUSE-HistGB,FUSE-XGBoost,FUSE-all,HistGB,IF-local2018,XGBoost     14   936                                                  2026-10-23 16:12
+        hybrid_out                    hybrid_v2    cross CSE-CIC-IDS2018 known+loo      3        0-2                                                  FLOW-MLP,FULL,FULL-SHUF,SEQ-GRU     14   312                                                  2026-10-23 17:52
+ hybrid21_ablation                    hybrid_v2    cross CSE-CIC-IDS2018 known+loo      3        0-2                                  H21-FULL,H21-QD,H21-noA,H21-noQ,H21-noS,H21-noW     14   468                                                  2026-10-23 22:12
+ hybrid21_controls                    hybrid_v2    cross CSE-CIC-IDS2018 known+loo      3        0-2                                                   H21-FLOW,H21-GRU,H21-SHUF,TREE     14   312                                                  2026-10-23 23:44
+            v3_out                    hybrid_v3    cross CSE-CIC-IDS2018 known+loo      3        0-2                                         Q-IQP,Q-RBF,TREE,V3-DENSE,V3-FULL,V3-SUP     14   468 6ea9187ec0fc aa1423c82892     30000              2026-10-24 09:26
+           v31_max                    hybrid_v3    cross CSE-CIC-IDS2018 known+loo      3        0-2                                                    TREE,V3-MAX,V3-MAX-RBF,V3-SUP     14   312 c7cccb69f8f7 aa1423c82892     30000              2026-10-24 10:43
+      v31_ablation                    hybrid_v3    cross CSE-CIC-IDS2018     known      3        0-2        TREE,V3-SUP,V3-SUP-DENSE,V3-SUP-NOA,V3-SUP-NOALIGN,V3-SUP-NOW,V3-SUP-SHUF     14   294 c7cccb69f8f7 aa1423c82892     30000              2026-10-24 11:08
+          v32_max2                    hybrid_v3    cross CSE-CIC-IDS2018 known+loo      3        0-2                                                  TREE,V3-MAX2,V3-MAX2-RBF,V3-SUP     14   312 125fa7b7ec1f aa1423c82892     30000              2026-10-24 13:08
+            v32_tt                    hybrid_v3    cross CSE-CIC-IDS2018     known      3        0-2                                                  TREE,V3-SUP,V3-SUP-LR,V3-SUP-TT     14   168 125fa7b7ec1f aa1423c82892     30000              2026-10-24 13:31
+    v31_ablation10                    hybrid_v3    cross CSE-CIC-IDS2018     known     10        0-9 TREE,V3-SUP,V3-SUP-LR,V3-SUP-NOA,V3-SUP-NOALIGN,V3-SUP-NOW,V3-SUP-SHUF,V3-SUP-TT     14  1120 125fa7b7ec1f aa1423c82892     30000              2026-10-24 15:59
+           v33_ens                    hybrid_v3    cross CSE-CIC-IDS2018     known     10        0-9                                                TREE,TREE-ENS5,V3-SUP,V3-SUP-ENS5     14   560 1dc8da5fe57d aa1423c82892     30000              2026-10-24 21:06
+        v31_within                    hybrid_v3   within     CIC-IDS2017 known+loo      3        0-2                             TREE,V3-MAX,V3-MAX-RBF,V3-SUP,V3-SUP-DENSE,V3-SUP-TT     14   432 30721b06ba80 aa1423c82892     30000              2026-10-25 00:06
+      v33_within10                    hybrid_v3   within     CIC-IDS2017       loo     10        0-9                                       TREE,V3-MAX,V3-MAX-RBF,V3-SUP,V3-SUP-DENSE     10   500 30721b06ba80 aa1423c82892     30000              2026-10-25 04:19
+       v33_cross10                    hybrid_v3    cross CSE-CIC-IDS2018 known+loo     10        0-9                                       TREE,V3-MAX,V3-MAX-RBF,V3-SUP,V3-SUP-DENSE     14  1300 30721b06ba80 aa1423c82892     30000              2026-10-25 14:24
+      scores_known                  dump_scores    cross CSE-CIC-IDS2018     known     10        0-9                                                                      TREE,V3-SUP     14   280                                              yes 2026-10-25 18:56
+      unsw_primary                  dump_scores    cross   CIC-UNSW-NB15 known+loo     10        0-9                            TREE,V3-MAX,V3-MAX-RBF,V3-SUP,V3-SUP-DENSE,V3-SUP-NOA      9   660                                              yes 2026-10-25 21:07
+          unsw_raw                  dump_scores    cross   CIC-UNSW-NB15 known+loo     10        0-9                                                                      TREE,V3-SUP      9   220                                              yes 2026-10-25 22:00
+      scores_cross                  dump_scores    cross CSE-CIC-IDS2018 known+loo     10        0-9                                                                      TREE,V3-SUP     14   520                                              yes 2026-10-26 01:43
+     scores_within                  dump_scores   within     CIC-IDS2017     known     10        0-9                                                                      TREE,V3-SUP     14   280                                              yes 2026-10-26 08:04
+   sens_smoke\base    benign_sensitivity (base)    cross CSE-CIC-IDS2018 known+loo      1        0-0                                                               TREE,V3-MAX,V3-SUP      4    21                                                  2026-10-26 14:51
+ sens_smoke\size25  benign_sensitivity (size25)    cross CSE-CIC-IDS2018 known+loo      1        0-0                                                               TREE,V3-MAX,V3-SUP      4    21                                                  2026-10-26 14:52
+   sens_smoke\time    benign_sensitivity (time)    cross CSE-CIC-IDS2018 known+loo      1        0-0                                                               TREE,V3-MAX,V3-SUP      4    21                                                  2026-10-26 14:52
+ sens_smoke\size10  benign_sensitivity (size10)    cross CSE-CIC-IDS2018 known+loo      1        0-0                                                               TREE,V3-MAX,V3-SUP      4    21                                                  2026-10-26 14:52
+sens_smoke\contam5 benign_sensitivity (contam5)    cross CSE-CIC-IDS2018 known+loo      1        0-0                                                               TREE,V3-MAX,V3-SUP      4    21                                                  2026-10-26 14:53
+sens_smoke\contam1 benign_sensitivity (contam1)    cross CSE-CIC-IDS2018 known+loo      1        0-0                                                               TREE,V3-MAX,V3-SUP      4    21                                                  2026-10-26 14:53
+    sens_unsw\base    benign_sensitivity (base)    cross   CIC-UNSW-NB15 known+loo      5        0-4                                                               TREE,V3-MAX,V3-SUP      9   165                                                  2026-10-26 15:23
+    sens_unsw\time    benign_sensitivity (time)    cross   CIC-UNSW-NB15 known+loo      5        0-4                                                               TREE,V3-MAX,V3-SUP      9   165                                                  2026-10-26 15:51
+  sens_unsw\size25  benign_sensitivity (size25)    cross   CIC-UNSW-NB15 known+loo      5        0-4                                                               TREE,V3-MAX,V3-SUP      9   165                                                  2026-10-26 16:18
+  sens_unsw\size10  benign_sensitivity (size10)    cross   CIC-UNSW-NB15 known+loo      5        0-4                                                               TREE,V3-MAX,V3-SUP      9   165                                                  2026-10-26 16:45
+ sens_unsw\contam1 benign_sensitivity (contam1)    cross   CIC-UNSW-NB15 known+loo      5        0-4                                                               TREE,V3-MAX,V3-SUP      9   165                                                  2026-10-26 17:13
+ sens_unsw\contam5 benign_sensitivity (contam5)    cross   CIC-UNSW-NB15 known+loo      5        0-4                                                               TREE,V3-MAX,V3-SUP      9   165                                                  2026-10-26 17:41
+  dump_scores folders have no prereg file of their own: their fingerprint is that of the code in the folder they were run from; the verify line in their console output shows they reproduced the original run.
+
+[A5] analysis outputs without a results table in the same folder:
+       folder                          file             date
+efficiency_v3 energy_memory_sensitivity.csv 2026-10-26 08:22
+efficiency_v3        latency_end_to_end.csv 2026-10-26 08:22
+       curves           learning_curves.csv 2026-10-26 09:21
+         unsw             qnoise_report.txt 2026-10-26 10:13
+           ci                  ci_pairs.csv 2026-10-26 13:42
+   sens_smoke        sensitivity_report.txt 2026-10-26 14:53
+    sens_unsw        sensitivity_report.txt 2026-10-26 17:41
+
+[A2] CIC-IDS2017 per label and split
+                                raw  after_cleaning    train  validation    test held_out_in_L2 tiny_in_test
+label                                                                                                       
+BENIGN                      2273097         1896807  1138596      375920  382291                            
+DoS Hulk                     231073          172713   107647       36901   28165            yes             
+DDoS                         128027          128011    80176       20501   27334            yes             
+DoS GoldenEye                 10293           10286     6012        1453    2821            yes             
+FTP-Patator                    7938            5931     3444        1210    1277            yes             
+DoS slowloris                  5796            5383     3348        1109     926            yes             
+DoS Slowhttptest               5499            5228     2155         692    2381            yes             
+SSH-Patator                    5897            3219     1895         653     671            yes             
+PortScan                     158930            1850     1211         457     182            yes             
+Web Attack - Brute Force       1507            1470      915         246     309            yes             
+Bot                            1966            1412      825         241     346            yes             
+Web Attack - XSS                652             652      401         134     117                            
+Infiltration                     36              36       19           8       9                         yes
+Web Attack - Sql Injection       21              21        8           8       5                         yes
+Heartbleed                       11              11        7           2       2                         yes
+TOTAL                       2830743         2233030  1346659      439535  446836                            
+
+[A3] CSE-CIC-IDS2018: D:/revised model/cross_out4/ids2018_sample_v4.npz
+                          raw_dataset  cleaned_sample       counterpart_2017_(L4) tiny
+type                                                                                  
+Benign                       13484708          260681                      benign     
+DoS attacks-GoldenEye           41508           20014               DoS GoldenEye     
+DDoS attacks-LOIC-HTTP         576191           19875                        DDoS     
+DoS attacks-Hulk               461912           15343                    DoS Hulk     
+Infilteration                  161934           14659                Infiltration     
+DDOS attack-HOIC               686012           14441              none (L3 only)     
+Bot                            286191           10677                         Bot     
+SSH-Bruteforce                 187589           10194                 SSH-Patator     
+DoS attacks-Slowloris           10990            9866               DoS slowloris     
+DDOS attack-LOIC-UDP             1730            1730              none (L3 only)     
+Brute Force -Web                  611             550    Web Attack - Brute Force     
+Brute Force -XSS                  230             227            Web Attack - XSS     
+SQL Injection                      87              77  Web Attack - Sql Injection     
+DoS attacks-SlowHTTPTest       139890              36            DoS Slowhttptest  yes
+FTP-BruteForce                 193360              31                 FTP-Patator  yes
+TOTAL                        16232943          378401                                 
+  benign thirds (reference+alignment / calibration / test): 86,893 / 86,893 / 86,895
+  cache: 378,401 rows, 76 columns, also ['seq']
+
+[A4] CIC-UNSW-NB15: D:/revised model/unsw/unsw_sample_v1h.npz
+                raw_dataset  cleaned_sample                                               counterpart_2017_(L4) tiny
+type                                                                                                                
+Benign              3450658          190901                                                              benign     
+Exploits              30951           19924                                                      none (L3 only)     
+Fuzzers               29613           17713                                                      none (L3 only)     
+Reconnaissance        16735           11993                                                            PortScan     
+Generic                4632            4401                                                      none (L3 only)     
+DoS                    4467            4323  DoS Hulk + DoS GoldenEye + DoS slowloris + DoS Slowhttptest + DDoS     
+Shellcode              2102            1700                                                      none (L3 only)     
+Backdoor                452             452                                                      none (L3 only)     
+Analysis                385             385                                                      none (L3 only)     
+Worms                   246             236                                                      none (L3 only)     
+TOTAL               3540241          252028                                                                         
+  benign thirds (reference+alignment / calibration / test): 63,633 / 63,633 / 63,635
+  cache: 252,028 rows, 69 columns, also ['seq', 'ts', 'session', 'row', 'src_ip', 'dst_ip', 'sport', 'dport', 'proto', 'harmonised']

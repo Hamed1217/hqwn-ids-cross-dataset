@@ -1,0 +1,94 @@
+portscan_audit.py  2026-10-30 13:32  label audited: PortScan
+duplicate check on the flow features WITHOUT Destination_Port (as in D:/revised model/stage1_pw)
+loaded 2,830,743 rows [63s]
+77 flow features in the duplicate check
+
+[1] rows and DISTINCT flow vectors per label
+                               rows  rows_valid  distinct_vectors  vectors_shared_with_other_label     kept  kept_check  rows_per_vector
+label                                                                                                                                   
+BENIGN                      2273097     2271320           1897076                              269  1896807     1896807              1.2
+DoS Hulk                     231073      230124            172846                              133   172713      172713              1.3
+PortScan                     158930      158804              1956                              106     1850        1850             81.2
+DDoS                         128027      128025            128014                                3   128011      128011              1.0
+DoS GoldenEye                 10293       10293             10286                                0    10286       10286              1.0
+FTP-Patator                    7938        7935              5931                                0     5931        5931              1.3
+SSH-Patator                    5897        5897              3219                                0     3219        3219              1.8
+DoS slowloris                  5796        5796              5385                                2     5383        5383              1.1
+DoS Slowhttptest               5499        5499              5228                                0     5228        5228              1.1
+Bot                            1966        1956              1437                               25     1412        1412              1.4
+Web Attack - Brute Force       1507        1507              1470                                0     1470        1470              1.0
+Web Attack - XSS                652         652               652                                0      652         652              1.0
+Infiltration                     36          36                36                                0       36          36              1.0
+Web Attack - Sql Injection       21          21                21                                0       21          21              1.0
+Heartbleed                       11          11                11                                0       11          11              1.0
+check kept == kept_check (stage-1 rule): yes for every label
+
+[2] conflicts: rows of a label (row) whose vector also occurs with another label (column)
+lab            BENIGN  Bot  DDoS  DoS Hulk  DoS slowloris  PortScan
+lab                                                                
+BENIGN              0   33     3       170              5       968
+Bot               122    0     0         0              0         0
+DDoS                6    0     0         0              0         0
+DoS Hulk         4882    0     0         0              0         0
+DoS slowloris       2    0     0         0              0         0
+PortScan        76265    0     0         0              0         0
+
+[3] PortScan: status of its 158,930 rows
+duplicate    80689
+conflict     76265
+kept          1850
+nan_inf        126
+  kept if Destination_Port were in the check: 90,130
+  distinct destination ports per status: conflict 992, duplicate 997, kept 409, nan_inf 119
+  distinct destination ports of all PortScan rows: 1,000
+
+  feature profile of PortScan per status (median; share_le2 = share of flows with <= 2 packets):
+status                       conflict  duplicate     kept
+Total_Fwd_Packets                 1.0        1.0      2.0
+Total_Backward_Packets            1.0        1.0      1.0
+Total_Length_of_Fwd_Packets       2.0        0.0      0.0
+Total_Length_of_Bwd_Packets       6.0        6.0      2.0
+Flow_Duration                    46.0       47.0    694.5
+Flow_IAT_Mean                    46.0       47.0    295.5
+Init_Win_bytes_forward         1024.0    29200.0  29200.0
+Init_Win_bytes_backward           0.0        0.0  28960.0
+SYN_Flag_Count                    0.0        0.0      0.0
+RST_Flag_Count                    0.0        0.0      0.0
+ACK_Flag_Count                    0.0        0.0      0.0
+PSH_Flag_Count                    1.0        1.0      1.0
+FIN_Flag_Count                    0.0        0.0      0.0
+packets                           2.0        2.0      4.0
+share_le2                         1.0        1.0      0.2
+rows                          76265.0    80689.0   1850.0
+
+  the 10 most frequent PortScan vectors (rows with this exact vector, per label):
+      PortScan  BENIGN  other  dst_ports          status  Total_Fwd_Packets  Total_Backward_Packets  Total_Length_of_Fwd_Packets  Flow_Duration  SYN_Flag_Count  RST_Flag_Count
+rank                                                                                                                                                                           
+1         6644      10      0        991        conflict                1.0                     1.0                          2.0           43.0             0.0             0.0
+2         6033       0      0        990  duplicate/kept                1.0                     1.0                          0.0           44.0             0.0             0.0
+3         6020       0      0        991  duplicate/kept                1.0                     1.0                          0.0           43.0             0.0             0.0
+4         5715       1      0        988        conflict                1.0                     1.0                          2.0           44.0             0.0             0.0
+5         4014       0      0        967  duplicate/kept                1.0                     1.0                          0.0           49.0             0.0             0.0
+6         3735      31      0        959        conflict                1.0                     1.0                          2.0           49.0             0.0             0.0
+7         2974       0      0        939  duplicate/kept                1.0                     1.0                          0.0           42.0             0.0             0.0
+8         2902       0      0        936  duplicate/kept                1.0                     1.0                          0.0           45.0             0.0             0.0
+9         2875       0      0        939  duplicate/kept                1.0                     1.0                          0.0           48.0             0.0             0.0
+10        2747      15      0        922        conflict                1.0                     1.0                          2.0           42.0             0.0             0.0
+  these 10 vectors hold 43,659 of the 158,804 valid PortScan rows (27.5%)
+
+[4] BENIGN rows with exactly the same vector as some PortScan row: 968 (they make 76,265 PortScan rows 'conflicting')
+  time window of PortScan per file:
+                                                                     min                 max
+f                                                                                           
+Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv 2017-07-07 13:05:00 2017-07-07 15:23:00
+                                                             rows  from_attacker  in_attack_window
+file                                                                                              
+Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv   967            967                 0
+Wednesday-workingHours.pcap_ISCX.csv                            1              1                 0
+TOTAL                                                         968            968                 0
+  share from 172.16.0.1: 100.0%;  share inside the PortScan time window of its file: 0.0%;  distinct source hosts: 1
+  top source hosts: 172.16.0.1 968
+  their feature profile (median): Total_Fwd_Packets 1, Total_Backward_Packets 1, Total_Length_of_Fwd_Packets 2, Total_Length_of_Bwd_Packets 6, Flow_Duration 50, Flow_IAT_Mean 50, share_le2 1.000
+  reading: mostly from other hosts and outside the window -> the removed scan flows are ordinary tiny flows that also occur in normal traffic (indistinguishable without the port); mostly from the attacker inside the window -> scan flows labelled BENIGN (label noise).
+
+[5] PortScan in D:/revised model/stage1_pw\splits.npz: train 1,211  val 457  test 182  (total 1,850; kept above 1,850)

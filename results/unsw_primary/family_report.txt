@@ -1,0 +1,71 @@
+ATTACK-FAMILY STAGE | detector V3-SUP @ threshold B | target unsw | 10 seeds
+
+== known: mean (sd) over seeds (loo: mean over held-out families first)
+                              mean    std
+cls_acc_known                0.056  0.130
+cls_macro_f1_known           0.085  0.118
+cls_macro_f1_with_unknown    0.141  0.049
+cls_unknown_recall           0.247  0.121
+cls_false_unknown            0.499  0.192
+auroc_new_vs_known           0.330  0.090
+detected_share               0.029  0.056
+e2e_acc_known                0.013  0.032
+e2e_macro_f1_known           0.027  0.058
+e2e_unknown_recall           0.123  0.141
+cls_dos_lenient_acc          0.059  0.050
+e2e_dos_lenient_acc          0.020  0.033
+false_alarms_called_unknown  0.256  0.324
+per-family recall (classification-only; 'unknown' = families the classifier never saw):
+recall_cls[DoS]        0.058
+recall_cls[Scan]       0.055
+recall_cls[unknown]    0.247
+
+== loo: mean (sd) over seeds (loo: mean over held-out families first)
+                              mean    std
+cls_acc_known                  NaN    NaN
+cls_macro_f1_known             NaN    NaN
+cls_macro_f1_with_unknown    0.340  0.178
+cls_unknown_recall           0.297  0.162
+cls_false_unknown              NaN    NaN
+auroc_new_vs_known             NaN    NaN
+detected_share               0.018  0.015
+e2e_acc_known                  NaN    NaN
+e2e_macro_f1_known             NaN    NaN
+e2e_unknown_recall           0.106  0.181
+cls_dos_lenient_acc            NaN    NaN
+e2e_dos_lenient_acc            NaN    NaN
+false_alarms_called_unknown  0.233  0.209
+per-family recall (classification-only; 'unknown' = families the classifier never saw):
+recall_cls[DoS]          NaN
+recall_cls[Scan]         NaN
+recall_cls[unknown]    0.297
+
+confusion counts summed over seeds (cls, known):
+predicted     Bot  BruteForce  DDoS    DoS  Infiltration   Scan    Web  unknown
+true                                                                           
+DoS         23577        1742    15   2521           912   2431   3734     8298
+Scan        25186        7424     0    217            27   6618   7363    73095
+unknown    226056       15082    65  27126          7889  23597  37525   110770
+figure saved: D:/revised model/unsw_primary\family_confusion_cls_known.png / .pdf
+
+confusion counts summed over seeds (e2e, known):
+predicted              Bot  BruteForce  DDoS  DoS  Infiltration  Scan   Web  unknown
+true                                                                                
+DoS                    476         504     5   45             0    24   283      109
+Scan                   260          45     0    0             0     3  3904      820
+benign (false alarm)  1804        1300     1   42           596   666   212     1564
+unknown               3191        2059     2  309            82   148  3665     1505
+figure saved: D:/revised model/unsw_primary\family_confusion_e2e_known.png / .pdf
+
+confusion counts summed over seeds (cls, loo):
+predicted    Bot  BruteForce  DoS  Infiltration  Scan    Web  unknown
+true                                                                 
+unknown    26993       39157  140         12219   430  13034    71187
+figure saved: D:/revised model/unsw_primary\family_confusion_cls_loo.png / .pdf
+
+confusion counts summed over seeds (e2e, loo):
+predicted              Bot  BruteForce  DDoS  DoS  Infiltration  Scan  Web  unknown
+true                                                                               
+benign (false alarm)  1263        5807     4   74           952  1312  198     2890
+unknown                160        1289     0   41             0    20   14      165
+figure saved: D:/revised model/unsw_primary\family_confusion_e2e_loo.png / .pdf
