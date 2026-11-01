@@ -3,8 +3,8 @@ message: "If you use this code or these results, please cite the article and thi
 title: "Hybrid Quantum-Wavelet-Neuromorphic IDS under Cross-Dataset Shift: code, analysis plan and saved outputs"
 type: software
 authors:
-  - family-names: "[Family name]"
-    given-names: "[Given name]"
+  - family-names: "Kamel"
+    given-names: "Hamed"
     affiliation: "[Affiliation]"
     orcid: "https://orcid.org/[0000-0000-0000-0000]"
 version: "1.0.0"
@@ -19,12 +19,11 @@ keywords:
   - spiking neural network
   - wavelet
 preferred-citation:
-  type: article
+  type: unpublished
   title: "A Hybrid Quantum-Wavelet-Neuromorphic Deep Learning Intrusion Detection System under Cross-Dataset Shift: A Pre-Specified Evaluation of What Transfers"
   authors:
-    - family-names: "[Family name]"
-      given-names: "[Given name]"
-  journal: "Journal of Network and Computer Applications"
+    - family-names: "Kamel"
+      given-names: "Hamed"
   year: 2026
   status: submitted
 
