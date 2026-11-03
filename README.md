@@ -66,3 +66,7 @@ Hamed Kamel, Islamic Azad University, North Tehran Branch — ORCID [0009-0007-6
 ## Exploratory context audit (run after the confirmatory test)
 
 The folder exploratory_context_audit/ holds the scripts and the report of an exploratory test that rebuilds the service-load context without attack traffic (ten seeds). The locked hybrid_v3.py is called unchanged. This analysis is not part of the confirmatory test.
+
+## Exploratory input audit (run after the confirmatory test)
+
+The folder exploratory_input_audit/ holds the scripts and the report of two exploratory analyses of which inputs of the novelty channel carry its gain on CIC-UNSW-NB15 (load summary only, flow features only; recall without Reconnaissance). The locked hybrid_v3.py is called unchanged. These analyses are not part of the confirmatory test.
