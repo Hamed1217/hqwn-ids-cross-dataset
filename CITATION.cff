@@ -20,10 +20,14 @@ keywords:
   - wavelet
 preferred-citation:
   type: unpublished
-  title: "A Hybrid Quantum-Wavelet-Neuromorphic Deep Learning Intrusion Detection System under Cross-Dataset Shift: A Pre-Specified Evaluation of What Transfers"
+  title: "A Hybrid Intrusion Detector under Cross-Dataset Shift: Evaluating Wavelet, Spiking, and Quantum-Inspired Components with a Pre-Specified Confirmatory Test"
   authors:
     - family-names: "Kamel"
       given-names: "Hamed"
+    - family-names: "Adabi"
+      given-names: "Sepideh"
+    - family-names: "Gholampour"
+      given-names: "Mehdi"
   year: 2026
   status: submitted
 
