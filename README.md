@@ -15,6 +15,7 @@ Archived at Zenodo: https://doi.org/10.5281/zenodo.23842133 (all versions). Curr
 | `results/` | All saved outputs as CSV/TXT/JSON (and rendered figures). Per-seed score files (`*.npz`) are in the Zenodo archive only |
 | `exploratory_context_audit/` | Post-hoc audits run after the confirmatory test: service-load context rebuilt without attack flows (Tables S12, S13) and label-free cleaning (`label_free_cleaning/`, Table S17). The locked model code is called unchanged |
 | `exploratory_input_audit/` | Post-hoc audit of the novelty-channel inputs (load summary only, flow features only; Table S19) and recall without Reconnaissance (Table S18). See its README |
+| `exploratory_novelty_detectors/` | Post-hoc comparison of other one-class detectors (isolation forest, local outlier factor, Mahalanobis, autoencoder, RBF) with the quantum kernel in the novelty channel (Table S22). The locked model code is called unchanged |
 
 ## Reproducing the tables without retraining
 
@@ -37,6 +38,7 @@ The per-seed score files in the Zenodo archive (`per_seed_scores.zip`) contain t
 | Tables S12, S13 (context audit) | `exploratory_context_audit/sensitivity_report.txt` | `exploratory_context_audit/ctx_clean_run.py` |
 | Table S17 (label-free cleaning) | `exploratory_context_audit/label_free_cleaning/` | `prep_unsw_labelfree.py`, `ctx_clean_run.py` |
 | Tables S18, S19 (input audit) | `exploratory_input_audit/` | `no_recon.py`, `load_only_run.py` |
+| Table S22 (other one-class detectors) | `exploratory_novelty_detectors/novelty_baselines_report.txt` | `novelty_baselines_run.py` |
 
 Note: the confirmatory test on CIC-UNSW-NB15 was run once, with the code and plan above. Running the scripts again reproduces that analysis; it is not a new confirmatory test.
 
@@ -75,3 +77,7 @@ The folder exploratory_context_audit/ holds the scripts and the report of an exp
 ## Exploratory input audit (run after the confirmatory test)
 
 The folder exploratory_input_audit/ holds the scripts and the report of two exploratory analyses of which inputs of the novelty channel carry its gain on CIC-UNSW-NB15 (load summary only, flow features only; recall without Reconnaissance). The locked hybrid_v3.py is called unchanged. These analyses are not part of the confirmatory test.
+
+## Other one-class detectors (run after the confirmatory test)
+
+The folder exploratory_novelty_detectors/ holds the script and the report of an exploratory comparison of five other one-class detectors with the quantum kernel in the novelty channel on CIC-UNSW-NB15 (ten seeds). The locked hybrid_v3.py and qkernel.py are called unchanged. This analysis is not part of the confirmatory test.

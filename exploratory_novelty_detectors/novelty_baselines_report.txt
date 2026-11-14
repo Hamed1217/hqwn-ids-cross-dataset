@@ -1,0 +1,55 @@
+NOVELTY-DETECTOR BASELINES (exploratory, post-hoc). R = recall at nominal FPR 1% (threshold B), mean over
+attack types, then over seeds. fpr = observed test FPR. Rules are in the header of novelty_baselines_run.py.
+
+==== scenario known
+       model      R    fpr   pauc  R_recon  seeds valid
+     Q-MAHAL 0.1947 0.0096 0.5572   0.7188     10   yes
+        Q-IF 0.1823 0.0100 0.5568   0.6921     10   yes
+       Q-RBF 0.1725 0.0102 0.5571   0.6993     10   yes
+       Q-IQP 0.1698 0.0101 0.5571   0.7014     10   yes
+      V3-MAX 0.1634 0.0099 0.5437   0.6983     10   yes
+  V3-MAX-RBF 0.1610 0.0100 0.5427   0.6740     10   yes
+V3-MAX-MAHAL 0.1586 0.0101 0.5375   0.6742     10   yes
+   V3-MAX-IF 0.1459 0.0100 0.5421   0.5352     10   yes
+        Q-AE 0.1420 0.0101 0.5418   0.4587     10   yes
+       Q-LOF 0.1298 0.0098 0.5453   0.2689     10   yes
+  V3-MAX-LOF 0.1126 0.0097 0.5407   0.2502     10   yes
+   V3-MAX-AE 0.1123 0.0100 0.5304   0.3499     10   yes
+        TREE 0.0268 0.0074 0.5061   0.0399     10   yes
+      V3-SUP 0.0231 0.0097 0.5046   0.0420     10   yes
+  rule 1: V3-MAX R = 0.163 (main result 0.163) -> reproduced
+  V3-MAX-RBF    D = -0.002 vs V3-MAX (V3-MAX ahead in 2/10 seeds, p 0.812) -> equivalent; beats V3-SUP in 10/10 seeds
+  V3-MAX-IF     D = -0.017 vs V3-MAX (V3-MAX ahead in 9/10 seeds, p 0.002) -> equivalent; beats V3-SUP in 10/10 seeds
+  V3-MAX-LOF    D = -0.051 vs V3-MAX (V3-MAX ahead in 10/10 seeds, p 0.001) -> kernel OCSVM better; beats V3-SUP in 9/10 seeds
+  V3-MAX-MAHAL  D = -0.005 vs V3-MAX (V3-MAX ahead in 10/10 seeds, p 0.001) -> equivalent; beats V3-SUP in 10/10 seeds
+  V3-MAX-AE     D = -0.051 vs V3-MAX (V3-MAX ahead in 10/10 seeds, p 0.001) -> kernel OCSVM better; beats V3-SUP in 10/10 seeds
+
+==== scenario loo
+       model      R    fpr   pauc  R_recon  seeds valid
+     Q-MAHAL 0.4193 0.0096 0.6240   0.7188     10   yes
+       Q-IQP 0.4022 0.0101 0.6391   0.7014     10   yes
+       Q-RBF 0.4018 0.0102 0.6303   0.6993     10   yes
+        Q-IF 0.3989 0.0100 0.6154   0.6921     10   yes
+      V3-MAX 0.3878 0.0099 0.5997   0.6916     10   yes
+  V3-MAX-RBF 0.3772 0.0100 0.5826   0.6683     10   yes
+V3-MAX-MAHAL 0.3761 0.0101 0.5626   0.6704     10   yes
+   V3-MAX-IF 0.3080 0.0100 0.5666   0.5340     10   yes
+        Q-AE 0.2751 0.0101 0.5818   0.4587     10   yes
+   V3-MAX-AE 0.2074 0.0100 0.5511   0.3436     10   yes
+       Q-LOF 0.1722 0.0098 0.5659   0.2689     10   yes
+  V3-MAX-LOF 0.1535 0.0097 0.5582   0.2398     10   yes
+        TREE 0.0214 0.0080 0.5039   0.0077     10   yes
+      V3-SUP 0.0177 0.0098 0.5025   0.0021     10   yes
+  rule 1: V3-MAX R = 0.388 (main result 0.388) -> reproduced
+  V3-MAX-RBF    D = -0.011 vs V3-MAX (V3-MAX ahead in 6/10 seeds, p 0.385) -> equivalent; beats V3-SUP in 10/10 seeds
+  V3-MAX-IF     D = -0.080 vs V3-MAX (V3-MAX ahead in 9/10 seeds, p 0.002) -> kernel OCSVM better; beats V3-SUP in 10/10 seeds
+  V3-MAX-LOF    D = -0.234 vs V3-MAX (V3-MAX ahead in 10/10 seeds, p 0.001) -> kernel OCSVM better; beats V3-SUP in 10/10 seeds
+  V3-MAX-MAHAL  D = -0.012 vs V3-MAX (V3-MAX ahead in 10/10 seeds, p 0.001) -> equivalent; beats V3-SUP in 10/10 seeds
+  V3-MAX-AE     D = -0.180 vs V3-MAX (V3-MAX ahead in 10/10 seeds, p 0.001) -> kernel OCSVM better; beats V3-SUP in 10/10 seeds
+
+Rule 2 verdicts (both scenarios must agree for 'equivalent'):
+  V3-MAX-RBF: equivalent
+  V3-MAX-IF: known: equivalent, loo: kernel OCSVM better
+  V3-MAX-LOF: known: kernel OCSVM better, loo: kernel OCSVM better
+  V3-MAX-MAHAL: equivalent
+  V3-MAX-AE: known: kernel OCSVM better, loo: kernel OCSVM better
